@@ -21,18 +21,18 @@ class Gestion{
    
     
     
-//  function ajouterUtilisateur($Utilisateur){
+ function ajouterUtilisateur($Utilisateur){
 
-//     $email = $Utilisateur->getemail();
-//     $nom = $Utilisateur->getNom();
-//     $password = $Utilisateur->getpassword();
+    $email = $Utilisateur->getemail();
+    $firstName = $Utilisateur->getNom();
+    $passWord = $Utilisateur->getpassword();
 
-//     // requête SQL
-//     $insertRow="INSERT INTO `users`(`passWord`,email) 
-//                             VALUES('$nom','$password','$email')";
+    // requête SQL
+    $insertRow="INSERT INTO `users`(firstName,`passWord`,email) 
+                            VALUES('$firstName','$passWord','$email')";
 
-//     mysqli_query($this->getConnection(),$insertRow);
-// }
+    mysqli_query($this->getConnection(),$insertRow);
+}
 
 
 function Login( $password,$email){
