@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 04:33 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.15
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 04 avr. 2022 à 18:18
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `e-commerce`
+-- Base de données : `e-commerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assignment_products_categories`
+-- Structure de la table `assignment_products_categories`
 --
 
 CREATE TABLE `assignment_products_categories` (
@@ -34,7 +34,7 @@ CREATE TABLE `assignment_products_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `assignment_products_categories`
+-- Déchargement des données de la table `assignment_products_categories`
 --
 
 INSERT INTO `assignment_products_categories` (`id`, `idProduct`, `idCategory`) VALUES
@@ -44,26 +44,27 @@ INSERT INTO `assignment_products_categories` (`id`, `idProduct`, `idCategory`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carts`
+-- Structure de la table `carts`
 --
 
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
-  `userReference` varchar(255) DEFAULT NULL
+  `userReference` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `carts`
+-- Déchargement des données de la table `carts`
 --
 
-INSERT INTO `carts` (`id`, `userReference`) VALUES
-(1, '1111'),
-(2, 'test 1');
+INSERT INTO `carts` (`id`, `userReference`, `user_id`) VALUES
+(3, NULL, 1),
+(4, NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_line`
+-- Structure de la table `cart_line`
 --
 
 CREATE TABLE `cart_line` (
@@ -74,7 +75,7 @@ CREATE TABLE `cart_line` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cart_line`
+-- Déchargement des données de la table `cart_line`
 --
 
 INSERT INTO `cart_line` (`idCartLine`, `idProduct`, `idCart`, `productCartQuantity`) VALUES
@@ -83,7 +84,7 @@ INSERT INTO `cart_line` (`idCartLine`, `idProduct`, `idCart`, `productCartQuanti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -93,7 +94,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES
@@ -103,7 +104,7 @@ INSERT INTO `categories` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Structure de la table `products`
 --
 
 CREATE TABLE `products` (
@@ -114,7 +115,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Déchargement des données de la table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`) VALUES
@@ -124,7 +125,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -137,11 +138,19 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `passWord`, `email`, `role`) VALUES
+(1, 'hicham', 'el mliki', 'admin', 'mlikiA26@gmail.com', 'client'),
+(2, 'amin', NULL, 'user', 'user@gmail.com', NULL);
+
+--
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `assignment_products_categories`
+-- Index pour la table `assignment_products_categories`
 --
 ALTER TABLE `assignment_products_categories`
   ADD PRIMARY KEY (`id`),
@@ -149,89 +158,96 @@ ALTER TABLE `assignment_products_categories`
   ADD KEY `idCategory` (`idCategory`);
 
 --
--- Indexes for table `carts`
+-- Index pour la table `carts`
 --
 ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `cart_line`
+-- Index pour la table `cart_line`
 --
 ALTER TABLE `cart_line`
   ADD PRIMARY KEY (`idCartLine`),
   ADD KEY `idProduct` (`idProduct`);
 
 --
--- Indexes for table `categories`
+-- Index pour la table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Index pour la table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `assignment_products_categories`
+-- AUTO_INCREMENT pour la table `assignment_products_categories`
 --
 ALTER TABLE `assignment_products_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `carts`
+-- AUTO_INCREMENT pour la table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `cart_line`
+-- AUTO_INCREMENT pour la table `cart_line`
 --
 ALTER TABLE `cart_line`
   MODIFY `idCartLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `assignment_products_categories`
+-- Contraintes pour la table `assignment_products_categories`
 --
 ALTER TABLE `assignment_products_categories`
   ADD CONSTRAINT `assignment_products_categories_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `assignment_products_categories_ibfk_2` FOREIGN KEY (`idCategory`) REFERENCES `categories` (`id`);
 
 --
--- Constraints for table `cart_line`
+-- Contraintes pour la table `carts`
+--
+ALTER TABLE `carts`
+  ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `cart_line`
 --
 ALTER TABLE `cart_line`
   ADD CONSTRAINT `cart_line_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`);
