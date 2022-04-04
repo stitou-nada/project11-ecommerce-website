@@ -8,7 +8,7 @@ $password = $_POST['password'];
 
    if($data= $gestion->Login( $password,$email)){
 
-    header("Location: Message.php");
+    header("Location: page.php");
   
 }
 }
