@@ -6,7 +6,8 @@ class Gestion{
 
     private function getConnection(){
       
-            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
+            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
+            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
            
          
        
