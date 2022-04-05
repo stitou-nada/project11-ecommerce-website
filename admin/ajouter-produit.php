@@ -19,6 +19,8 @@
 include "gestion.php";
 // Trouver tous les employés depuis la base de données 
 $gestion= new Gestion();
+$data= $gestion->afficherCategorie();
+
 
 
 if(!empty($_POST)){
@@ -97,10 +99,11 @@ if(!empty($_POST)){
                       id="category"
 					  name="categorie_produit"
                     >
-                      <option selected>Select category</option>
-                      <option value="1">New Arrival</option>
-                      <option value="2">Most Popular</option>
-                      <option value="3">1</option>
+                    <option selected>Select category</option>
+                    <?php  foreach($data as $value){ ?>
+                      <option value="<?= $value->getId_Categorie()?>"><?= $value->getNom_Categorie();} ?> </option>
+                      
+                      
                     </select>
                   </div>
                   <div class="row">

@@ -60,4 +60,22 @@ class Gestion{
 
         mysqli_query($this->getConnection(), $insertRow);
     }
+
+
+    public function afficherCategorie(){
+
+            $SelctRow = 'SELECT * FROM categorie';                 
+                   $query = mysqli_query($this->getConnection() ,$SelctRow);
+                   $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                   $TableData = array();
+                   foreach ( $produits_data as $value_Data) {
+                    $produit = new Produit_Categorie();
+                    $produit->setId_Categorie($value_Data['id_categorie']);
+                    $produit->setNom_Categorie($value_Data["nom_categorie"]); 
+                    array_push($TableData, $produit);
+                }
+                return $TableData;   
+    }
+
+
 }
