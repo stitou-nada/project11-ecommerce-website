@@ -20,9 +20,9 @@ class Gestion{
     
     public function afficher(){
         $SelctRow = 
-        'SELECT produit.id,produit.Name,caregorie.id,caregorie.nom 
+        'SELECT produit.categorie_produit,produit.nom_produit,caregorie.id,caregorie.nom 
         FROM produit
-        INNER JOIN caregorie ON produit.id = caregorie.id';
+        INNER JOIN caregorie ON produit.categorie_produit = caregorie.id';
         $query = mysqli_query($this->getConnection() ,$SelctRow);
         $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -31,8 +31,11 @@ class Gestion{
                   
                    
                    $produit = new Produit();
-                   $produit->setId($value_Data['nom']);   
+                   $produit->setPrix($value_Data['nom']);   
+                   $produit->setId($value_Data['categorie_produit']);   
+                   $produit->setNom($value_Data['nom_produit']);   
                    array_push($TableData, $produit);
+                   
                 }
              
              
