@@ -44,21 +44,15 @@ class Gestion{
                    return $TableData;
     }
 
-    // public function afficher(){
-    //     $SelctRow = 'SELECT *  FROM produit';
-    //     $query = mysqli_query($this->getConnection() ,$SelctRow);
-    //     $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    // public function AjouterProduit($produit){
 
-    //     $TableData = array();
-    //     foreach ($produits_data as $value_Data) {
-    //         $produit = new Produit();
-    //         $produit->setId($value_Data['id']);
-    //         $produit->setNom($value_Data['Name']);
-    //         $produit->setPrix($value_Data['prix']);
-           
-    //         array_push($TableData, $produit);
-    //     }
-    //       return $TableData;
- 
-    //     }
+    //     $nom =$produit->getNom();
+    //     $prenom =$produit->getPrenom();
+    //     $Date_de_naissance = $produit->getdate_de_naissance();
+    //     // requête SQL
+    //     $insertRow="INSERT INTO personnes(Nom, Prenom,Date_de_naissance) 
+    //                             VALUES('$nom', '$prenom', '$Date_de_naissance')";
+
+    //     mysqli_query($this->getConnection(), $insertRow);
+    // }
 }
