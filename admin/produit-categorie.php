@@ -1,6 +1,6 @@
 <?php
 
-class Produit{
+class Produit_Categorie{
 
     private $Nom ; 
     private $Prix ; 
