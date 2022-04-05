@@ -35,6 +35,7 @@ class Gestion{
                    $produit->setDate_dexpiration($value_Data["date_d'expiration"]);   
                    $produit->setCategorie_produit($value_Data["categorie_produit"]);   
                    $produit->setQuantite_stock($value_Data["quantite_stock"]);   
+                   $produit->setNom_Categorie($value_Data["nom_categorie"]);   
                    array_push($TableData, $produit);
                    
                 }

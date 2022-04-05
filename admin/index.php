@@ -32,10 +32,11 @@
                 <thead>
                   <tr>
                     <th scope="col">&nbsp;</th>
-                    <th scope="col">PRODUCT NAME</th>
+                    <th scope="col">NOM PRODUIT</th>
+                    <th scope="col">CATEGORIE</th>
                     <th scope="col">UNIT SOLD</th>
-                    <th scope="col">IN STOCK</th>
-                    <th scope="col">EXPIRE DATE</th>
+                    <th scope="col">QUANTITE DE STOCK</th>
+                    <th scope="col">DATE D'expiration</th>
                     <th scope="col">&nbsp;</th>
                   </tr>
                 </thead>
@@ -48,6 +49,7 @@
                 <tr>
                     <th scope="row"><input type="checkbox" /></th>
                     <td class="tm-product-name"><?php echo $value->getNom_Produit() ?></td>
+                    <td ><?php echo $value->getNom_Categorie() ?></td>
                     <td><?php echo $value->getPrix() ?></td>
                     <td><?php echo $value->getQuantite_stock() ?></td>
                     <td><?php echo $value->getDate_dexpiration() ?></td>
