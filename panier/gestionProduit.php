@@ -101,8 +101,19 @@ class GestionProduit {
       
  
 
-    
 
+        function compteur(){ 
+        if(isset($_SESSION["paniers"]) != null){
+                $compteur = count($_SESSION["paniers"]["produits"]) ;
+            
+            }else {
+                $compteur = 0;
+            
+            }
+            return $compteur;
+        }
+
+        
 
 
     }

@@ -1,11 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION["paniers"]) != null){
-    $compteur = count($_SESSION["paniers"]["produits"]) ;
+include 'gestionProduit.php';
+$gestionProduit = new GestionProduit();
+$compteur = $gestionProduit->compteur();
 
-}else {
-    $compteur = 0;
-}
 ?>
 
 <!-- CSS only -->
@@ -64,8 +62,8 @@ if(isset($_SESSION["paniers"]) != null){
         </header>
         <!-- Section-->
         <?php 
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
+
+
 $data= $gestionProduit->afficher();
 
 ?>

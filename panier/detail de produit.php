@@ -1,12 +1,10 @@
 <?php
 session_start();
+include 'gestionProduit.php';
+$gestion = new GestionProduit();
+$compteur = $gestion->compteur();
 
-if(isset($_SESSION["paniers"]) != null){
-    $compteur = count($_SESSION["paniers"]["produits"]) ;
-
-}else {
-    $compteur = 0;
-}?>
+// }?>
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">
@@ -49,14 +47,14 @@ if(isset($_SESSION["paniers"]) != null){
         </nav>
         <!-- Product section-->
         <?php  
-include 'gestionProduit.php';
+
 
 
 if(isset($_GET["id"])){
 $id=$_GET["id"];
 
 }
-$gestion = new GestionProduit();
+
 $data = $gestion->afficherProduit($id);
 foreach($data as $value){
 ?>

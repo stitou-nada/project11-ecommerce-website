@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-$compteur = count($_SESSION["paniers"]["produits"]) ;
+
+include 'gestionProduit.php';
+$gestionProduit = new GestionProduit();
+$compteur = $gestionProduit->compteur();
+
 ?>
 <!-- CSS only -->
 <!DOCTYPE html>
@@ -54,22 +58,13 @@ $compteur = count($_SESSION["paniers"]["produits"]) ;
                         <h4><b>Panier</b></h4>
                       
             </div>
-                            <?php 
-                        
+            
+            
+            <?php 
 
-                           // print_r($_SESSION["paniers"]);
-
-                            include 'gestionProduit.php';
-
-                             $gestionProduit = new GestionProduit();
-
-                            $listProduits = $gestionProduit->getPanier();
-                       ?>
-
-            <?php
-                  foreach($listProduits as $value){
-          
-
+            
+              $listProduits = $gestionProduit->getPanier();
+              foreach($listProduits as $value){
                 ?>
              <div class="row border-top border-bottom">
             

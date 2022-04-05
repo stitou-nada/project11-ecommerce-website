@@ -6,7 +6,10 @@
 <?php
 session_start();
 
-$compteur = count($_SESSION["paniers"]["produits"]) ;
+include 'gestionProduit.php';
+$gestionProduit = new GestionProduit();
+$compteur = $gestionProduit->compteur();
+
 ?>
 <!-- CSS only -->
 <!DOCTYPE html>
@@ -52,11 +55,9 @@ $compteur = count($_SESSION["paniers"]["produits"]) ;
         <?php  
 
 
-include 'gestionProduit.php';
 
-$gestion = new GestionProduit;
 $id = $_GET["id"];
-$value = $gestion->getProduit($_GET["id"]);
+$value = $gestionProduit->getProduit($_GET["id"]);
 
 ?>
 
