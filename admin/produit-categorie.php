@@ -41,6 +41,18 @@ class Produit_Categorie{
     public function setCategorie_produit($Categorie) {
         $this->Categorie = $Categorie;
     }
+    public function getDate_dexpiration() {
+        return $this->Date;
+    }
+    public function setDate_dexpiration($Date) {
+        $this->Date = $Date;
+    }
+    public function getQuantite_stock() {
+        return $this->Quantite_stock;
+    }
+    public function setQuantite_stock($Quantite_stock) {
+        $this->Quantite_stock = $Quantite_stock;
+    }
 
    
 

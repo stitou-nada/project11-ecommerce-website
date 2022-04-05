@@ -1,5 +1,5 @@
 <?php
- include 'produit.php';
+ include 'produit-categorie.php';
 class Gestion{
 
     private $Connection = Null;
@@ -19,21 +19,22 @@ class Gestion{
 
     
     public function afficher(){
-        $SelctRow = 
-        'SELECT produit.categorie_produit,produit.nom_produit,caregorie.id,caregorie.nom 
-        FROM produit
-        INNER JOIN caregorie ON produit.categorie_produit = caregorie.id';
+        $SelctRow = 'SELECT * FROM produit
+         INNER JOIN categorie ON produit.categorie_produit = categorie.id_categorie';
         $query = mysqli_query($this->getConnection() ,$SelctRow);
         $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
         $TableData = array();
         foreach ( $produits_data as $value_Data) {
                   
                    
-                   $produit = new Produit();
-                   $produit->setPrix($value_Data['nom']);   
-                   $produit->setId($value_Data['categorie_produit']);   
-                   $produit->setNom($value_Data['nom_produit']);   
+                   $produit = new Produit_Categorie();
+                   $produit->setId_Produit($value_Data['id_produit']);   
+                   $produit->setPrix($value_Data['prix']);   
+                   $produit->setNom_Produit($value_Data['nom_produit']);   
+                   $produit->setDescription($value_Data['description']);   
+                   $produit->setDate_dexpiration($value_Data["date_d'expiration"]);   
+                   $produit->setCategorie_produit($value_Data["categorie_produit"]);   
+                   $produit->setQuantite_stock($value_Data["quantite_stock"]);   
                    array_push($TableData, $produit);
                    
                 }
