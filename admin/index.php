@@ -60,7 +60,15 @@
                     </td>
                   </tr>
              
-             
+                  <select
+                      class="custom-select tm-select-accounts"
+                      id="category"
+                    >
+                      <option value="">select</option>
+                      <option value="1">New Arrival</option>
+                      <option value="2">Most Popular</option>
+                      <option value="3">Trending</option>
+                    </select>
              
                   <?php    }  ?>   
                 </tbody>
@@ -68,7 +76,7 @@
             </div>
             <!-- table container -->
             <a
-              href="ajouter-produit.php"
+              href="add-product.html"
               class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
             <button class="btn btn-primary btn-block text-uppercase">
               Delete selected products
