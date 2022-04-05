@@ -1,8 +1,12 @@
 <?php
 session_start();
 
-$compteur = count($_SESSION["paniers"]["produits"]) ;
-?>
+if(isset($_SESSION["paniers"]) != null){
+    $compteur = count($_SESSION["paniers"]["produits"]) ;
+
+}else {
+    $compteur = 0;
+}?>
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">

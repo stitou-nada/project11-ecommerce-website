@@ -1,7 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION["paniers"]) != null){
+    $compteur = count($_SESSION["paniers"]["produits"]) ;
 
-$compteur = count($_SESSION["paniers"]["produits"]) ;
+}else {
+    $compteur = 0;
+}
 ?>
 
 <!-- CSS only -->
@@ -40,6 +44,7 @@ $compteur = count($_SESSION["paniers"]["produits"]) ;
                            
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
                         <?php 
+                            
                         echo $compteur
                         ?>
                         </span>
