@@ -115,7 +115,7 @@ if(!empty($_POST)){
                           <input
                             id="expire_date"
                             name="date_d'expiration"
-                            type="text"
+                            type="date"
                             class="form-control validate"
                             data-large-mode="true"
                           />
