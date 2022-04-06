@@ -21,11 +21,11 @@ class Gestion{
    
     
     
- function ajouterUtilisateur($Utilisateur){
+ function registerUser($user){
 
-    $email = $Utilisateur->getemail();
-    $firstName = $Utilisateur->getNom();
-    $passWord = $Utilisateur->getpassword();
+    $email = $user->getemail();
+    $firstName = $user->getNom();
+    $passWord = $user->getpassword();
 
     // requête SQL
     $insertRow="INSERT INTO `users`(firstName,`passWord`,email) 
@@ -35,6 +35,28 @@ class Gestion{
 }
 
 
+
+// Validate email
+function validEmail($email){
+     // Prepare a select statement
+     $sql = "SELECT id FROM users WHERE email = ?";
+        
+     if($stmt = mysqli_prepare($this->getConnection(), $sql)){
+         // Bind variables to the prepared statement as parameters
+         mysqli_stmt_bind_param($stmt, "s", $param_email);
+         
+         // Set parameters
+         $param_email = $email;
+         
+         // Attempt to execute the prepared statement
+         if(mysqli_stmt_execute($stmt)){
+             /* store result */
+             mysqli_stmt_store_result($stmt);
+             return mysqli_stmt_num_rows($stmt);
+             mysqli_stmt_close($stmt);
+        }
+    }
+}
 function Login( $password,$email){
 
     $rowLogin="SELECT * FROM `users` where email='$email'and `passWord`='$password' ";
