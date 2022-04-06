@@ -53,6 +53,12 @@ class Produit_Categorie{
     public function setQuantite_stock($Quantite_stock) {
         $this->Quantite_stock = $Quantite_stock;
     }
+    public function getPhoto(){
+        return $this->Photo;
+    }
+    public function setPhoto($Photo) {
+        $this->Photo = $Photo;
+    }
 
    
 
