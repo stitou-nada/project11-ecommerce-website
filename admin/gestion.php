@@ -6,7 +6,7 @@ class Gestion{
 
     private function getConnection(){
       
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
+            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
            
          
        
@@ -44,15 +44,19 @@ class Gestion{
                    return $TableData;
     }
 
-    // public function AjouterProduit($produit){
+    public function AjouterProduit($produit){
+        
+       $idProduit = $produit->getId_Produit () ;   
+       $idPrix = $produit->getPrix();   
+       $idNom_produit =  $produit->getNom_Produit();   
+       $idDescription = $produit->getDescription();   
+       $idDate_dexpiration = $produit->getDate_dexpiration();   
+       $idCategorie_produit = $produit->getCategorie_produit();   
+       $idQuantite_stock = $produit->getQuantite_stock();    
+        // requête SQL
+        $insertRow="INSERT INTO produit(`id_produit`, `nom_produit`, `prix`, `description`, `quantite_stock`, `date_d'expiration`, `categorie_produit`) 
+                      VALUES('$idProduit', '$idNom_produit' ,'$idPrix' , '$idDescription'  , '$idQuantite_stock' ,'$idDate_dexpiration' ,'$idCategorie_produit')";
 
-    //     $nom =$produit->getNom();
-    //     $prenom =$produit->getPrenom();
-    //     $Date_de_naissance = $produit->getdate_de_naissance();
-    //     // requête SQL
-    //     $insertRow="INSERT INTO personnes(Nom, Prenom,Date_de_naissance) 
-    //                             VALUES('$nom', '$prenom', '$Date_de_naissance')";
-
-    //     mysqli_query($this->getConnection(), $insertRow);
-    // }
+        mysqli_query($this->getConnection(), $insertRow);
+    }
 }
