@@ -25,17 +25,17 @@ if(isset($_GET['id'])){
 }
 foreach($afficherData as $value);
 // modifier les donnes
-// if(!empty($_POST)){
-//     $Id_produit = $_POST['id_produit'];
-//     $Prix = $_POST['prix'];
-//     $Nom_Produit= $_POST['nom_produit'];
-//     $Description= $_POST['description'];
-//     $Date_dexpiration= $_POST["date_d'expiration"];
-//     $Categorie_produitt= $_POST['categorie_produit'];
-//     $gestion->afficherProduit($id);
-//     header('Location: index.php');
-// }
-// ?>
+if(!empty($_POST)){
+    $id = $_GET['id'];
+    $Prix = $_POST['prix'];
+    $Nom_Produit= $_POST['nom_produit'];
+    $Description= $_POST['description'];
+    $Date_dexpiration= $_POST["date_d'expiration"];
+    $Categorie_produitt= $_POST['categorie_produit'];
+    $gestion->afficherProduit($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit);
+    header('Location: index.php');
+}
+?>
 
 
 <div class="container tm-mt-big tm-mb-big">

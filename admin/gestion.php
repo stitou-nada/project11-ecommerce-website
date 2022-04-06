@@ -48,15 +48,15 @@ class Gestion{
     public function AjouterProduit($produit){
         
        $idProduit = $produit->getId_Produit () ;   
-       $idPrix = $produit->getPrix();   
-       $idNom_produit =  $produit->getNom_Produit();   
-       $idDescription = $produit->getDescription();   
-       $idDate_dexpiration = $produit->getDate_dexpiration();   
-       $idCategorie_produit = $produit->getCategorie_produit();   
-       $idQuantite_stock = $produit->getQuantite_stock();    
+       $Prix = $produit->getPrix();   
+       $Nom_produit =  $produit->getNom_Produit();   
+       $Description = $produit->getDescription();   
+       $Date_dexpiration = $produit->getDate_dexpiration();   
+       $Categorie_produit = $produit->getCategorie_produit();   
+       $Quantite_stock = $produit->getQuantite_stock();    
         // requête SQL
         $insertRow="INSERT INTO produit(`id_produit`, `nom_produit`, `prix`, `description`, `quantite_stock`, `date_d'expiration`, `categorie_produit`) 
-                      VALUES('$idProduit', '$idNom_produit' ,'$idPrix' , '$idDescription'  , '$idQuantite_stock' ,'$idDate_dexpiration' ,'$idCategorie_produit')";
+                      VALUES('$idProduit', '$Nom_produit' ,'$Prix' , '$Description'  , '$Quantite_stock' ,'$Date_dexpiration' ,'$Categorie_produit')";
 
         mysqli_query($this->getConnection(), $insertRow);
     }
@@ -77,8 +77,7 @@ class Gestion{
                 return $TableData;   
     }
 
-    // modifier produit
-
+    // afficher modification
     public function afficherProduit($id){
         $SelctRow = "SELECT * FROM produit                                                                                                            
         INNER JOIN categorie  ON produit.categorie_produit = categorie.id_categorie WHERE  produit.id_produit = '$id'  " ;
@@ -89,9 +88,9 @@ class Gestion{
                   
                    
                    $produit = new Produit_Categorie();
-                   $produit->setId_Produit($value_Data['id_produit']);   
-                   $produit->setPrix($value_Data['prix']);   
+                   $produit->setId_Produit($value_Data['id_produit']); 
                    $produit->setNom_Produit($value_Data['nom_produit']);   
+                   $produit->setPrix($value_Data['prix']);                      
                    $produit->setDescription($value_Data['description']);   
                    $produit->setDate_dexpiration($value_Data["date_d'expiration"]);   
                    $produit->setCategorie_produit($value_Data["categorie_produit"]);   
@@ -103,5 +102,15 @@ class Gestion{
                    return $TableData;
     }
 
+    // modifier
 
+    public function Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit){
+        // Requête SQL
+        $RowUpdate = "UPDATE produit SET 
+        nom_produit ='$Nom_produit', prix = '$Prix', `description `= '$Description', quantite_stock = '$Quantite_stock', date_d'expiration = '$Date_dexpiration', categorie_produit = '$Categorie_produit' WHERE id_produit = $id " ;
+
+        mysqli_query($this->getConnection(),$RowUpdate);
+
+
+}
 }
