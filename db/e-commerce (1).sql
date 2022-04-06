@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 04 avr. 2022 à 18:18
+-- Généré le : mer. 06 avr. 2022 à 21:19
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -20,26 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `e-commerce`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `assignment_products_categories`
---
-
-CREATE TABLE `assignment_products_categories` (
-  `id` int(11) NOT NULL,
-  `idProduct` int(11) DEFAULT NULL,
-  `idCategory` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `assignment_products_categories`
---
-
-INSERT INTO `assignment_products_categories` (`id`, `idProduct`, `idCategory`) VALUES
-(1, 1, 1),
-(2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -84,43 +64,49 @@ INSERT INTO `cart_line` (`idCartLine`, `idProduct`, `idCart`, `productCartQuanti
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Structure de la table `categorie`
 --
 
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL
+CREATE TABLE `categorie` (
+  `id_categorie` int(11) NOT NULL,
+  `nom_categorie` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `categories`
+-- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categories` (`id`, `name`, `description`) VALUES
-(1, 'category 1', 'dsfdsfsddsfdsf'),
-(2, 'sdqsdjkj', 'dsfdsjfhjkdsfh');
+INSERT INTO `categorie` (`id_categorie`, `nom_categorie`) VALUES
+(1, 'kids'),
+(2, 'famme'),
+(3, 'homme'),
+(4, 'Matricule');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `products`
+-- Structure de la table `produit`
 --
 
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `price` float DEFAULT NULL
+CREATE TABLE `produit` (
+  `id_produit` int(11) NOT NULL,
+  `nom_produit` varchar(255) NOT NULL,
+  `prix` varchar(255) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `quantite_stock` int(255) NOT NULL,
+  `date_d'expiration` date NOT NULL,
+  `categorie_produit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `products`
+-- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`) VALUES
-(1, 'produit 1', 'dsjfdshfjdshfdjfhdjkfhkdjfhdsjkfhdsj', 12.55),
-(2, 'produit 2', 'dsfdsfsdf', 55.78);
+INSERT INTO `produit` (`id_produit`, `nom_produit`, `prix`, `description`, `quantite_stock`, `date_d'expiration`, `categorie_produit`) VALUES
+(1, 'produit-3', '122', '', 0, '0000-00-00', 1),
+(2, 'produit-1', '2500', '', 0, '0000-00-00', 2),
+(3, 'produit-2', '3000', '', 0, '0000-00-00', 1),
+(4, 'produit -91', 'xxx', 'blue', 122, '2022-04-29', 1);
 
 -- --------------------------------------------------------
 
@@ -150,14 +136,6 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `passWord`, `email`, `role`)
 --
 
 --
--- Index pour la table `assignment_products_categories`
---
-ALTER TABLE `assignment_products_categories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idProduct` (`idProduct`),
-  ADD KEY `idCategory` (`idCategory`);
-
---
 -- Index pour la table `carts`
 --
 ALTER TABLE `carts`
@@ -172,16 +150,17 @@ ALTER TABLE `cart_line`
   ADD KEY `idProduct` (`idProduct`);
 
 --
--- Index pour la table `categories`
+-- Index pour la table `categorie`
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id_categorie`);
 
 --
--- Index pour la table `products`
+-- Index pour la table `produit`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `produit`
+  ADD PRIMARY KEY (`id_produit`),
+  ADD KEY `categorie` (`categorie_produit`);
 
 --
 -- Index pour la table `users`
@@ -192,12 +171,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
-
---
--- AUTO_INCREMENT pour la table `assignment_products_categories`
---
-ALTER TABLE `assignment_products_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `carts`
@@ -212,16 +185,16 @@ ALTER TABLE `cart_line`
   MODIFY `idCartLine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT pour la table `categorie`
 --
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `categorie`
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `products`
+-- AUTO_INCREMENT pour la table `produit`
 --
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `produit`
+  MODIFY `id_produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -234,13 +207,6 @@ ALTER TABLE `users`
 --
 
 --
--- Contraintes pour la table `assignment_products_categories`
---
-ALTER TABLE `assignment_products_categories`
-  ADD CONSTRAINT `assignment_products_categories_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `assignment_products_categories_ibfk_2` FOREIGN KEY (`idCategory`) REFERENCES `categories` (`id`);
-
---
 -- Contraintes pour la table `carts`
 --
 ALTER TABLE `carts`
@@ -250,7 +216,13 @@ ALTER TABLE `carts`
 -- Contraintes pour la table `cart_line`
 --
 ALTER TABLE `cart_line`
-  ADD CONSTRAINT `cart_line_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `cart_line_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `produit` (`id_produit`);
+
+--
+-- Contraintes pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`categorie_produit`) REFERENCES `categorie` (`id_categorie`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
