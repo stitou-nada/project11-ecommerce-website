@@ -23,17 +23,19 @@ $gestion = new gestion();
 if(isset($_GET['id'])){
     $afficherData = $gestion->afficherProduit($_GET['id']);
 }
-
+foreach($afficherData as $value);
 // modifier les donnes
 // if(!empty($_POST)){
-//     $id = $_POST['id'];
-//     $nom = $_POST['nom'];
-//     $prenom = $_POST['prenom'];
-//     $Date_de_naissance = $_POST['Date_de_naissance'];
-//     $gestionEmployes->Modifier($id,$nom,$prenom,$Date_de_naissance);
+//     $Id_produit = $_POST['id_produit'];
+//     $Prix = $_POST['prix'];
+//     $Nom_Produit= $_POST['nom_produit'];
+//     $Description= $_POST['description'];
+//     $Date_dexpiration= $_POST["date_d'expiration"];
+//     $Categorie_produitt= $_POST['categorie_produit'];
+//     $gestion->afficherProduit($id);
 //     header('Location: index.php');
 // }
-?>
+// ?>
 
 
 <div class="container tm-mt-big tm-mb-big">
@@ -59,8 +61,8 @@ if(isset($_GET['id'])){
                       type="text"
                       class="form-control validate"
                       required
-                      value="<?php echo $afficherData ->getNom_Produit() ?>"
-                    />
+                      value="<?php echo $value->getNom_Produit() ?>"
+                    >
                   </div>
                   <div class="form-group mb-3">
                     <label
@@ -73,6 +75,7 @@ if(isset($_GET['id'])){
                       type="text"
                       class="form-control validate"
                       required
+                      value="<?php echo $value->getPrix() ?>"
                     />
                   </div>
                   <div class="form-group mb-3">
@@ -80,12 +83,13 @@ if(isset($_GET['id'])){
                       for="description"
                       >Description</label
                     >
-                    <textarea
+                    <input
                       class="form-control validate"
                       rows="3"
                       required
-					   name="description"
-                    ></textarea>
+					            name="description"
+                      value="<?php echo $value->getDescription() ?>"
+                    >
                   </div>
                   <div class="form-group mb-3">
                     <label
@@ -95,11 +99,14 @@ if(isset($_GET['id'])){
                     <select
                       class="custom-select tm-select-accounts"
                       id="category"
-					  name="categorie_produit"
+					            name="categorie_produit"
+
                     >
-                    <option selected>Select category</option>
-                    <?php  foreach($data as $value){ ?>
-                      <option value="<?= $value->getId_Categorie()?>"><?= $value->getNom_Categorie();} ?> </option>
+                   
+                    <option selected><?php echo $value->getNom_Categorie() ?></option>
+                   <?php $afficherdata = $gestion -> afficherCategorie() ?>
+                    <?php  foreach($afficherdata as $affichervalue){ ?>
+                      <option value="<?= $affichervalue->getId_Categorie()?>"><?= $affichervalue->getNom_Categorie();} ?> </option>
                       
                       
                     </select>
@@ -116,6 +123,7 @@ if(isset($_GET['id'])){
                             type="date"
                             class="form-control validate"
                             data-large-mode="true"
+                            value="<?php echo $value->getDate_dexpiration() ?>"
                           />
                         </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -129,6 +137,7 @@ if(isset($_GET['id'])){
                             type="text"
                             class="form-control validate"
                             required
+                            value="<?php echo $value->getQuantite_stock() ?>"
                           />
                         </div>
                   </div>

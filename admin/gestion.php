@@ -80,7 +80,8 @@ class Gestion{
     // modifier produit
 
     public function afficherProduit($id){
-        $SelctRow = "SELECT * FROM produit WHERE id_produit = '$id' " ;
+        $SelctRow = "SELECT * FROM produit                                                                                                            
+        INNER JOIN categorie  ON produit.categorie_produit = categorie.id_categorie WHERE  produit.id_produit = '$id'  " ;
         $query = mysqli_query($this->getConnection() ,$SelctRow);
         $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
         $TableData = array();
@@ -94,7 +95,8 @@ class Gestion{
                    $produit->setDescription($value_Data['description']);   
                    $produit->setDate_dexpiration($value_Data["date_d'expiration"]);   
                    $produit->setCategorie_produit($value_Data["categorie_produit"]);   
-                   $produit->setQuantite_stock($value_Data["quantite_stock"]);   
+                   $produit->setQuantite_stock($value_Data["quantite_stock"]); 
+                   $produit->setNom_Categorie($value_Data["nom_categorie"]);  
                    array_push($TableData, $produit);
                    
                 }
