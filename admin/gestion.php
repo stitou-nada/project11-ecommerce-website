@@ -6,8 +6,8 @@ class Gestion{
 
     private function getConnection(){
       
-            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
+            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
+            // $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
            
          
        
@@ -44,7 +44,7 @@ class Gestion{
              
                    return $TableData;
     }
-
+    //Afficher produit
     public function AjouterProduit($produit){
         
        $idProduit = $produit->getId_Produit () ;   
@@ -61,7 +61,7 @@ class Gestion{
         mysqli_query($this->getConnection(), $insertRow);
     }
 
-
+    //afficher categorie
     public function afficherCategorie(){
 
             $SelctRow = 'SELECT * FROM categorie';                 
@@ -75,6 +75,30 @@ class Gestion{
                     array_push($TableData, $produit);
                 }
                 return $TableData;   
+    }
+
+    // modifier produit
+
+    public function afficherProduit($id){
+        $SelctRow = "SELECT * FROM produit WHERE id_produit = '$id' " ;
+        $query = mysqli_query($this->getConnection() ,$SelctRow);
+        $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        $TableData = array();
+        foreach ( $produits_data as $value_Data) {
+                  
+                   
+                   $produit = new Produit_Categorie();
+                   $produit->setId_Produit($value_Data['id_produit']);   
+                   $produit->setPrix($value_Data['prix']);   
+                   $produit->setNom_Produit($value_Data['nom_produit']);   
+                   $produit->setDescription($value_Data['description']);   
+                   $produit->setDate_dexpiration($value_Data["date_d'expiration"]);   
+                   $produit->setCategorie_produit($value_Data["categorie_produit"]);   
+                   $produit->setQuantite_stock($value_Data["quantite_stock"]);   
+                   array_push($TableData, $produit);
+                   
+                }
+                   return $TableData;
     }
 
 
