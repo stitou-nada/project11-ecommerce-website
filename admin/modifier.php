@@ -22,17 +22,20 @@ $gestion = new gestion();
 //afficher dans input
 if(isset($_GET['id'])){
     $afficherData = $gestion->afficherProduit($_GET['id']);
+    $id = $_GET["id"];
+    foreach($afficherData as $value);
 }
-foreach($afficherData as $value);
+
 // modifier les donnes
 if(!empty($_POST)){
-    $id = $_GET['id'];
+    $id =$_POST['id'];
     $Prix = $_POST['prix'];
-    $Nom_Produit= $_POST['nom_produit'];
+    $Nom_produit= $_POST['nom_produit'];
     $Description= $_POST['description'];
+    $Quantite_stock=$_POST['Quantite_stock'];
     $Date_dexpiration= $_POST["date_d'expiration"];
-    $Categorie_produitt= $_POST['categorie_produit'];
-    $gestion->afficherProduit($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit);
+    $Categorie_produit= $_POST['categorie_produit'];
+    $gestion->Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit);
     header('Location: index.php');
 }
 ?>
@@ -51,6 +54,7 @@ if(!empty($_POST)){
               <div class="col-xl-6 col-lg-6 col-md-12">
                 <form method="POST" class="tm-edit-product-form">
                   <div class="form-group mb-3">
+                    <input type="" name="id" value="<?php echo $value->getId_Produit() ?>">
                     <label
                       for="name"
                       >Produit
@@ -133,7 +137,7 @@ if(!empty($_POST)){
                           </label>
                           <input
                             id="stock"
-                            name="quantite_stock"
+                            name="Quantite_stock"
                             type="text"
                             class="form-control validate"
                             required
