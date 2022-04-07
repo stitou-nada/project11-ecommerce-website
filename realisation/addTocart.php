@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
+include 'cartManager.php';
+$cartManager = new CartManager();
 
 
 
@@ -11,7 +11,7 @@ $gestionProduit = new GestionProduit();
 $id=$_POST['id'];
 
 
-$data = $gestionProduit->afficherProduit($id);
+$data = $cartManager->afficherProduit($id);
 
 foreach($data as $value);
 
@@ -22,7 +22,7 @@ $valeurs = array(
     'quantite' => $_POST["quantite"] ,
     'id' => $value->getId(),
 );
-$gestionProduit->set( $_POST["id"], $valeurs);
+$cartManager->set($_POST["id"], $valeurs);
 
 
 header("location: panier.php");

@@ -4,7 +4,7 @@ include "produit.php";
 
 
 
-class GestionProduit {
+class CartManager {
 
     public $name ;
 
@@ -113,7 +113,8 @@ class GestionProduit {
             return $compteur;
         }
 
-        
-
-
+        function addCartCookie($cookie){
+            $sql = "INSERT INTO carts(userReference) VALUES('$cookie')";
+            mysqli_query($this->getConnection(), $sql);
+        }
     }
