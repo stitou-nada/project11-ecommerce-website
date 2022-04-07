@@ -115,6 +115,25 @@ class Gestion{
     public function Supprimer($id){
         $RowDelet = "DELETE FROM produit WHERE id_produit= '$id'";
         mysqli_query($this->getConnection(), $RowDelet);
+    
+    }
+    // ajouter categorie
+
+    public function ajouterCategorie($categorie){
+
+         $Nom_categorie = $categorie->getNom_Categorie();    
+         // requête SQL
+         $insertRow="INSERT INTO categorie(`nom_categorie`) 
+                       VALUES('$Nom_categorie')";
+ 
+         mysqli_query($this->getConnection(), $insertRow);
+             
+    }
+    // suprimmer categorie
+    public function SupprimerCategorie($id){
+        $RowDelet = "DELETE FROM categorie WHERE id_categorie= '$id'";
+        mysqli_query($this->getConnection(), $RowDelet);
+    
     }
 
 }
