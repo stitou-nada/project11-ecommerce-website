@@ -5,38 +5,38 @@
 
 
 <?php
-include 'Gestion.php';
-if (!empty($_POST)){
-$firstName = $_POST['firstName'];
-$email = $_POST['email'];
+// include 'Gestion.php';
+// if (!empty($_POST)){
+// $firstName = $_POST['firstName'];
+// $email = $_POST['email'];
 
-    $gestion = new Gestion(); 
+//     $gestion = new Gestion(); 
 
-  if( $data= $gestion->passwordOblie( $email,$firstName)){
+//   if( $data= $gestion->passwordOblie( $email,$firstName)){
 
     
 
 
 
-foreach($data as $value){
+// foreach($data as $value){
 
    
-    $message=  "Hello ".$value->getNom().' '. $value->getPrenom()." Your password is: ".$value->getpassword();
+//     $message=  "Hello ".$value->getNom().' '. $value->getPrenom()." Your password is: ".$value->getpassword();
   
 
-}
+// }
 
 
-if(
-mail($email, "Sujet",$message)
-){
-  echo "email envoyer";
-}
-}
-else{
-  echo "non";
-}
-}
+// if(
+// mail($email, "Sujet",$message)
+// ){
+//   echo "email envoyer";
+// }
+// }
+// else{
+//   echo "non";
+// }
+// }
 
 ?>
 

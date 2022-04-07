@@ -131,15 +131,15 @@ function Login( $password,$email){
 //     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     
   
-//     $user = new Utilisateur();
+//     $user = new User();
 
 //     $TableData = array();
 //     foreach ($data as $value_Data) {
         
 //         // $user->setmatricule($value_Data['Matricule']);
-//         $user->setpassword ($value_Data['passWord']);
-//         $user->setNom($value_Data['firstName']);
-//         $user->setemail($value_Data['email']);
+//         $user->setPassword ($value_Data['passWord']);
+//         $user->setFirstname($value_Data['firstName']);
+//         $user->setEmail($value_Data['email']);
 
 //         array_push($TableData, $user);
 
