@@ -18,30 +18,25 @@
 
 include "gestion.php";
 // Trouver tous les employés depuis la base de données 
-$gestion= new Gestion();
-$data= $gestion->afficherCategorie();
+$gestion = new gestion();
+//afficher dans input
+if(isset($_GET['id'])){
+    $afficherData = $gestion->afficherProduit($_GET['id']);
+    $id = $_GET["id"];
+    foreach($afficherData as $value);
+}
 
-
-
+// modifier les donnes
 if(!empty($_POST)){
-  $filename = $_FILES["image"]["name"];
-	$produit = new produit_categorie();
-	$produit->setNom_Produit($_POST['nom_produit']);
-	$produit->setPrix($_POST['prix']);
-	$produit->setDescription($_POST['description']);
-	$produit->setCategorie_produit($_POST['categorie_produit']);
-	$produit->setQuantite_stock($_POST['quantite_stock']);
-	$produit->setDate_dexpiration($_POST["date_d'expiration"]);
-	$produit->setPhoto($filename);
-
-  $tempname = $_FILES["image"]["tmp_name"];
-
-
-
-  $gestion->AjouterProduit($produit);  
-	$gestion->upload_photo($filename, $tempname);
-	// Redirection vers la page index.php
-	header("Location: index.php");
+    $id =$_POST['id'];
+    $Prix = $_POST['prix'];
+    $Nom_produit= $_POST['nom_produit'];
+    $Description= $_POST['description'];
+    $Quantite_stock=$_POST['Quantite_stock'];
+    $Date_dexpiration= $_POST["date_d'expiration"];
+    $Categorie_produit= $_POST['categorie_produit'];
+    $gestion->Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit);
+    header('Location: index.php');
 }
 ?>
 
@@ -57,8 +52,9 @@ if(!empty($_POST)){
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form method="POST" enctype='multipart/form-data' class="tm-edit-product-form">
+                <form method="POST" class="tm-edit-product-form">
                   <div class="form-group mb-3">
+                    <input type="hidden" name="id" value="<?php echo $value->getId_Produit() ?>">
                     <label
                       for="name"
                       >Produit
@@ -69,7 +65,8 @@ if(!empty($_POST)){
                       type="text"
                       class="form-control validate"
                       required
-                    />
+                      value="<?php echo $value->getNom_Produit() ?>"
+                    >
                   </div>
                   <div class="form-group mb-3">
                     <label
@@ -82,6 +79,7 @@ if(!empty($_POST)){
                       type="text"
                       class="form-control validate"
                       required
+                      value="<?php echo $value->getPrix() ?>"
                     />
                   </div>
                   <div class="form-group mb-3">
@@ -89,12 +87,13 @@ if(!empty($_POST)){
                       for="description"
                       >Description</label
                     >
-                    <textarea
+                    <input
                       class="form-control validate"
                       rows="3"
                       required
-					   name="description"
-                    ></textarea>
+					            name="description"
+                      value="<?php echo $value->getDescription() ?>"
+                    >
                   </div>
                   <div class="form-group mb-3">
                     <label
@@ -104,11 +103,14 @@ if(!empty($_POST)){
                     <select
                       class="custom-select tm-select-accounts"
                       id="category"
-					  name="categorie_produit"
+					            name="categorie_produit"
+
                     >
-                    <option selected>Select category</option>
-                    <?php  foreach($data as $value){ ?>
-                      <option value="<?= $value->getId_Categorie()?>"><?= $value->getNom_Categorie();} ?> </option>
+                   
+                    <option selected><?php echo $value->getNom_Categorie() ?></option>
+                   <?php $afficherdata = $gestion -> afficherCategorie() ?>
+                    <?php  foreach($afficherdata as $affichervalue){ ?>
+                      <option value="<?= $affichervalue->getId_Categorie()?>"><?= $affichervalue->getNom_Categorie();} ?> </option>
                       
                       
                     </select>
@@ -125,6 +127,7 @@ if(!empty($_POST)){
                             type="date"
                             class="form-control validate"
                             data-large-mode="true"
+                            value="<?php echo $value->getDate_dexpiration() ?>"
                           />
                         </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -134,33 +137,35 @@ if(!empty($_POST)){
                           </label>
                           <input
                             id="stock"
-                            name="quantite_stock"
+                            name="Quantite_stock"
                             type="text"
                             class="form-control validate"
                             required
+                            value="<?php echo $value->getQuantite_stock() ?>"
                           />
                         </div>
                   </div>
                   
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
                   <i
-                    class="fas fa-cloud-upload-alt tm-upload-icon"                    
+                    class="fas fa-cloud-upload-alt tm-upload-icon"
+                    onclick="document.getElementById('fileInput').click();"
                   ></i>
                 </div>
                 <div class="custom-file mt-3 mb-3">
-                  <input id="image"  style="display:none;" />
+                  <input id="fileInput" type="file" style="display:none;" />
                   <input
-                    
+                    type="button"
                     class="btn btn-primary btn-block mx-auto"
                     value="UPLOAD PRODUCT IMAGE"
-                   type="file" name="image"
+                    onclick="document.getElementById('fileInput').click();"
                   />
-                </div>
+                </div> -->
               </div>
               <div class="col-12">
-                <button type="submit"  class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
               </div>
             </form>
             </div>
