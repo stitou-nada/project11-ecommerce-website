@@ -55,7 +55,7 @@
                     <td><?php echo $value->getQuantite_stock() ?></td>
                     <td><?php echo $value->getDate_dexpiration() ?></td>
                     <td>
-                      <a href="#" class="tm-product-delete-link">
+                      <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
                       </a>
                       <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">

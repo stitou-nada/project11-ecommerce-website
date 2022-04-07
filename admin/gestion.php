@@ -6,8 +6,8 @@ class Gestion{
 
     private function getConnection(){
       
-            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
+            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
+            // $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'demo');
            
          
        
@@ -110,7 +110,11 @@ class Gestion{
         nom_produit='$Nom_produit',prix = '$Prix', `description`= '$Description',quantite_stock = '$Quantite_stock', `date_d'expiration` = '$Date_dexpiration' WHERE  id_produit = $id" ;
 
         mysqli_query($this->getConnection(),$RowUpdate);
+    }
+    // suprimmer
+    public function Supprimer($id){
+        $RowDelet = "DELETE FROM produit WHERE id_produit= '$id'";
+        mysqli_query($this->getConnection(), $RowDelet);
+    }
 
-
-}
 }

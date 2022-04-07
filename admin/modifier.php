@@ -54,7 +54,7 @@ if(!empty($_POST)){
               <div class="col-xl-6 col-lg-6 col-md-12">
                 <form method="POST" class="tm-edit-product-form">
                   <div class="form-group mb-3">
-                    <input type="" name="id" value="<?php echo $value->getId_Produit() ?>">
+                    <input type="hidden" name="id" value="<?php echo $value->getId_Produit() ?>">
                     <label
                       for="name"
                       >Produit
