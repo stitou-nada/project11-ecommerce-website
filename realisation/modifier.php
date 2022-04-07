@@ -1,10 +1,16 @@
+
+
+
+
+
 <?php
 session_start();
-include 'gestionProduit.php';
-$gestion = new GestionProduit();
-$compteur = $gestion->compteur();
 
-// }?>
+include 'gestionProduit.php';
+$gestionProduit = new GestionProduit();
+$compteur = $gestionProduit->compteur();
+
+?>
 <!-- CSS only -->
 <!DOCTYPE html>
 <html lang="en">
@@ -50,38 +56,34 @@ $compteur = $gestion->compteur();
 
 
 
-if(isset($_GET["id"])){
-$id=$_GET["id"];
+$id = $_GET["id"];
+$value = $gestionProduit->getProduit($_GET["id"]);
 
-}
-
-$data = $gestion->afficherProduit($id);
-foreach($data as $value){
 ?>
-  
+
    
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div  class="col-md-6">
-                        <h1 class="display-5 fw-bolder"><?= $value->getNom();?></h1>
+                        <h1 class="display-5 fw-bolder"><?=$value['nom'];?></h1>
                         <div class="fs-5 mb-5">
                            
-                            <span><?= $value->getPrix();?> DH</span>
+                            <span><?=$value['prix'];?> DH</span>
                             <?php 
-                            }
+                            
                          ?>
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
-                        <form  class="" action="ajouter.php" method="POST">
+                        <form  class="" action="addTocart.php" method="POST">
                           <p>
                           <label for="btn btn-outline-dark flex-shrink-0"> Quantite</label>
-                          <input type="number" name="quantite" value="1" >
+                          <input type="number" name="quantite" value="<?=$value['quantite'];?>" >
                            </p>
                         <p>
-                           <input type="hidden" name="id" value="<?=  $value->getId() ?>">
+                           <input type="hidden" name="id" value="<?=$value['id'];?>">
                             
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
                                 <i class="bi-cart-fill me-1"></i> ajouter au panier  </button>

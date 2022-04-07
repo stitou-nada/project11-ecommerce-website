@@ -75,7 +75,7 @@ foreach($data as $value){
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
-                        <form  class="" action="ajouter.php" method="POST">
+                        <form  class="" action="addTocart.php" method="POST">
                           <p>
                           <label for="btn btn-outline-dark flex-shrink-0"> Quantite</label>
                           <input type="number" name="quantite" value="1" >
