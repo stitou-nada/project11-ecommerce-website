@@ -4,8 +4,6 @@
     $authManager = new AuthenticationManager();
     $user = new User();
 
-// Include config file
- $Connection = mysqli_connect('localhost', 'hicham', 'mlikihii','e-commerce');;
 
  
 // Define variables and initialize with empty values

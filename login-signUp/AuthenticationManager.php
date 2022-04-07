@@ -73,27 +73,57 @@ function validEmail($email){
         }
     }
 }
-// function Login( $password,$email){
+function Login( $password,$email){
 
-//     $rowLogin="SELECT * FROM `users` where email='$email'and `passWord`='$password' ";
-//      $query=mysqli_query($this->getConnection(),$rowLogin);
-//     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    
-  
-//     $user = new Utilisateur();
-
-//     $TableData = array();
-//     foreach ($data as $value_Data) {
+    // Prepare a select statement
+    $sql = "SELECT id, email, passWord FROM users WHERE email = ?";
         
-//         // $user->setmatricule($value_Data['Matricule']);
-//         $user->setpassword ($value_Data['password']);
-//         $user->setemail($value_Data['email']);
-//         array_push($TableData, $user);
-
-
-//     }
-//     return $TableData;
-// }
+    if($stmt = mysqli_prepare($this->getConnection(), $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "s", $param_email);
+        
+        // Set parameters
+        $param_email = $email;
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Store result
+            mysqli_stmt_store_result($stmt);
+            
+            // Check if email exists, if yes then verify password
+            if(mysqli_stmt_num_rows($stmt) == 1){                    
+                // Bind result variables
+                mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                if(mysqli_stmt_fetch($stmt)){
+                    if(password_verify($password, $hashed_password)){
+                           // Password is correct, so start a new session
+                           session_start();
+                            
+                           // Store data in session variables
+                           $_SESSION["loggedin"] = true;
+                           $_SESSION["id"] = $id;
+                           $_SESSION["email"] = $email;  
+                           return true;
+                    } else {
+                        return false;
+                    }
+                    
+                }
+            } else {
+                return false;
+            }
+            // Close statement
+        mysqli_stmt_close($stmt);
+        }
+        
+        
+    
+    
+        // Close connection
+        mysqli_close($this->getConnection());
+    }
+    
+}
 // function passwordOblie( $email,$firstName){
 
 //     $rowLogin="SELECT * FROM `users` where firstName='$firstName'and `email`='$email' ";
