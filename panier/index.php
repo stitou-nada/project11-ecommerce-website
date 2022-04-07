@@ -1,8 +1,20 @@
 <?php
+include 'cartManager.php';
+
+$cartManager = new CartManager();
+
+if(!isset($_COOKIE['cartCookie']))
+{
+    $expire=time() + (86400 * 30);//however long you want
+    $cookieId = uniqid();
+    setcookie('cartCookie', $cookieId, $expire);
+    $cartManager->addCartCookie($cookieId);
+}
+
 session_start();
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
-$compteur = $gestionProduit->compteur();
+$compteur = $cartManager->compteur();
+
+
 
 ?>
 
@@ -64,7 +76,7 @@ $compteur = $gestionProduit->compteur();
         <?php 
 
 
-$data= $gestionProduit->afficher();
+$data= $cartManager->afficher();
 
 ?>
 

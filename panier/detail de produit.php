@@ -1,8 +1,8 @@
 <?php
 session_start();
-include 'gestionProduit.php';
-$gestion = new GestionProduit();
-$compteur = $gestion->compteur();
+include 'cartManager.php';
+$cartManager = new CartManager();
+$compteur = $cartManager->compteur();
 
 // }?>
 <!-- CSS only -->
@@ -55,7 +55,7 @@ $id=$_GET["id"];
 
 }
 
-$data = $gestion->afficherProduit($id);
+$data = $cartManager->afficherProduit($id);
 foreach($data as $value){
 ?>
   

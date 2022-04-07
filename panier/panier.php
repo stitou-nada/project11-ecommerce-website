@@ -2,9 +2,9 @@
 session_start();
 
 
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
-$compteur = $gestionProduit->compteur();
+include 'cartManager.php';
+$cartManager = new CartManager();
+$compteur = $cartManager->compteur();
 
 ?>
 <!-- CSS only -->
@@ -63,7 +63,7 @@ $compteur = $gestionProduit->compteur();
             <?php 
 
             
-              $listProduits = $gestionProduit->getPanier();
+              $listProduits = $cartManager->getPanier();
               foreach($listProduits as $value){
                 ?>
              <div class="row border-top border-bottom">
