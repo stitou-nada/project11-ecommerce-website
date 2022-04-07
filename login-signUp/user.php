@@ -1,53 +1,56 @@
 <?php
 
-class Utilisateur{
-    private $Id;
-    private $Nom;
-    private $Prenom;
-    private $Date_de_naissance;
+class User{
+    private $id;
+    private $firstname;
+    private $lastname;
+    private $password;
+    private $email;
+    private $role;
 
 
     
     public function getId() {
-        return $this->Id;
+        return $this->id;
     }
     public function setId($id) {
-        $this->Id = $id;
+        $this->id = $id;
     }
 
-    public function getNom() {
-        return $this->Nom;
+    public function getFirstname() {
+        return $this->firstname;
     }
-    public function setNom($nom) {
-        $this->Nom = $nom;
-    }
-
-    public function getPrenom() {
-        return $this->Prenom;
-    }
-    public function setPrenom($prenom) {
-        $this->Prenom = $prenom;
+    public function setFirstname($firstname) {
+        $this->firstname = $firstname;
     }
 
-    public function getdate_de_naissance() {
-        return $this->Date_de_naissance;
+    public function getLastname() {
+        return $this->lastname;
     }
-    public function setdate_de_naissance($Date_de_naissance) {
-        $this->Date_de_naissance = $Date_de_naissance;
+    public function setLastname($lastname) {
+        $this->lastname = $lastname;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+    public function setPassword($password) {
+        $this->password = $password;
     }
    
-    
-    public function getpassword() {
-        return $this->Password;
-    }
-    public function setpassword($Password) {
-        $this->Password = $Password;
-    }
-    public function getemail() {
+    public function getEmail() {
         return $this->email;
     }
-    public function setemail($email) {
+    public function setEmail($email) {
         $this->email = $email;
+    }
+
+    
+    public function getRole() {
+        return $this->role;
+    }
+    public function setRole($role) {
+        $this->role = $role;
     }
 
 

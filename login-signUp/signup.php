@@ -1,39 +1,8 @@
 <?php
-//  include "gestion.php";
-//  if(!empty($_POST)){
+ include "AuthenticationManager.php";
 
-
-//      $Utilisateur= new Utilisateur();
-    //  $gestion = new Gestion();
-    
-//      $Utilisateur->setNom($_POST['nom']);
-//      $Utilisateur->setemail($_POST['email']);
-//      $Utilisateur->setdate_de_naissance($_POST['Date']);
-//      $Utilisateur->setpassword($_POST['password']);
-
-
-
-//      $gestion->ajouterUtilisateur($Utilisateur);
-//         header("Location: login.php");
-//      }
- 
-
-
-?>
-<!-- <a href="login.php">back</a>
-<form action="" method="POST">
-Nom      <input type="text" name="nom">
-email <input type="email" name="email">
-Date     <input type="date" name="Date">
-Password <input type="Password" name="password">
-
-    <button type="submit"> login</button>
-    </form> -->
-    
-<?php
- include "gestion.php";
-
-     $gestion = new Gestion();
+    $authManager = new AuthenticationManager();
+    $user = new User();
 
 // Include config file
  $Connection = mysqli_connect('localhost', 'hicham', 'mlikihii','e-commerce');;
@@ -89,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         $emailToCheack = trim($_POST["email"]);
         
-        $stmResult = $gestion->validEmail($emailToCheack);
+        $stmResult = $authManager->validEmail($emailToCheack);
             
 
         
@@ -104,36 +73,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check input errors before inserting in database
     if(empty($firstname_err) && empty($lastname_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (firstName, lastName, passWord, email, role) VALUES (?, ?, ?, ?, ?)";
-         
-        if($stmt = $Connection->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("sssss", $param_firstname, $param_lastname, $param_password, $param_email, $param_role);
-            
-            // Set parameters
-            $param_firstname = $firstname;
-            $param_lastname = $lastname;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_email = $email;
-            $param_role = "client";
-            
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            $stmt->close();
-        }
+        $user->setFirstname($firstname);
+        $user->setLastname($lastname);
+        $user->setPassword($password);
+        $user->setEmail($email);
+        $user->setRole("client");
+        $authManager->registerUser($user);
+      
     }
-    
-    // Close connection
-    $Connection->close();
 }
 ?>
  
