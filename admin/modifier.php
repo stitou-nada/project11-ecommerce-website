@@ -164,7 +164,7 @@ if(!empty($_POST)){
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
-                <img src="../img/<?php echo $value->getPhoto() ?>" class="tm-product-img-dummy mx-auto" alt="">
+                <img src="../admin/images/nd blusher/img/<?php echo $value->getPhoto()?>" class="tm-product-img-dummy mx-auto" alt="">
                 </div>
                 <div class="custom-file mt-3 mb-3">
                   
