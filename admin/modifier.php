@@ -28,14 +28,29 @@ if(isset($_GET['id'])){
 
 // modifier les donnes
 if(!empty($_POST)){
-    $id =$_POST['id'];
-    $Prix = $_POST['prix'];
-    $Nom_produit= $_POST['nom_produit'];
-    $Description= $_POST['description'];
-    $Quantite_stock=$_POST['Quantite_stock'];
-    $Date_dexpiration= $_POST["date_d'expiration"];
-    $Categorie_produit= $_POST['categorie_produit'];
-    $gestion->Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ,$Categorie_produit);
+    $photo = $_FILES["image"]["name"];
+   
+	$produit = new produit_categorie();
+	$produit->setId_Produit($_POST['id']);
+	$produit->setNom_Produit($_POST['nom_produit']);
+	$produit->setPrix($_POST['prix']);
+	$produit->setDescription($_POST['description']);
+	$produit->setCategorie_produit($_POST['categorie_produit']);
+	$produit->setQuantite_stock($_POST['quantite_stock']);
+	$produit->setDate_dexpiration($_POST["date_d'expiration"]);
+	$produit->setPhoto($photo);
+
+  $tempname = $_FILES["image"]["tmp_name"];
+
+    if(!empty($photo)){
+     
+      
+      $gestion->upload_photo($photo, $tempname);
+  } else {
+    $produit->setPhoto($value->getPhoto());
+  }
+  
+    $gestion->Modifier($produit);
     header('Location: index.php');
 }
 ?>
@@ -52,7 +67,7 @@ if(!empty($_POST)){
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form method="POST" class="tm-edit-product-form">
+                <form method="POST" enctype='multipart/form-data' class="tm-edit-product-form">
                   <div class="form-group mb-3">
                     <input type="hidden" name="id" value="<?php echo $value->getId_Produit() ?>">
                     <label
@@ -137,7 +152,7 @@ if(!empty($_POST)){
                           </label>
                           <input
                             id="stock"
-                            name="Quantite_stock"
+                            name="quantite_stock"
                             type="text"
                             class="form-control validate"
                             required
@@ -147,22 +162,19 @@ if(!empty($_POST)){
                   </div>
                   
               </div>
-              <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
-                  <i
-                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                    onclick="document.getElementById('fileInput').click();"
-                  ></i>
+                <img src="../img/<?php echo $value->getPhoto() ?>" class="tm-product-img-dummy mx-auto" alt="">
                 </div>
                 <div class="custom-file mt-3 mb-3">
-                  <input id="fileInput" type="file" style="display:none;" />
-                  <input
-                    type="button"
+                  
+                <input
+                    
                     class="btn btn-primary btn-block mx-auto"
                     value="UPLOAD PRODUCT IMAGE"
-                    onclick="document.getElementById('fileInput').click();"
+                   type="file" name="image"
                   />
-                </div> -->
+                </div>
               </div>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
