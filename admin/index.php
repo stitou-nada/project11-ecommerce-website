@@ -1,15 +1,21 @@
 
-   <!-- https://fonts.google.com/specimen/Roboto -->
-   <link rel="stylesheet" href="css/fontawesome.min.css" />
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Admin - Dashboard HTML Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
-  </head>
+</head>
 
 
   <?php 
@@ -31,12 +37,12 @@
               <table class="table table-hover tm-table-small tm-product-table">
                 <thead>
                   <tr>
-                    <th scope="col">&nbsp;</th>
+                    <th scope="col">&nbsp; x</th>
                     <th scope="col">NOM PRODUIT</th>
                     <th scope="col">CATEGORIE</th>
                     <th scope="col">UNIT SOLD</th>
                     <th scope="col">QUANTITE DE STOCK</th>
-                    <th scope="col">DATE D'expiration</th>
+                    
                     <th scope="col">&nbsp;</th>
                     <th scope="col">&nbsp;</th>
                   </tr>
@@ -48,16 +54,17 @@
                     
                 ?>
                 <tr>
-                    <th scope="row"><input type="checkbox" /></th>
+                    <th scope="row">x
+                          <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a></th>
                     <td class="tm-product-name"><?php echo $value->getNom_Produit() ?></td>
                     <td ><?php echo $value->getNom_Categorie() ?></td>
                     <td><?php echo $value->getPrix() ?></td>
                     <td><?php echo $value->getQuantite_stock() ?></td>
-                    <td><?php echo $value->getDate_dexpiration() ?></td>
+                   
                     <td>
-                      <!-- <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a> -->
+                   
                       <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
                       </a>
