@@ -42,8 +42,9 @@ include "gestion-affichage.php";
 
 
 $gestion = new Gestion();
+$Categorie = 'Face care';
+$data = $gestion->afficherCatigore($Categorie);
 
-$gestion->afficherCatigore();
 
 
 
@@ -75,11 +76,8 @@ $gestion->afficherCatigore();
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-navigation">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.html">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.html">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                <li class="has-submenu"><a href="index.php">home</a>
+                                   
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
                                 <li class="has-submenu position-static"><a href="product.html">shop</a>
@@ -201,7 +199,7 @@ $gestion->afficherCatigore();
                                     <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
-                                <h2 class="page-header-title">All Products</h2>
+                                <h2 class="page-header-title">Face care</h2>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -213,51 +211,9 @@ $gestion->afficherCatigore();
             <!--== End Page Header Area Wrapper ==-->
 
             <!--== Start Shop Top Bar Area Wrapper ==-->
-            <div class="shop-top-bar-area">
-                <div class="container">
-                    <div class="shop-top-bar">
-                        <select class="select-shoing">
-                            <option data-display="Trending">Trending</option>
-                            <option value="1">Featured</option>
-                            <option value="2">Best Selling</option>
-                            <option value="3">Alphabetically, A-Z</option>
-                            <option value="4">Alphabetically, Z-A</option>
-                            <option value="5">Price, low to high</option>
-                            <option value="6">Price, high to low</option>
-                            <option value="7">Date, new to old</option>
-                            <option value="8">Date, old to new</option>
-                        </select>
+          
 
-                        <div class="select-on-sale d-flex d-md-none">
-                            <span>On Sale :</span>
-                            <select class="select-on-sale-form">
-                                <option selected>Yes</option>
-                                <option value="1">No</option>
-                            </select>
-                        </div>
-
-                        <div class="select-price-range">
-                            <h4 class="title">Pricing</h4>
-                            <div class="select-price-range-slider">
-                                <div class="slider-range" id="slider-range"></div>
-                                <div class="slider-labels">
-                                    <span id="slider-range-value1"></span>
-                                    <span>-</span>
-                                    <span id="slider-range-value2"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="select-on-sale d-none d-md-flex">
-                            <span>On Sale :</span>
-                            <select class="select-on-sale-form">
-                                <option selected>Yes</option>
-                                <option value="1">No</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                 
             <!--== End Shop Top Bar Area Wrapper ==-->
 
             <!--== Start Product Category Area Wrapper ==-->
@@ -266,7 +222,7 @@ $gestion->afficherCatigore();
                     <div class="row g-3 g-sm-6">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item">
+                            <a href="hare-care.php" class="product-category-item">
                                 <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
                                 <h3 class="title">Hare care</h3>
                                 <span class="flag-new">new</span>
@@ -275,7 +231,7 @@ $gestion->afficherCatigore();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEDB4">
+                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
                                 <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Skin care</h3>
                             </a>
@@ -283,7 +239,7 @@ $gestion->afficherCatigore();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#DFE4FF">
+                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
                                 <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Lip stick</h3>
                             </a>
@@ -291,7 +247,7 @@ $gestion->afficherCatigore();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEACC">
+                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
                                 <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Face skin</h3>
                                 <span data-bg-color="#835BF4" class="flag-new">sale</span>
@@ -300,7 +256,7 @@ $gestion->afficherCatigore();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFDAE0">
+                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
                                 <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Blusher</h3>
                             </a>
@@ -308,7 +264,7 @@ $gestion->afficherCatigore();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFF3DA">
+                            <a href="natural.php" class="product-category-item" data-bg-color="#FFF3DA">
                                 <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Natural</h3>
                             </a>
@@ -327,10 +283,11 @@ $gestion->afficherCatigore();
                             <!--== Start Product Item ==-->
 
                             <!-- produit -->
+                            <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
                                     <a class="d-block" href="product-details.html">
-                                        <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
+                                        <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
                                     <div class="product-action">
@@ -356,10 +313,10 @@ $gestion->afficherCatigore();
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
+                                    <h4 class="title"><a href="product-details.html"><?php echo $value->getNom_Produit() ?></a></h4>
                                     <div class="prices">
-                                        <span class="price">$210.00</span>
-                                        <span class="price-old">300.00</span>
+                                        <span class="price"><?php echo $value->getPrix() ?>DH</span>
+                                        <span class="price-old"><?php echo $value->getCategorie_produit() ?></span>
                                     </div>
                                 </div>
                                 <div class="product-action-bottom">
@@ -374,24 +331,26 @@ $gestion->afficherCatigore();
                                     </button>
                                 </div>
                             </div>
+                           
                             <!--== End prPduct Item ==-->
                         </div>
+                      
                         <div class="col-6 col-lg-4 mb-4 mb-sm-8">
-                        
+                          <?php }?>
                         </div>
                         <div class="col-12">
                             <ul class="pagination justify-content-center me-auto ms-auto mt-5 mb-0 mb-sm-10">
                                 <li class="page-item">
-                                    <a class="page-link previous" href="product.html" aria-label="Previous">
+                                    <a class="page-link previous" href="face-care.PHP" aria-label="Previous">
                                         <span class="fa fa-chevron-left" aria-hidden="true"></span>
                                     </a>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="product.html">01</a></li>
-                                <li class="page-item"><a class="page-link" href="product.html">02</a></li>
-                                <li class="page-item"><a class="page-link" href="product.html">03</a></li>
-                                <li class="page-item"><a class="page-link" href="product.html">....</a></li>
+                                <li class="page-item"><a class="page-link" href="face-care.PHP">01</a></li>
+                                <li class="page-item"><a class="page-link" href="face-care.PHP">02</a></li>
+                                <li class="page-item"><a class="page-link" href="face-care.PHP">03</a></li>
+                                <li class="page-item"><a class="page-link" href="face-care.PHP">....</a></li>
                                 <li class="page-item">
-                                    <a class="page-link next" href="product.html" aria-label="Next">
+                                    <a class="page-link next" href="face-care.PHP" aria-label="Next">
                                         <span class="fa fa-chevron-right" aria-hidden="true"></span>
                                     </a>
                                 </li>
@@ -402,185 +361,7 @@ $gestion->afficherCatigore();
             </section>
             <!--== End Product Area Wrapper ==-->
 
-            <!--== Start Product Banner Area Wrapper ==-->
-            <section>
-                <div class="container">
-                    <!--== Start Product Category Item ==-->
-                    <a href="product.html" class="product-banner-item">
-                        <img src="assets/images/shop/banner/7.webp" width="1170" height="240" alt="Image-HasTech">
-                    </a>
-                    <!--== End Product Category Item ==-->
-                </div>
-            </section>
-            <!--== End Product Banner Area Wrapper ==-->
-
-            <!--== Start Product Area Wrapper ==-->
-            <section class="section-space">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-title">
-                                <h2 class="title">Related Products</h2>
-                                <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-n10">
-                        <div class="col-12">
-                            <div class="swiper related-product-slide-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide mb-8">
-                                        <!--== Start Product Item ==-->
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
-                                                    <img src="assets/images/shop/4.webp" width="370" height="450" alt="Image-HasTech">
-                                                </a>
-                                                <span class="flag-new">new</span>
-                                                <div class="product-action">
-                                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                        <i class="fa fa-expand"></i>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                        <span>Add to cart</span>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-rating">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                    <div class="reviews">150 reviews</div>
-                                                </div>
-                                                <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
-                                                <div class="prices">
-                                                    <span class="price">$210.00</span>
-                                                    <span class="price-old">300.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-action-bottom">
-                                                <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                    <i class="fa fa-expand"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                    <span>Add to cart</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!--== End prPduct Item ==-->
-                                    </div>
-                                    <div class="swiper-slide mb-8">
-                                        <!--== Start Product Item ==-->
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
-                                                    <img src="assets/images/shop/5.webp" width="370" height="450" alt="Image-HasTech">
-                                                </a>
-                                                <span class="flag-new">new</span>
-                                                <div class="product-action">
-                                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                        <i class="fa fa-expand"></i>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                        <span>Add to cart</span>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-rating">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                    <div class="reviews">150 reviews</div>
-                                                </div>
-                                                <h4 class="title"><a href="product-details.html">Voyage face cleaner</a></h4>
-                                                <div class="prices">
-                                                    <span class="price">$210.00</span>
-                                                    <span class="price-old">300.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-action-bottom">
-                                                <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                    <i class="fa fa-expand"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                    <span>Add to cart</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!--== End prPduct Item ==-->
-                                    </div>
-                                    <div class="swiper-slide mb-8">
-                                        <!--== Start Product Item ==-->
-                                        <div class="product-item">
-                                            <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
-                                                    <img src="assets/images/shop/6.webp" width="370" height="450" alt="Image-HasTech">
-                                                </a>
-                                                <span class="flag-new">new</span>
-                                                <div class="product-action">
-                                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                        <i class="fa fa-expand"></i>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                        <span>Add to cart</span>
-                                                    </button>
-                                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-rating">
-                                                    <div class="rating">
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </div>
-                                                    <div class="reviews">150 reviews</div>
-                                                </div>
-                                                <h4 class="title"><a href="product-details.html">Sprite Yoga Straps1</a></h4>
-                                                <div class="prices">
-                                                    <span class="price">$210.00</span>
-                                                    <span class="price-old">300.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-action-bottom">
-                                                <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                                    <i class="fa fa-expand"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </button>
-                                                <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                                    <span>Add to cart</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!--== End prPduct Item ==-->
+                                  <!--== End prPduct Item ==-->
                                     </div>
                                 </div>
                             </div>
@@ -826,11 +607,8 @@ $gestion->afficherCatigore();
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
-                            <ul>
-                                <li><a href="index.html">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
+                         
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
