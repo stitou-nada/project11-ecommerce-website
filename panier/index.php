@@ -96,9 +96,9 @@ $data= $cartManager->afficher();
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?= $value->getNom();?></h5>
+                                    <h5 class="fw-bolder"><?= $value->getName();?></h5>
                                     <!-- Product price-->
-                                    <?= $value->getPrix();?> DH
+                                    <?= $value->getPrice();?> DH
                                 </div>
                                 <div class="text-center"><a href="detail de produit.php?id=<?= $value->getId();?>"class="btn btn-outline-dark mt-auto" href="#">Détail</a></div>
                             </div>

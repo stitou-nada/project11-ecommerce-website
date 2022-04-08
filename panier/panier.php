@@ -69,8 +69,9 @@ $compteur = $cartManager->compteur();
              <div class="row border-top border-bottom">
             
                 <div class="row main align-items-center">
-                    
-              
+                <?php var_dump($listProduits); ?>
+
+<!--               
                     <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
                         <div class="row text-muted"><?= $value["nom"] ?></div>
@@ -79,7 +80,7 @@ $compteur = $cartManager->compteur();
                     </div>
                     <div class="col"> <a href="modifier.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a> </div>
                     <div class="col"><?= $value["prix"] ?> DH  <a class="close" href="supprimer.php?id=<?= $value["id"] ?>"> &#10005;</a></div>
-                    
+                     -->
                 </div>
                   
             </div>
