@@ -24,6 +24,7 @@ $data= $gestion->afficherCategorie();
 
 
 if(!empty($_POST)){
+  $filename = $_FILES["image"]["name"];
 	$produit = new produit_categorie();
 	$produit->setNom_Produit($_POST['nom_produit']);
 	$produit->setPrix($_POST['prix']);
@@ -31,8 +32,14 @@ if(!empty($_POST)){
 	$produit->setCategorie_produit($_POST['categorie_produit']);
 	$produit->setQuantite_stock($_POST['quantite_stock']);
 	$produit->setDate_dexpiration($_POST["date_d'expiration"]);
-	$gestion->AjouterProduit($produit);
-	
+	$produit->setPhoto($filename);
+
+  $tempname = $_FILES["image"]["tmp_name"];
+
+
+
+  $gestion->AjouterProduit($produit);  
+	$gestion->upload_photo($filename, $tempname);
 	// Redirection vers la page index.php
 	header("Location: index.php");
 }
@@ -136,25 +143,24 @@ if(!empty($_POST)){
                   </div>
                   
               </div>
-              <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
                   <i
-                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                    onclick="document.getElementById('fileInput').click();"
+                    class="fas fa-cloud-upload-alt tm-upload-icon"                    
                   ></i>
                 </div>
                 <div class="custom-file mt-3 mb-3">
-                  <input id="fileInput" type="file" style="display:none;" />
+                  <input id="image"  style="display:none;" />
                   <input
-                    type="button"
+                    
                     class="btn btn-primary btn-block mx-auto"
                     value="UPLOAD PRODUCT IMAGE"
-                    onclick="document.getElementById('fileInput').click();"
+                   type="file" name="image"
                   />
-                </div> -->
+                </div>
               </div>
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+                <button type="submit"  class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
               </div>
             </form>
             </div>
