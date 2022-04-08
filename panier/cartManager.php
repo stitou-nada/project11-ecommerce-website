@@ -28,8 +28,8 @@ class CartManager {
     public function addProduct($cart, $product, $quantity){
         $cartId = $cart->getId();
         $productId = $product->getId();
-        $sql = "INSERT INTO cart_line VALUES($productId, $cartId, $quantity)";
-        $result = mysqli_query($this->getConnection(), $sql, );
+        $sql = "INSERT INTO cart_line(idProduct,idCart, productCartQuantity) VALUES('$productId', '$cartId', '$quantity')";
+        $result = mysqli_query($this->getConnection(), $sql);
         if($result){
             $last_id = mysqli_insert_id($this->getConnection());
             return $last_id;
@@ -101,10 +101,10 @@ class CartManager {
             $SelctRow = "SELECT * FROM produit WHERE id_produit =$id";
             $query = mysqli_query($this->getConnection() ,$SelctRow);
             $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    
-            $TableData = array();
+            $product = new Product();
+
+            
             foreach ($produits_data as $value) {
-           $product = new Product();
             $product->setId($value['id_produit']);
             $product->setName($value['nom_produit']);
             $product->setPrice($value['prix']);
@@ -113,9 +113,8 @@ class CartManager {
             $product->setQuantity($value['quantite_stock']);
             $product->setCategory($value['categorie_produit']);
                
-                array_push($TableData, $product);
             }
-              return $TableData;
+              return $product;
         }
       
  
@@ -138,10 +137,11 @@ class CartManager {
         }
 
         function getCart($userRefe){
-            $sql = "SELECT id from carts WHERE userReference = $userRefe";
+            $sql = "SELECT * from carts WHERE userReference = '$userRefe'";
             $query = mysqli_query($this->getConnection(), $sql);
-            $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            $result = mysqli_fetch_assoc($query);
 
+            
             $cart = new Cart();
             $cart->setId($result["id"]);
             $cart->setUserReference($result["userReference"]);
