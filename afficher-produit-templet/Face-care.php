@@ -59,79 +59,52 @@ $data = $gestion->afficherCatigore($Categorie);
 
 <body>
 
-    <!--== Wrapper Start ==-->
-    <div class="wrapper">
+        <!--== Wrapper Start ==-->
+        <div class="wrapper">
 
-        <!--== Start Header Wrapper ==-->
-        <header class="header-area sticky-header">
-            <div class="container">
+            <!--== Start Header Wrapper ==-->
+            <header class="header-area sticky-header">
+                <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-5 col-sm-6 col-lg-3">
+                    <div class="col-5 col-lg-2 col-xl-1">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 d-none d-lg-block">
-                        <div class="header-navigation">
+                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
+                        <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                   
+                                    <ul class="submenu-nav">
+                                        <li><a href="index.php">Home One</a></li>
+                                        <li><a href="index-two.html">Home Two</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
                                 <li class="has-submenu position-static"><a href="product.html">shop</a>
                                     <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">Shop Layout</a>
+                                        <li><a href="#/" class="mega-title">categories</a>
                                             <ul>
-                                                <li><a href="product.html">Shop 3 Column</a></li>
-                                                <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                                <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                                <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
+                                                
+                                                <li><a href="hare-care.php">Hare care</a></li>
+                                                <li><a href="Face-care.php">Face care</a></li>
+                                                <li><a href="blusher.php">Blusher</a></li>
+                                                <li><a href="lip-stick.php">Lip stick</a></li>
+                                                <li><a href="Skin care">Skin care</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#/" class="mega-title">Single Product</a>
-                                            <ul>
-                                                <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                                <li><a href="product-details.html">Single Product Variable</a></li>
-                                                <li><a href="product-details-group.html">Single Product Group</a></li>
-                                                <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Others Pages</a>
-                                            <ul>
-                                                <li><a href="product-cart.html">Shopping Cart</a></li>
-                                                <li><a href="product-checkout.html">Checkout</a></li>
-                                                <li><a href="product-wishlist.html">Wishlist</a></li>
-                                                <li><a href="product-compare.html">Compare</a></li>
-                                            </ul>
-                                        </li>
+                                       
+                                      
                                     </ul>
                                 </li>
-                                <li class="has-submenu"><a href="blog.html">Blog</a>
-                                    <ul class="submenu-nav">
-                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
-                                            <ul class="submenu-nav">
-                                                <li><a href="blog.html">Blog Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu"><a href="account-login.html">Pages</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="account-login.html">My Account</a></li>
-                                        <li><a href="faq.html">Frequently Questions</a></li>
-                                        <li><a href="page-not-found.html">Page Not Found</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-7 col-sm-6 col-lg-3">
+                    <div class="col-7 col-lg-3 col-xl-4">
                         <div class="header-action justify-content-end">
                             <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
                                 <span class="icon">
@@ -196,7 +169,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
                                 <h2 class="page-header-title">Face care</h2>
@@ -286,7 +259,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -313,7 +286,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html"><?php echo $value->getNom_Produit() ?></a></h4>
+                                    <h4 class="title"><a href="product-details.php"><?php echo $value->getNom_Produit() ?></a></h4>
                                     <div class="prices">
                                         <span class="price"><?php echo $value->getPrix() ?>DH</span>
                                         <span class="price-old"><?php echo $value->getCategorie_produit() ?></span>
@@ -338,38 +311,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 mb-4 mb-sm-8">
                           <?php }?>
                         </div>
-                        <div class="col-12">
-                            <ul class="pagination justify-content-center me-auto ms-auto mt-5 mb-0 mb-sm-10">
-                                <li class="page-item">
-                                    <a class="page-link previous" href="face-care.PHP" aria-label="Previous">
-                                        <span class="fa fa-chevron-left" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="face-care.PHP">01</a></li>
-                                <li class="page-item"><a class="page-link" href="face-care.PHP">02</a></li>
-                                <li class="page-item"><a class="page-link" href="face-care.PHP">03</a></li>
-                                <li class="page-item"><a class="page-link" href="face-care.PHP">....</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next" href="face-care.PHP" aria-label="Next">
-                                        <span class="fa fa-chevron-right" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--== End Product Area Wrapper ==-->
-
-                                  <!--== End prPduct Item ==-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--== End Product Area Wrapper ==-->
+          
 
         </main>
 
@@ -382,7 +324,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="index.html">
+                                    <a class="widget-logo" href="index.php">
                                         <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
@@ -450,7 +392,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -475,7 +417,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -576,7 +518,7 @@ $data = $gestion->afficherCatigore($Categorie);
                 <ul class="aside-cart-product-list">
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Leather Mens Slipper</span>
                         </a>
@@ -584,7 +526,7 @@ $data = $gestion->afficherCatigore($Categorie);
                     </li>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Quickiin Mens shoes</span>
                         </a>
@@ -624,7 +566,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                 <li><a href="#" class="offcanvas-nav-item">Single Product</a>
                                     <ul>
                                         <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                        <li><a href="product-details.html">Single Product Variable</a></li>
+                                        <li><a href="product-details.php">Single Product Variable</a></li>
                                         <li><a href="product-details-group.html">Single Product Group</a></li>
                                         <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
                                     </ul>

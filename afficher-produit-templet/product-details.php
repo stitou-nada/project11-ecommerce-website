@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/range-slider.css">
     <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
 
     <!-- Style CSS -->
@@ -36,18 +35,19 @@
 
 </head>
 
-<?php 
 
-include "gestion-affichage.php";
 
+<?php
+
+include 'gestion-affichage.php';
 
 $gestion = new Gestion();
-$Categorie = 'blusher';
-$data = $gestion->afficherCatigore($Categorie);
 
+if(isset($_GET)){
 
-
-
+$id = $_GET["id"];
+}
+$data = $gestion->afficherProduit($id);
 
 
 ?>
@@ -57,108 +57,120 @@ $data = $gestion->afficherCatigore($Categorie);
 
 
 
+
+
 <body>
 
-    <!--== Wrapper Start ==-->
-    <div class="wrapper">
+<div class="wrapper">
 
-        <!--== Start Header Wrapper ==-->
-        <header class="header-area sticky-header">
-            <div class="container">
-            <div class="row align-items-center">
-                    <div class="col-5 col-lg-2 col-xl-1">
-                        <div class="header-logo">
-                            <a href="index.php">
-                                <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
-                        <div class="header-navigation ps-7">
-                            <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.php">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.php">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about-us.html">about</a></li>
-                                <li class="has-submenu position-static"><a href="product.html">shop</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">categories</a>
-                                            <ul>
-                                                
-                                                <li><a href="hare-care.php">Hare care</a></li>
-                                                <li><a href="Face-care.php">Face care</a></li>
-                                                <li><a href="blusher.php">Blusher</a></li>
-                                                <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="Skin care">Skin care</a></li>
-                                            </ul>
-                                        </li>
-                                       
-                                      
-                                    </ul>
-                                </li>
-                                
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-7 col-lg-3 col-xl-4">
-                        <div class="header-action justify-content-end">
-                            <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)"/>
-                    <defs>
-                      <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:11" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:11" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABiUlEQVRIie2Wu04CQRSGP0G2EUtIbHwA8B3EQisLIcorEInx8hbEZ9DKy6toDI1oAgalNFpDoYWuxZzJjoTbmSXERP7kZDbZ859vdmb27MJcf0gBUAaugRbQk2gBV3IvmDa0BLwA4Zh4BorTACaAU6fwPXAI5IAliTxwBDScvJp4vWWhH0BlTLEEsC+5Fu6lkgNdV/gKDnxHCw2I9rSiNQNV8baBlMZYJtpTn71KAg9SY3dUYn9xezLPgG8P8BdwLteq5X7CzDbnAbXKS42WxtQVUzoGeFlqdEclxXrnhmhhkqR+8KuMqzHA1vumAddl3IwB3pLxVmOyr1NjwKQmURJ4lBp7GmOAafghpg1qdSDeDrCoNReJWmZB4dsAPsW7rYVa1Rx4FbOEw5TEPKmFvgMZX3DCgYeYNniMaQ5piTXghGhPLdTmZ33hYNpem98f/UHRwSxvhqhXx4anMA3/EmhiOlJPJnSBOb3uQcpOE65VhujPpAms/Bu4u+x3swRbeB24mTV4LgB+AFuLedkPkcmmAAAAAElFTkSuQmCC"/>
-                    </defs>
-                  </svg>
-                </span>
-                            </button>
-
-                            <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
-                    <defs>
-                      <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:9" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:9" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRIie2VMU7DMBSGvwAqawaYuAmKxCW4A1I5Qg4AA93KBbp1ZUVUlQJSVVbCDVhgzcTQdLEVx7WDQ2xLRfzSvzzb+d6zn2MYrkugBBYevuWsHKiFn2JBMwH8Bq6Aw1jgBwHOYwGlPgT4LDZ4I8BJDNiEppl034UEJ8DMAJ0DByHBACPgUYEugePQUKkUWAmnsaB/Ry/YO9aXCwlT72AdrqaWEohwBWxSwc8ReIVtYIr5bM5pXqO+Men7rozGlkVSv4lJj1WQfsbvXVkNVNk1eEK4ik9/yuwzAPhLh5iuU4jtftMDR4ZJJXChxTJ2H3zXGDgWc43/X2Wro8G81a8u2fXU2nXiLVAxvNIKuPGW/r/2SltF+a3Rkw4pmwAAAABJRU5ErkJggg=="/>
-                    </defs>
-                  </svg>
-                </span>
-                            </button>
-
-                            <a class="header-action-btn" href="account-login.html">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
-                    <defs>
-                      <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:10" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIie3UMUoDYRDF8Z8psqUpLBRrBS+gx7ATD6E5iSjeQQ/gJUzEwmChnZZaKZiQ0ljsLkhQM5/5Agr74DX7DfOfgZ1Hoz+qAl30Marcx2H1thCtY4DJN76parKqmAH9DM+6eTcArX2QE3yVAO7lBA8TwMNIw6UgeJI46My+rWCjUQL0LVIUBd8lgEO1UfBZAvg8oXamCuWNRu64nRNMmUo/wReSXLXayoDoKc9miMvqW/ZNG2VRNLla2MYudrCFTvX2intlnl/gGu/zDraGYzyLZ/UTjrD6G2AHpxgnAKc9xgmWo9BNPM4BnPYDNiLg24zQ2oNpyFdZvRKZLlGhnvvKPzXXti/Yy7hEo3+iD9EHtgdqxQnwAAAAAElFTkSuQmCC"/>
-                    </defs>
-                  </svg>
-                </span>
-                            </a>
-
-                            <button class="header-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
+<!--== Start Header Wrapper ==-->
+<header class="header-area sticky-header header-transparent">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-5 col-lg-2 col-xl-1">
+                <div class="header-logo">
+                    <a href="index.php">
+                        <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
+                    </a>
                 </div>
             </div>
-        </header>
-        <!--== End Header Wrapper ==-->
+            <div class="col-lg-7 col-xl-7 d-none d-lg-block">
+                <div class="header-navigation ps-7">
+                    <ul class="main-nav justify-content-start">
+                        <li class="has-submenu"><a href="index.php">home</a>
+                            <ul class="submenu-nav">
+                                <li><a href="index.php">Home One</a></li>
+                                <li><a href="index-two.html">Home Two</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about-us.html">about</a></li>
+                        <li class="has-submenu position-static"><a href="product.html">shop</a>
+                            <ul class="submenu-nav-mega">
+                                <li><a href="#/" class="mega-title">categories</a>
+                                    <ul>
+                                        
+                                        <li><a href="hare-care.php">Hare care</a></li>
+                                        <li><a href="Face-care.php">Face care</a></li>
+                                        <li><a href="blusher.php">Blusher</a></li>
+                                        <li><a href="lip-stick.php">Lip stick</a></li>
+                                        <li><a href="Skin care">Skin care</a></li>
+                                    </ul>
+                                </li>
+                               
+                              
+                            </ul>
+                        </li>
+                        
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-7 col-lg-3 col-xl-4">
+                <div class="header-action justify-content-end">
+                    <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
+                        <span class="icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)"/>
+            <defs>
+              <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_504:11" transform="scale(0.0333333)"/>
+              </pattern>
+              <image id="image0_504:11" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABiUlEQVRIie2Wu04CQRSGP0G2EUtIbHwA8B3EQisLIcorEInx8hbEZ9DKy6toDI1oAgalNFpDoYWuxZzJjoTbmSXERP7kZDbZ859vdmb27MJcf0gBUAaugRbQk2gBV3IvmDa0BLwA4Zh4BorTACaAU6fwPXAI5IAliTxwBDScvJp4vWWhH0BlTLEEsC+5Fu6lkgNdV/gKDnxHCw2I9rSiNQNV8baBlMZYJtpTn71KAg9SY3dUYn9xezLPgG8P8BdwLteq5X7CzDbnAbXKS42WxtQVUzoGeFlqdEclxXrnhmhhkqR+8KuMqzHA1vumAddl3IwB3pLxVmOyr1NjwKQmURJ4lBp7GmOAafghpg1qdSDeDrCoNReJWmZB4dsAPsW7rYVa1Rx4FbOEw5TEPKmFvgMZX3DCgYeYNniMaQ5piTXghGhPLdTmZ33hYNpem98f/UHRwSxvhqhXx4anMA3/EmhiOlJPJnSBOb3uQcpOE65VhujPpAms/Bu4u+x3swRbeB24mTV4LgB+AFuLedkPkcmmAAAAAElFTkSuQmCC"/>
+            </defs>
+          </svg>
+        </span>
+                    </button>
+
+                    <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
+                        <span class="icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
+            <defs>
+              <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_504:9" transform="scale(0.0333333)"/>
+              </pattern>
+              <image id="image0_504:9" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRIie2VMU7DMBSGvwAqawaYuAmKxCW4A1I5Qg4AA93KBbp1ZUVUlQJSVVbCDVhgzcTQdLEVx7WDQ2xLRfzSvzzb+d6zn2MYrkugBBYevuWsHKiFn2JBMwH8Bq6Aw1jgBwHOYwGlPgT4LDZ4I8BJDNiEppl034UEJ8DMAJ0DByHBACPgUYEugePQUKkUWAmnsaB/Ry/YO9aXCwlT72AdrqaWEohwBWxSwc8ReIVtYIr5bM5pXqO+Men7rozGlkVSv4lJj1WQfsbvXVkNVNk1eEK4ik9/yuwzAPhLh5iuU4jtftMDR4ZJJXChxTJ2H3zXGDgWc43/X2Wro8G81a8u2fXU2nXiLVAxvNIKuPGW/r/2SltF+a3Rkw4pmwAAAABJRU5ErkJggg=="/>
+            </defs>
+          </svg>
+        </span>
+                    </button>
+
+                    <a class="header-action-btn" href="account-login.html">
+                        <span class="icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
+            <defs>
+              <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
+              </pattern>
+              <image id="image0_504:10" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIie3UMUoDYRDF8Z8psqUpLBRrBS+gx7ATD6E5iSjeQQ/gJUzEwmChnZZaKZiQ0ljsLkhQM5/5Agr74DX7DfOfgZ1Hoz+qAl30Marcx2H1thCtY4DJN76parKqmAH9DM+6eTcArX2QE3yVAO7lBA8TwMNIw6UgeJI46My+rWCjUQL0LVIUBd8lgEO1UfBZAvg8oXamCuWNRu64nRNMmUo/wReSXLXayoDoKc9miMvqW/ZNG2VRNLla2MYudrCFTvX2intlnl/gGu/zDraGYzyLZ/UTjrD6G2AHpxgnAKc9xgmWo9BNPM4BnPYDNiLg24zQ2oNpyFdZvRKZLlGhnvvKPzXXti/Yy7hEo3+iD9EHtgdqxQnwAAAAAElFTkSuQmCC"/>
+            </defs>
+          </svg>
+        </span>
+                    </a>
+
+                    <button class="header-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--== End Header Wrapper ==-->
+
+
+
+
+
+
+
+
+
+
+
 
         <main class="main-content">
 
@@ -170,151 +182,73 @@ $data = $gestion->afficherCatigore($Categorie);
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
                                     <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">Product Detail</li>
                                 </ol>
-                                <h2 class="page-header-title">Blusher</h2>
+                                <h2 class="page-header-title">Product Detail</h2>
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <h5 class="showing-pagination-results mt-5 mt-md-9 text-center text-md-end">Showing 09 Results</h5>
+                            <h5 class="showing-pagination-results mt-5 mt-md-9 text-center text-md-end">Showing Single Product</h5>
                         </div>
                     </div>
                 </div>
             </section>
             <!--== End Page Header Area Wrapper ==-->
 
-            <!--== Start Shop Top Bar Area Wrapper ==-->
-          
-
-                 
-            <!--== End Shop Top Bar Area Wrapper ==-->
-
-            <!--== Start Product Category Area Wrapper ==-->
-            <section class="section-space pb-0">
-                <div class="container">
-                    <div class="row g-3 g-sm-6">
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                            <!--== Start Product Category Item ==-->
-                            <a href="hare-care.php" class="product-category-item">
-                                <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
-                                <h3 class="title">Hare care</h3>
-                                <span class="flag-new">new</span>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                            <!--== Start Product Category Item ==-->
-                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Skin care</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Lip stick</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Face skin</h3>
-                                <span data-bg-color="#835BF4" class="flag-new">sale</span>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Blusher</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="natural.php" class="product-category-item" data-bg-color="#FFF3DA">
-                                <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Natural</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--== End Product Category Area Wrapper ==-->
-
-            <!--== Start Product Area Wrapper ==-->
+            <!--== Start Product Details Area Wrapper ==-->
             <section class="section-space">
                 <div class="container">
-                    <div class="row mb-n4 mb-sm-n10 g-3 g-sm-6">
-                        <div class="col-6 col-lg-4 mb-4 mb-sm-8">
-                            <!--== Start Product Item ==-->
+                    <?php foreach($data as $value)  ?> -->
+                    <div class="row product-details">
+                        <div class="col-lg-6">
+                            <div class="product-details-thumb">
+                                <img src="./img/<?php echo $value->getPhoto() ?>" width="570" height="693" alt="Image">
+                                <span class="flag-new">new</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="product-details-content">
+                                <h5 class="product-details-collection">Premioum collection</h5>
+                                <h3 class="product-details-title"><?php echo $value->getNom_Produit() ?></h3>
+                                <div class="product-details-review">
+                                    <div class="product-review-icon">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <button type="button" class="product-review-show"><?php echo $value->getCategorie_produit() ?></button>
+                                </div>
+                                <div class="product-details-qty-list">
+                                    
 
-                            <!-- produit -->
-                            <?php  foreach($data as $value){ ?>
-                            <div class="product-item">
-                                <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php">
-                                        <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
-                                    </a>
-                                    <span class="flag-new">new</span>
-                                    <div class="product-action">
-                                        <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                            <i class="fa fa-expand"></i>
-                                        </button>
-                                        <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                            <span>Add to cart</span>
-                                        </button>
-                                        <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                            <i class="fa fa-heart-o"></i>
-                                        </button>
+                                    <div class="qty-list-check">
+                                        
+                                        <label class="form-check-label" for="qtyList2"> <b>Description :<br></b> <span class="extra-offer"></label>
+                                        <label class="form-check-label" for="qtyList1"><?php echo $value->getDescription() ?></label>
+
+                                    
+                                    </div>
+
+                                </div>
+                                <div class="product-details-pro-qty">
+                                    <div class="pro-qty">
+                                        <input type="text" title="Quantity" value="01">
                                     </div>
                                 </div>
-                                <div class="product-info">
-                                    <div class="product-rating">
-                                        <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                        <div class="reviews">150 reviews</div>
+                               
+                                <div class="product-details-action">
+                                    <h4 class="price"><?php echo $value->getPrix() ?> DH</h4>
+                                    <div class="product-details-cart-wishlist">
+                                        <button type="button" class="btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal"><i class="fa fa-heart-o"></i></button>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
                                     </div>
-                                    <h4 class="title"><a href="product-details.php"><?php echo $value->getNom_Produit() ?></a></h4>
-                                    <div class="prices">
-                                        <span class="price"><?php echo $value->getPrix() ?>DH</span>
-                                        <span class="price-old"><?php echo $value->getCategorie_produit() ?></span>
-                                    </div>
-                                </div>
-                                <div class="product-action-bottom">
-                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                        <i class="fa fa-expand"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                        <i class="fa fa-heart-o"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                        <span>Add to cart</span>
-                                    </button>
                                 </div>
                             </div>
-                           
-                            <!--== End prPduct Item ==-->
                         </div>
-                      
-                        <div class="col-6 col-lg-4 mb-4 mb-sm-8">
-                          <?php }?>
-                        </div>
-                     
-
-        </main>
-
+                    </div>
+                 
         <!--== Start Footer Area Wrapper ==-->
         <footer class="footer-area">
             <!--== Start Footer Main ==-->
@@ -549,8 +483,11 @@ $data = $gestion->afficherCatigore($Categorie);
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
-                          
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
+                            <ul>
+                                <li><a href="index.php">Home One</a></li>
+                                <li><a href="index-two.html">Home Two</a></li>
+                            </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
@@ -621,7 +558,6 @@ $data = $gestion->afficherCatigore($Categorie);
     <!-- Plugins JS -->
     <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="./assets/js/plugins/fancybox.min.js"></script>
-    <script src="./assets/js/plugins/range-slider.js"></script>
     <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
 
     <!-- Custom Main JS -->

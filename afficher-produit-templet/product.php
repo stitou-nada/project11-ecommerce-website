@@ -75,7 +75,7 @@
                                         <li><a href="#/" class="mega-title">Single Product</a>
                                             <ul>
                                                 <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                                <li><a href="product-details.html">Single Product Variable</a></li>
+                                                <li><a href="product-details.php">Single Product Variable</a></li>
                                                 <li><a href="product-details-group.html">Single Product Group</a></li>
                                                 <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
                                             </ul>
@@ -307,7 +307,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -334,7 +334,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Readable content DX22</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -358,7 +358,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/2.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -385,7 +385,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Modern Eye Brush</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Modern Eye Brush</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -409,7 +409,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/3.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -436,7 +436,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Voyage face cleaner</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Voyage face cleaner</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -460,7 +460,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/4.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -487,7 +487,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Impulse Duffle</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Impulse Duffle</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -511,7 +511,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/5.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -538,7 +538,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Sprite Yoga Straps1</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Sprite Yoga Straps1</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -562,7 +562,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/6.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -589,7 +589,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Fusion facial cream</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Fusion facial cream</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -613,7 +613,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/8.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -640,7 +640,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Readable content DX22</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -664,7 +664,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/6.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -691,7 +691,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Voyage face cleaner</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Voyage face cleaner</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -715,7 +715,7 @@
                             <!--== Start Product Item ==-->
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php">
                                         <img src="assets/images/shop/7.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -742,7 +742,7 @@
                                         </div>
                                         <div class="reviews">150 reviews</div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Modern Eye Brush</a></h4>
+                                    <h4 class="title"><a href="product-details.php">Modern Eye Brush</a></h4>
                                     <div class="prices">
                                         <span class="price">$210.00</span>
                                         <span class="price-old">300.00</span>
@@ -816,7 +816,7 @@
                                         <!--== Start Product Item ==-->
                                         <div class="product-item">
                                             <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
+                                                <a class="d-block" href="product-details.php">
                                                     <img src="assets/images/shop/4.webp" width="370" height="450" alt="Image-HasTech">
                                                 </a>
                                                 <span class="flag-new">new</span>
@@ -843,7 +843,7 @@
                                                     </div>
                                                     <div class="reviews">150 reviews</div>
                                                 </div>
-                                                <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
+                                                <h4 class="title"><a href="product-details.php">Readable content DX22</a></h4>
                                                 <div class="prices">
                                                     <span class="price">$210.00</span>
                                                     <span class="price-old">300.00</span>
@@ -867,7 +867,7 @@
                                         <!--== Start Product Item ==-->
                                         <div class="product-item">
                                             <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
+                                                <a class="d-block" href="product-details.php">
                                                     <img src="assets/images/shop/5.webp" width="370" height="450" alt="Image-HasTech">
                                                 </a>
                                                 <span class="flag-new">new</span>
@@ -894,7 +894,7 @@
                                                     </div>
                                                     <div class="reviews">150 reviews</div>
                                                 </div>
-                                                <h4 class="title"><a href="product-details.html">Voyage face cleaner</a></h4>
+                                                <h4 class="title"><a href="product-details.php">Voyage face cleaner</a></h4>
                                                 <div class="prices">
                                                     <span class="price">$210.00</span>
                                                     <span class="price-old">300.00</span>
@@ -918,7 +918,7 @@
                                         <!--== Start Product Item ==-->
                                         <div class="product-item">
                                             <div class="product-thumb">
-                                                <a class="d-block" href="product-details.html">
+                                                <a class="d-block" href="product-details.php">
                                                     <img src="assets/images/shop/6.webp" width="370" height="450" alt="Image-HasTech">
                                                 </a>
                                                 <span class="flag-new">new</span>
@@ -945,7 +945,7 @@
                                                     </div>
                                                     <div class="reviews">150 reviews</div>
                                                 </div>
-                                                <h4 class="title"><a href="product-details.html">Sprite Yoga Straps1</a></h4>
+                                                <h4 class="title"><a href="product-details.php">Sprite Yoga Straps1</a></h4>
                                                 <div class="prices">
                                                     <span class="price">$210.00</span>
                                                     <span class="price-old">300.00</span>
@@ -1052,7 +1052,7 @@
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -1077,7 +1077,7 @@
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -1178,7 +1178,7 @@
                 <ul class="aside-cart-product-list">
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Leather Mens Slipper</span>
                         </a>
@@ -1186,7 +1186,7 @@
                     </li>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Quickiin Mens shoes</span>
                         </a>
@@ -1229,7 +1229,7 @@
                                 <li><a href="#" class="offcanvas-nav-item">Single Product</a>
                                     <ul>
                                         <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                        <li><a href="product-details.html">Single Product Variable</a></li>
+                                        <li><a href="product-details.php">Single Product Variable</a></li>
                                         <li><a href="product-details-group.html">Single Product Group</a></li>
                                         <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
                                     </ul>

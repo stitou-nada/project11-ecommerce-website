@@ -67,7 +67,7 @@ $data = $gestion->afficherProduits();
                 <div class="row align-items-center">
                     <div class="col-5 col-lg-2 col-xl-1">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
@@ -75,60 +75,30 @@ $data = $gestion->afficherProduits();
                     <div class="col-lg-7 col-xl-7 d-none d-lg-block">
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.html">home</a>
+                                <li class="has-submenu"><a href="index.php">home</a>
                                     <ul class="submenu-nav">
-                                        <li><a href="index.html">Home One</a></li>
+                                        <li><a href="index.php">Home One</a></li>
                                         <li><a href="index-two.html">Home Two</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
                                 <li class="has-submenu position-static"><a href="product.html">shop</a>
                                     <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">Shop Layout</a>
+                                        <li><a href="#/" class="mega-title">categories</a>
                                             <ul>
-                                                <li><a href="product.html">Shop 3 Column</a></li>
-                                                <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                                <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                                <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
+                                                
+                                                <li><a href="hare-care.php">Hare care</a></li>
+                                                <li><a href="Face-care.php">Face care</a></li>
+                                                <li><a href="blusher.php">Blusher</a></li>
+                                                <li><a href="lip-stick.php">Lip stick</a></li>
+                                                <li><a href="Skin care">Skin care</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#/" class="mega-title">Single Product</a>
-                                            <ul>
-                                                <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                                <li><a href="product-details.html">Single Product Variable</a></li>
-                                                <li><a href="product-details-group.html">Single Product Group</a></li>
-                                                <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Others Pages</a>
-                                            <ul>
-                                                <li><a href="product-cart.html">Shopping Cart</a></li>
-                                                <li><a href="product-checkout.html">Checkout</a></li>
-                                                <li><a href="product-wishlist.html">Wishlist</a></li>
-                                                <li><a href="product-compare.html">Compare</a></li>
-                                            </ul>
-                                        </li>
+                                       
+                                      
                                     </ul>
                                 </li>
-                                <li class="has-submenu"><a href="blog.html">Blog</a>
-                                    <ul class="submenu-nav">
-                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
-                                            <ul class="submenu-nav">
-                                                <li><a href="blog.html">Blog Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu"><a href="account-login.html">Pages</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="account-login.html">My Account</a></li>
-                                        <li><a href="faq.html">Frequently Questions</a></li>
-                                        <li><a href="page-not-found.html">Page Not Found</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
@@ -326,7 +296,7 @@ $data = $gestion->afficherProduits();
                            <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                    <a class="d-block" href="product-details.php?id=<?php echo $value->getId_Produit() ?>">
                                         <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -353,9 +323,9 @@ $data = $gestion->afficherProduits();
                                         </div>
                                         <div class="reviews"><?php echo $value->getCategorie_produit() ?> </div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.html"><?php echo $value->getNom_Produit() ?></a></h4>
+                                    <h4 class="title"><a href="product-details.php?id=<?php echo $value->getId_Produit() ?>"><?php echo $value->getNom_Produit() ?></a></h4>
                                     <div class="prices">
-                                        <span class="price"><?php echo $value->getPrix() ?>DH</span>
+                                        <span class="price"><?php echo $value->getPrix() ?> DH</span>
                                       
                                     </div>
                                 </div>
@@ -382,97 +352,7 @@ $data = $gestion->afficherProduits();
                     </div>
                 </div>
             </section>
-            <!--== End Product Area Wrapper ==-->
-
-            <!--== Start Blog Area Wrapper ==-->
-            <section class="section-space">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-title text-center">
-                                <h2 class="title">Blog posts</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-n9">
-                        <div class="col-sm-6 col-lg-4 mb-8">
-                            <!--== Start Blog Item ==-->
-                            <div class="post-item">
-                                <a href="blog-details.html" class="thumb">
-                                    <img src="assets/images/blog/1.webp" width="370" height="320" alt="Image-HasTech">
-                                </a>
-                                <div class="content">
-                                    <a class="post-category" href="blog.html">beauty</a>
-                                    <h4 class="title"><a href="blog-details.html">Lorem ipsum dolor sit amet consectetur adipiscing.</a></h4>
-                                    <ul class="meta">
-                                        <li class="author-info"><span>By:</span> <a href="blog.html">Tomas De Momen</a></li>
-                                        <li class="post-date">February 13, 2022</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--== End Blog Item ==-->
-                        </div>
-                        <div class="col-sm-6 col-lg-4 mb-8">
-                            <!--== Start Blog Item ==-->
-                            <div class="post-item">
-                                <a href="blog-details.html" class="thumb">
-                                    <img src="assets/images/blog/2.webp" width="370" height="320" alt="Image-HasTech">
-                                </a>
-                                <div class="content">
-                                    <a class="post-category post-category-two" data-bg-color="#A49CFF" href="blog.html">beauty</a>
-                                    <h4 class="title"><a href="blog-details.html">Facial Scrub is natural treatment for face.</a></h4>
-                                    <ul class="meta">
-                                        <li class="author-info"><span>By:</span> <a href="blog.html">Tomas De Momen</a></li>
-                                        <li class="post-date">February 13, 2022</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--== End Blog Item ==-->
-                        </div>
-                        <div class="col-sm-6 col-lg-4 mb-8">
-                            <!--== Start Blog Item ==-->
-                            <div class="post-item">
-                                <a href="blog-details.html" class="thumb">
-                                    <img src="assets/images/blog/3.webp" width="370" height="320" alt="Image-HasTech">
-                                </a>
-                                <div class="content">
-                                    <a class="post-category post-category-three" data-bg-color="#9CDBFF" href="blog.html">beauty</a>
-                                    <h4 class="title"><a href="blog-details.html">Benefit of Hot Ston Spa for your health & life.</a></h4>
-                                    <ul class="meta">
-                                        <li class="author-info"><span>By:</span> <a href="blog.html">Tomas De Momen</a></li>
-                                        <li class="post-date">February 13, 2022</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--== End Blog Item ==-->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--== End Blog Area Wrapper ==-->
-
-            <!--== Start News Letter Area Wrapper ==-->
-            <section class="section-space pt-0">
-                <div class="container">
-                    <div class="newsletter-content-wrap" data-bg-img="assets/images/photos/bg1.webp">
-                        <div class="newsletter-content">
-                            <div class="section-title mb-0">
-                                <h2 class="title">Join with us</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam.</p>
-                            </div>
-                        </div>
-                        <div class="newsletter-form">
-                            <form>
-                                <input type="email" class="form-control" placeholder="enter your email">
-                                <button class="btn-submit" type="submit"><i class="fa fa-paper-plane"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--== End News Letter Area Wrapper ==-->
-
+          
         </main>
 
         <!--== Start Footer Area Wrapper ==-->
@@ -484,7 +364,7 @@ $data = $gestion->afficherProduits();
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="index.html">
+                                    <a class="widget-logo" href="index.php">
                                         <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
@@ -495,7 +375,7 @@ $data = $gestion->afficherProduits();
                             <div class="widget-item">
                                 <h4 class="widget-title">Information</h4>
                                 <ul class="widget-nav">
-                                    <li><a href="blog.html">Blog</a></li>
+                                  
                                     <li><a href="about-us.html">About us</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
@@ -552,7 +432,7 @@ $data = $gestion->afficherProduits();
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -577,7 +457,7 @@ $data = $gestion->afficherProduits();
                                 <div class="thumb">
                                     <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.html">Readable content DX22</a></h4>
+                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
@@ -678,7 +558,7 @@ $data = $gestion->afficherProduits();
                 <ul class="aside-cart-product-list">
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Leather Mens Slipper</span>
                         </a>
@@ -686,7 +566,7 @@ $data = $gestion->afficherProduits();
                     </li>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
-                        <a href="product-details.html">
+                        <a href="product-details.php">
                             <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Quickiin Mens shoes</span>
                         </a>
@@ -711,7 +591,7 @@ $data = $gestion->afficherProduits();
                     <ul>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
                             <ul>
-                                <li><a href="index.html">Home One</a></li>
+                                <li><a href="index.php">Home One</a></li>
                                 <li><a href="index-two.html">Home Two</a></li>
                             </ul>
                         </li>
@@ -729,7 +609,7 @@ $data = $gestion->afficherProduits();
                                 <li><a href="#" class="offcanvas-nav-item">Single Product</a>
                                     <ul>
                                         <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                        <li><a href="product-details.html">Single Product Variable</a></li>
+                                        <li><a href="product-details.php">Single Product Variable</a></li>
                                         <li><a href="product-details-group.html">Single Product Group</a></li>
                                         <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
                                     </ul>
@@ -744,25 +624,8 @@ $data = $gestion->afficherProduits();
                                 </li>
                             </ul>
                         </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Blog</a>
-                            <ul>
-                                <li><a class="offcanvas-nav-item" href="#">Blog Layout</a>
-                                    <ul>
-                                        <li><a href="blog.html">Blog Grid</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Pages</a>
-                            <ul>
-                                <li><a href="account-login.html">My Account</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="page-not-found.html">Page Not Found</a></li>
-                            </ul>
-                        </li>
+                        
+                       
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
