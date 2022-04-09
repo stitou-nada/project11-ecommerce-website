@@ -1,3 +1,5 @@
+<?php  session_start(); ?>
+
 <!DOCTYPE php>
 <php class="no-js" lang="zxx">
 
@@ -153,22 +155,85 @@
                     <div class="row mb-n8">
                         <div class="col-lg-6 mb-8">
                             <!--== Start Login Area Wrapper ==-->
+                            <?php
+
+
+// Initialize the session
+
+
+include "AuthenticationManager.php";
+
+$authManager = new AuthenticationManager();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: page.php");
+    exit;
+}
+ 
+// Include config file
+require_once "AuthenticationManager.php";
+ 
+// Define variables and initialize with empty values
+$email = $password = "";
+$email_err = $password_err = $login_err = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if email is empty
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter email.";
+    } else{
+        $email = trim($_POST["email"]);
+    }
+    
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+    
+    // Validate credentials
+    if(empty($email_err) && empty($password_err)){
+        $hasLoging = $authManager->login($password, $email);
+        if($hasLoging == true){
+            // Redirect user to welcome page
+              header("location: index.php");
+        } else{
+          // Password is not valid, display a generic error message
+            $login_err = "Invalid email or password.";
+          } 
+    } else{
+                echo "Oops! Something went wrong. Please try again later.";
+    }     
+}
+?>
+
                             <div class="my-account-item-wrap">
                                 <h3 class="title">Login</h3>
+                                <?php 
+                                if(!empty($login_err)){
+                                  echo '<div class="alert alert-danger">' . $login_err . '</div>';
+                                }        
+        ?>
                                 <div class="my-account-form">
-                                    <form action="#" method="post">
+                                    <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <div class="form-group mb-6">
                                             <label for="login_username">Username or Email Address <sup>*</sup></label>
-                                            <input type="email" id="login_username">
+                                            <input type="email" name="email" id="login_username " class=" <?php echo (!empty($email_err)) ? 'is-invalid': ''; ?>" value="<?php echo $email; ?>">
+                                            <span class="invalid-feedback"><?php echo $email_err; ?></span>
                                         </div>
 
                                         <div class="form-group mb-6">
                                             <label for="login_pwsd">Password <sup>*</sup></label>
-                                            <input type="password" id="login_pwsd">
+                                            <input type="password" name="password" id="login_pwsd" class="<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
                                         </div>
 
                                         <div class="form-group d-flex align-items-center mb-14">
-                                            <a class="btn" href="my-account.php">Login</a>
+                                            <input class="btn" type="submit" value="Login"> </input>
 
                                             <div class="form-check ms-3">
                                                 <input type="checkbox" class="form-check-input" id="remember_pwsd">
