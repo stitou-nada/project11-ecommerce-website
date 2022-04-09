@@ -5,14 +5,14 @@
 
 
 <?php
-// include 'Gestion.php';
+// include 'AuthenticationManager.php';
 // if (!empty($_POST)){
 // $firstName = $_POST['firstName'];
 // $email = $_POST['email'];
 
-//     $gestion = new Gestion(); 
+//     $gestion = new AuthenticationManager(); 
 
-//   if( $data= $gestion->passwordOblie( $email,$firstName)){
+//   if( $data= $gestion->password( $email,$firstName)){
 
     
 
@@ -21,7 +21,7 @@
 // foreach($data as $value){
 
    
-//     $message=  "Hello ".$value->getNom().' '. $value->getPrenom()." Your password is: ".$value->getpassword();
+//     $message=  "Hello ".$value->getFirstname().' '. $value->getLastname()." Your password is: ".$value->getPassword();
   
 
 // }
