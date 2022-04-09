@@ -109,7 +109,7 @@
                 </span>
                             </button>
 
-                            <a class="header-action-btn" href="account-login.php">
+                            <a class="header-action-btn" href="my-account.php">
                                 <span class="icon">
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
@@ -333,7 +333,7 @@
                                     <li><a href="about-us.php">About us</a></li>
                                     <li><a href="contact.php">Contact</a></li>
                                     <li><a href="faq.php">Privacy</a></li>
-                                    <li><a href="account-login.php">Login</a></li>
+                                    <li><a href="my-account.php">Login</a></li>
                                     <li><a href="product.php">Shop</a></li>
                                     <li><a href="my-account.php">My Account</a></li>
                                     <li><a href="faq.php">FAQs</a></li>
@@ -592,7 +592,7 @@
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Pages</a>
                             <ul>
-                                <li><a href="account-login.php">My Account</a></li>
+                                <li><a href="my-account.php">My Account</a></li>
                                 <li><a href="faq.php">Frequently Questions</a></li>
                                 <li><a href="page-not-found.php">Page Not Found</a></li>
                             </ul>
