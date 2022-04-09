@@ -66,32 +66,31 @@ $quantity = $cartManager->getCartQuantity();
             <?php 
 
             
-              $productsList = $cartManager->getCartProducts($cart->getId());
+              $cartLineList = $cart->getCartLineList()[0];
+             
               $cartQuantity = $cartManager->getCartQuantity();
-              foreach($productsList as $value){
+              foreach($cartLineList as $value){
                 ?>
-                <p><?php print_r($cart)?></p>
-               
-             <!-- <div class="row border-top border-bottom">
+             <div class="row border-top border-bottom">
             
                 <div class="row main align-items-center">
 
               
                     <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
-                        <div class="row text-muted"><?= $value->getName() ?></div>
+                        <div class="row text-muted"><?= $value->getProduct()->getName() ?></div>
                         
-                        <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        <div class="row"><?= $value->getProduct()->getDescription()?></div>
                     </div>
-                    <div class="col"> <a href="modifier.php?id=<?= $value->getId() ?>" class="border"><?=   $value->getQuantity()?></a> </div>
-                    <div class="col"><?= $value->getPrice() ?> DH  <a class="close" href="supprimer.php?id=<?= $value->getId()  ?>"> &#10005;</a></div>
+                    <div class="col"> <a href="modifier.php?id=<?= $value->getIdCartLine() ?>" class="border"><?=   $value->getProductCartQuantity()?></a> </div>
+                    <div class="col"><?= $value->getProduct()->getPrice() ?> DH  <a class="close" href="supprimer.php?id=<?= $value->getIdCartLine()  ?>"> &#10005;</a></div>
                     
                 </div>
                   
-            </div> -->
+            </div>
             
             <?php } ?>
-            <p><?php print_r($cart)?></p>
+                
         </div>
         
      </div>

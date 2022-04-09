@@ -47,7 +47,7 @@
         }
 
         function getProduct(){
-            $this->product;
+           return $this->product;
         }
     }
 ?> 
