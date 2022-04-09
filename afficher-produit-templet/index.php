@@ -173,12 +173,12 @@ $data = $gestion->afficherProduits();
                                             <div class="hero-slide-text-img"><img src="assets/images/slider/text-theme.webp" width="427" height="232" alt="Image"></div>
                                             <h2 class="hero-slide-title">CLEAN FRESH</h2>
                                             <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis.</p>
-                                            <a class="btn btn-border-dark" href="product.html">BUY NOW</a>
+                                            <a class="btn btn-border-dark" href="index.php">BUY NOW</a>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="hero-slide-thumb">
-                                            <img src="assets/images/slider/slider1.webp" width="841" height="832" alt="Image">
+                                            <img src="./img/ezgif.com-gif-maker.png" width="841" height="832" alt="Image">
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@ $data = $gestion->afficherProduits();
                                             <div class="hero-slide-text-img"><img src="assets/images/slider/text-theme.webp" width="427" height="232" alt="Image"></div>
                                             <h2 class="hero-slide-title">Facial Cream</h2>
                                             <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis.</p>
-                                            <a class="btn btn-border-dark" href="product.html">BUY NOW</a>
+                                            <a class="btn btn-border-dark" href="index.php">BUY NOW</a>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -225,7 +225,7 @@ $data = $gestion->afficherProduits();
                     <div class="row g-3 g-sm-6">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item">
+                            <a href="hare-care.php" class="product-category-item">
                                 <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
                                 <h3 class="title">Hare care</h3>
                                 <span class="flag-new">new</span>
@@ -234,7 +234,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEDB4">
+                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
                                 <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Skin care</h3>
                             </a>
@@ -242,7 +242,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#DFE4FF">
+                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
                                 <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Lip stick</h3>
                             </a>
@@ -250,7 +250,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEACC">
+                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
                                 <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Face skin</h3>
                                 <span data-bg-color="#835BF4" class="flag-new">sale</span>
@@ -259,7 +259,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFDAE0">
+                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
                                 <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Blusher</h3>
                             </a>
@@ -267,7 +267,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFF3DA">
+                            <a href="natural.php" class="product-category-item" data-bg-color="#FFF3DA">
                                 <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Natural</h3>
                             </a>

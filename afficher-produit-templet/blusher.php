@@ -259,7 +259,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php">
+                                    <a class="d-block" href="product-details.php?id=<?= $value->getId_Produit() ?>">
                                         <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
