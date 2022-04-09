@@ -77,13 +77,10 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.php">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                        
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
-                                <li class="has-submenu position-static"><a href="product.html">shop</a>
+                                <li class="has-submenu position-static"><a href="#">shop</a>
                                     <ul class="submenu-nav-mega">
                                         <li><a href="#/" class="mega-title">categories</a>
                                             <ul>
@@ -92,7 +89,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                                 <li><a href="Face-care.php">Face care</a></li>
                                                 <li><a href="blusher.php">Blusher</a></li>
                                                 <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="Skin care">Skin care</a></li>
+                                                <li><a href="skin-care.php">Skin care</a></li>
                                             </ul>
                                         </li>
                                        
@@ -172,7 +169,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
-                                <h2 class="page-header-title">Blusher</h2>
+                                <h2 class="page-header-title">Hare care</h2>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -333,7 +330,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
                                     <li><a href="account-login.html">Login</a></li>
-                                    <li><a href="product.html">Shop</a></li>
+                                    <li><a href="#">Shop</a></li>
                                     <li><a href="my-account.html">My Account</a></li>
                                     <li><a href="faq.html">FAQs</a></li>
                                 </ul>
@@ -550,7 +547,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <ul>
                                 <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
                                     <ul>
-                                        <li><a href="product.html">Shop 3 Column</a></li>
+                                        <li><a href="#">Shop 3 Column</a></li>
                                         <li><a href="product-four-columns.html">Shop 4 Column</a></li>
                                         <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
                                         <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
