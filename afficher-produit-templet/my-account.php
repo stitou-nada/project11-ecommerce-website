@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/range-slider.css">
     <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
 
     <!-- Style CSS -->
@@ -36,72 +35,84 @@
 
 </head>
 
-<?php 
-
-include "gestion-affichage.php";
-
-
-$gestion = new Gestion();
-$Categorie = 'blusher';
-$data = $gestion->afficherCatigore($Categorie);
-
-
-
-
-
-
-?>
-
-
-
-
-
-
 <body>
 
     <!--== Wrapper Start ==-->
     <div class="wrapper">
 
         <!--== Start Header Wrapper ==-->
-        <header class="header-area sticky-header">
+        <header class="header-area">
             <div class="container">
-            <div class="row align-items-center">
-                    <div class="col-5 col-lg-2 col-xl-1">
+                <div class="row align-items-center">
+                    <div class="col-5 col-sm-6 col-lg-3">
                         <div class="header-logo">
                             <a href="index.php">
                                 <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
-                        <div class="header-navigation ps-7">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="header-navigation">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                        
-                                </li>
-                                <li><a href="about-us.php">about</a></li>
-                                <li class="has-submenu position-static"><a href="#">shop</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">categories</a>
-                                            <ul>
-                                                
-                                                <li><a href="hare-care.php">Hare care</a></li>
-                                                <li><a href="Face-care.php">Face care</a></li>
-                                                <li><a href="blusher.php">Blusher</a></li>
-                                                <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="skin-care.php">Skin care</a></li>
-                                            </ul>
-                                        </li>
-                                       
-                                      
+                                    <ul class="submenu-nav">
+                                        <li><a href="index.php">Home One</a></li>
+                                        <li><a href="index-two.php">Home Two</a></li>
                                     </ul>
                                 </li>
-                                
+                                <li><a href="about-us.php">about</a></li>
+                                <li class="has-submenu position-static"><a href="product.php">shop</a>
+                                    <ul class="submenu-nav-mega">
+                                        <li><a href="#/" class="mega-title">Shop Layout</a>
+                                            <ul>
+                                                <li><a href="product.php">Shop 3 Column</a></li>
+                                                <li><a href="product-four-columns.php">Shop 4 Column</a></li>
+                                                <li><a href="product-left-sidebar.php">Shop Left Sidebar</a></li>
+                                                <li><a href="product-right-sidebar.php">Shop Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#/" class="mega-title">Single Product</a>
+                                            <ul>
+                                                <li><a href="product-details-normal.php">Single Product Normal</a></li>
+                                                <li><a href="product-details.php">Single Product Variable</a></li>
+                                                <li><a href="product-details-group.php">Single Product Group</a></li>
+                                                <li><a href="product-details-affiliate.php">Single Product Affiliate</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#/" class="mega-title">Others Pages</a>
+                                            <ul>
+                                                <li><a href="product-cart.php">Shopping Cart</a></li>
+                                                <li><a href="product-checkout.php">Checkout</a></li>
+                                                <li><a href="product-wishlist.php">Wishlist</a></li>
+                                                <li><a href="product-compare.php">Compare</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu"><a href="blog.php">Blog</a>
+                                    <ul class="submenu-nav">
+                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="blog.php">Blog Grid</a></li>
+                                                <li><a href="blog-left-sidebar.php">Blog Left Sidebar</a></li>
+                                                <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="blog-details.php">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu"><a href="account-login.php">Pages</a>
+                                    <ul class="submenu-nav">
+                                        <li><a href="account-login.php">My Account</a></li>
+                                        <li><a href="faq.php">Frequently Questions</a></li>
+                                        <li><a href="page-not-found.php">Page Not Found</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-7 col-lg-3 col-xl-4">
+                    <div class="col-7 col-sm-6 col-lg-3">
                         <div class="header-action justify-content-end">
                             <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
                                 <span class="icon">
@@ -167,141 +178,193 @@ $data = $gestion->afficherCatigore($Categorie);
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
                                     <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">My Account</li>
                                 </ol>
-                                <h2 class="page-header-title">Blusher</h2>
+                                <h2 class="page-header-title">My Account</h2>
                             </div>
-                        </div>
-                        <div class="col-md-7">
-                            <h5 class="showing-pagination-results mt-5 mt-md-9 text-center text-md-end">Showing 09 Results</h5>
                         </div>
                     </div>
                 </div>
             </section>
             <!--== End Page Header Area Wrapper ==-->
 
-            <!--== Start Shop Top Bar Area Wrapper ==-->
-          
-
-                 
-            <!--== End Shop Top Bar Area Wrapper ==-->
-
-            <!--== Start Product Category Area Wrapper ==-->
-            <section class="section-space pb-0">
+            <!--== Start My Account Area Wrapper ==-->
+            <section class="my-account-area section-space">
                 <div class="container">
-                     <div class="row g-3 g-sm-6 d-flex justify-content-center">
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                            <!--== Start Product Category Item ==-->
-                            <a href="hare-care.php" class="product-category-item">
-                                <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
-                                <h3 class="title">Hare care</h3>
-                                <span class="flag-new">new</span>
-                            </a>
-                            <!--== End Product Category Item ==-->
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="my-account-tab-menu nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="dashboad-tab" data-bs-toggle="tab" data-bs-target="#dashboad" type="button" role="tab" aria-controls="dashboad" aria-selected="true">Dashboard</button>
+                                <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab" aria-controls="orders" aria-selected="false"> Orders</button>
+                                <button class="nav-link" id="download-tab" data-bs-toggle="tab" data-bs-target="#download" type="button" role="tab" aria-controls="download" aria-selected="false">Download</button>
+                                <button class="nav-link" id="payment-method-tab" data-bs-toggle="tab" data-bs-target="#payment-method" type="button" role="tab" aria-controls="payment-method" aria-selected="false">Payment Method</button>
+                                <button class="nav-link" id="address-edit-tab" data-bs-toggle="tab" data-bs-target="#address-edit" type="button" role="tab" aria-controls="address-edit" aria-selected="false">address</button>
+                                <button class="nav-link" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info" type="button" role="tab" aria-controls="account-info" aria-selected="false">Account Details</button>
+                                <button class="nav-link" onclick="window.location.href='account-login.php'" type="button">Logout</button>
+                            </div>
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                            <!--== Start Product Category Item ==-->
-                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Skin care</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
+                        <div class="col-lg-9 col-md-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="dashboad" role="tabpanel" aria-labelledby="dashboad-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Dashboard</h3>
+                                        <div class="welcome">
+                                            <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="account-login.php" class="logout"> Logout</a>)</p>
+                                        </div>
+                                        <p>From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Orders</h3>
+                                        <div class="myaccount-table table-responsive text-center">
+                                            <table class="table table-bordered">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Order</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Aug 22, 2018</td>
+                                                        <td>Pending</td>
+                                                        <td>$3000</td>
+                                                        <td><a href="shop-cart.php" class="check-btn sqr-btn ">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>July 22, 2018</td>
+                                                        <td>Approved</td>
+                                                        <td>$200</td>
+                                                        <td><a href="shop-cart.php" class="check-btn sqr-btn ">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>June 12, 2017</td>
+                                                        <td>On Hold</td>
+                                                        <td>$990</td>
+                                                        <td><a href="shop-cart.php" class="check-btn sqr-btn ">View</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="download" role="tabpanel" aria-labelledby="download-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Downloads</h3>
+                                        <div class="myaccount-table table-responsive text-center">
+                                            <table class="table table-bordered">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Date</th>
+                                                        <th>Expire</th>
+                                                        <th>Download</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Haven - Free Real Estate PSD Template</td>
+                                                        <td>Aug 22, 2018</td>
+                                                        <td>Yes</td>
+                                                        <td><a href="#/" class="check-btn sqr-btn"><i class="fa fa-cloud-download"></i> Download File</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>HasTech - Profolio Business Template</td>
+                                                        <td>Sep 12, 2018</td>
+                                                        <td>Never</td>
+                                                        <td><a href="#/" class="check-btn sqr-btn"><i class="fa fa-cloud-download"></i> Download File</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="payment-method" role="tabpanel" aria-labelledby="payment-method-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Payment Method</h3>
+                                        <p class="saved-message">You Can't Saved Your Payment Method yet.</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="address-edit" role="tabpanel" aria-labelledby="address-edit-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Billing Address</h3>
+                                        <address>
+                                            <p><strong>Alex Tuntuni</strong></p>
+                                            <p>1355 Market St, Suite 900 <br>
+                          San Francisco, CA 94103</p>
+                                            <p>Mobile: (123) 456-7890</p>
+                                        </address>
+                                        <a href="#/" class="check-btn sqr-btn"><i class="fa fa-edit"></i> Edit Address</a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="account-info" role="tabpanel" aria-labelledby="account-info-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Account Details</h3>
+                                        <div class="account-details-form">
+                                            <form action="#">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="single-input-item">
+                                                            <label for="first-name" class="required">First Name</label>
+                                                            <input type="text" id="first-name" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="single-input-item">
+                                                            <label for="last-name" class="required">Last Name</label>
+                                                            <input type="text" id="last-name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="single-input-item">
+                                                    <label for="display-name" class="required">Display Name</label>
+                                                    <input type="text" id="display-name" />
+                                                </div>
+                                                <div class="single-input-item">
+                                                    <label for="email" class="required">Email Addres</label>
+                                                    <input type="email" id="email" />
+                                                </div>
+                                                <fieldset>
+                                                    <legend>Password change</legend>
+                                                    <div class="single-input-item">
+                                                        <label for="current-pwd" class="required">Current Password</label>
+                                                        <input type="password" id="current-pwd" />
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="single-input-item">
+                                                                <label for="new-pwd" class="required">New Password</label>
+                                                                <input type="password" id="new-pwd" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="single-input-item">
+                                                                <label for="confirm-pwd" class="required">Confirm Password</label>
+                                                                <input type="password" id="confirm-pwd" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <div class="single-input-item">
+                                                    <button class="check-btn sqr-btn">Save Changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Lip stick</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Face skin</h3>
-                                <span data-bg-color="#835BF4" class="flag-new">sale</span>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Blusher</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        
                     </div>
                 </div>
             </section>
-            <!--== End Product Category Area Wrapper ==-->
-
-            <!--== Start Product Area Wrapper ==-->
-            <section class="section-space">
-                <div class="container">
-                    <div class="row mb-n4 mb-sm-n10 g-3 g-sm-6">
-                        <div class="col-6 col-lg-4 mb-4 mb-sm-8">
-                            <!--== Start Product Item ==-->
-
-                            <!-- produit -->
-                            <?php  foreach($data as $value){ ?>
-                            <div class="product-item">
-                                <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php?id=<?= $value->getId_Produit() ?>">
-                                        <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
-                                    </a>
-                                    <span class="flag-new">new</span>
-                                    <div class="product-action">
-                                        <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                            <i class="fa fa-expand"></i>
-                                        </button>
-                                        <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                            <span>Add to cart</span>
-                                        </button>
-                                        <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                            <i class="fa fa-heart-o"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-rating">
-                                        <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                        <div class="reviews">150 reviews</div>
-                                    </div>
-                                    <h4 class="title"><a href="product-details.php"><?php echo $value->getNom_Produit() ?></a></h4>
-                                    <div class="prices">
-                                        <span class="price"><?php echo $value->getPrix() ?>DH</span>
-                                        <span class="price-old"><?php echo $value->getCategorie_produit() ?></span>
-                                    </div>
-                                </div>
-                                <div class="product-action-bottom">
-                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                        <i class="fa fa-expand"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                        <i class="fa fa-heart-o"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                        <span>Add to cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                           
-                            <!--== End prPduct Item ==-->
-                        </div>
-                      
-                        <div class="col-6 col-lg-4 mb-4 mb-sm-8">
-                          <?php }?>
-                        </div>
-                     
+            <!--== End My Account Area Wrapper ==-->
 
         </main>
 
@@ -330,7 +393,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <li><a href="contact.php">Contact</a></li>
                                     <li><a href="faq.php">Privacy</a></li>
                                     <li><a href="account-login.php">Login</a></li>
-                                    <li><a href="#">Shop</a></li>
+                                    <li><a href="product.php">Shop</a></li>
                                     <li><a href="my-account.php">My Account</a></li>
                                     <li><a href="faq.php">FAQs</a></li>
                                 </ul>
@@ -539,15 +602,18 @@ $data = $gestion->afficherCatigore($Categorie);
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
-                          
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
+                            <ul>
+                                <li><a href="index.php">Home One</a></li>
+                                <li><a href="index-two.php">Home Two</a></li>
+                            </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.php">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
                             <ul>
                                 <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
                                     <ul>
-                                        <li><a href="#">Shop 3 Column</a></li>
+                                        <li><a href="product.php">Shop 3 Column</a></li>
                                         <li><a href="product-four-columns.php">Shop 4 Column</a></li>
                                         <li><a href="product-left-sidebar.php">Shop Left Sidebar</a></li>
                                         <li><a href="product-right-sidebar.php">Shop Right Sidebar</a></li>
@@ -611,7 +677,6 @@ $data = $gestion->afficherCatigore($Categorie);
     <!-- Plugins JS -->
     <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="./assets/js/plugins/fancybox.min.js"></script>
-    <script src="./assets/js/plugins/range-slider.js"></script>
     <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
 
     <!-- Custom Main JS -->

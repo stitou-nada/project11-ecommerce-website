@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE php>
+<php class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Brancy - Cosmetic & Beauty Salon Website Template">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="bootstrap, ecommerce, ecommerce html, beauty, cosmetic shop, beauty products, cosmetic, beauty shop, cosmetic store, shop, beauty store, spa, cosmetic, cosmetics, beauty salon" />
+    <meta name="keywords" content="bootstrap, ecommerce, ecommerce php, beauty, cosmetic shop, beauty products, cosmetic, beauty shop, cosmetic store, shop, beauty store, spa, cosmetic, cosmetics, beauty salon" />
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
@@ -79,7 +79,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                 <li class="has-submenu"><a href="index.php">home</a>
                                         
                                 </li>
-                                <li><a href="about-us.html">about</a></li>
+                                <li><a href="about-us.php">about</a></li>
                                 <li class="has-submenu position-static"><a href="#">shop</a>
                                     <ul class="submenu-nav-mega">
                                         <li><a href="#/" class="mega-title">categories</a>
@@ -97,7 +97,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     </ul>
                                 </li>
                                 
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ $data = $gestion->afficherCatigore($Categorie);
                 </span>
                             </button>
 
-                            <a class="header-action-btn" href="account-login.html">
+                            <a class="header-action-btn" href="account-login.php">
                                 <span class="icon">
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
@@ -325,14 +325,14 @@ $data = $gestion->afficherCatigore($Categorie);
                             <div class="widget-item">
                                 <h4 class="widget-title">Information</h4>
                                 <ul class="widget-nav">
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="about-us.html">About us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="faq.html">Privacy</a></li>
-                                    <li><a href="account-login.html">Login</a></li>
+                                    <li><a href="blog.php">Blog</a></li>
+                                    <li><a href="about-us.php">About us</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
+                                    <li><a href="faq.php">Privacy</a></li>
+                                    <li><a href="account-login.php">Login</a></li>
                                     <li><a href="#">Shop</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
+                                    <li><a href="my-account.php">My Account</a></li>
+                                    <li><a href="faq.php">FAQs</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -524,8 +524,8 @@ $data = $gestion->afficherCatigore($Categorie);
                     </li>
                 </ul>
                 <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
-                <a class="btn-total" href="product-cart.html">View cart</a>
-                <a class="btn-total" href="product-checkout.html">Checkout</a>
+                <a class="btn-total" href="product-cart.php">View cart</a>
+                <a class="btn-total" href="product-checkout.php">Checkout</a>
             </div>
         </aside>
         <!--== End Aside Cart ==-->
@@ -542,31 +542,31 @@ $data = $gestion->afficherCatigore($Categorie);
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
                           
                         </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.php">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
                             <ul>
                                 <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
                                     <ul>
                                         <li><a href="#">Shop 3 Column</a></li>
-                                        <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                        <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                        <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
+                                        <li><a href="product-four-columns.php">Shop 4 Column</a></li>
+                                        <li><a href="product-left-sidebar.php">Shop Left Sidebar</a></li>
+                                        <li><a href="product-right-sidebar.php">Shop Right Sidebar</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" class="offcanvas-nav-item">Single Product</a>
                                     <ul>
-                                        <li><a href="product-details-normal.html">Single Product Normal</a></li>
+                                        <li><a href="product-details-normal.php">Single Product Normal</a></li>
                                         <li><a href="product-details.php">Single Product Variable</a></li>
-                                        <li><a href="product-details-group.html">Single Product Group</a></li>
-                                        <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
+                                        <li><a href="product-details-group.php">Single Product Group</a></li>
+                                        <li><a href="product-details-affiliate.php">Single Product Affiliate</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" class="offcanvas-nav-item">Others Pages</a>
                                     <ul>
-                                        <li><a href="product-cart.html">Shopping Cart</a></li>
-                                        <li><a href="product-checkout.html">Checkout</a></li>
-                                        <li><a href="product-wishlist.html">Wishlist</a></li>
-                                        <li><a href="product-compare.html">Compare</a></li>
+                                        <li><a href="product-cart.php">Shopping Cart</a></li>
+                                        <li><a href="product-checkout.php">Checkout</a></li>
+                                        <li><a href="product-wishlist.php">Wishlist</a></li>
+                                        <li><a href="product-compare.php">Compare</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -575,22 +575,22 @@ $data = $gestion->afficherCatigore($Categorie);
                             <ul>
                                 <li><a class="offcanvas-nav-item" href="#">Blog Layout</a>
                                     <ul>
-                                        <li><a href="blog.html">Blog Grid</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                        <li><a href="blog.php">Blog Grid</a></li>
+                                        <li><a href="blog-left-sidebar.php">Blog Left Sidebar</a></li>
+                                        <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li><a href="blog-details.php">Blog Details</a></li>
                             </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Pages</a>
                             <ul>
-                                <li><a href="account-login.html">My Account</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="page-not-found.html">Page Not Found</a></li>
+                                <li><a href="account-login.php">My Account</a></li>
+                                <li><a href="faq.php">Frequently Questions</a></li>
+                                <li><a href="page-not-found.php">Page Not Found</a></li>
                             </ul>
                         </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.php">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -619,4 +619,4 @@ $data = $gestion->afficherCatigore($Categorie);
 
 </body>
 
-</html>
+</php>
