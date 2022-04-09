@@ -200,16 +200,19 @@ include 'login-signUp/AuthenticationManager.php';
 
              $email =   $_SESSION["email"]; 
              $account = new AuthenticationManager();
-            }
+            
 
           
             //afficher les informations
             
             $data = $account->MyAccount($email);
-            foreach ($data as $value ) 
+            foreach ($data as $value ) ;
            
            
-            
+        }
+        else{
+          $login = 'login';   
+         }
                 
               //modifier les informations
 
@@ -234,7 +237,18 @@ include 'login-signUp/AuthenticationManager.php';
                             <div class="my-account-tab-menu nav nav-tabs" id="nav-tab" role="tablist">
                               
                                 <button class="nav-link" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info" type="button" role="tab" aria-controls="account-info" aria-selected="false">Account Details</button>
-                                <button class="nav-link" onclick="window.location.href='my-account.php'" type="button">Logout</button>
+                                
+                                <?php 
+                                
+                                if(!empty($login)){ ?>
+                                    <button class="nav-link" onclick="window.location.href='./login-signup/login.php'" type="button"> <?php echo $login; ?> </button>
+                             <?php
+                                } 
+                                else{ ?>
+                                    <button class="nav-link" onclick="window.location.href='./login-signup/login.php'" type="button"> <?php echo "logout";  }?> </button>
+                           
+                           
+                            </button>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-8">
