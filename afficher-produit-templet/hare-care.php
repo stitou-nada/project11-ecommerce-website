@@ -192,7 +192,7 @@ $data = $gestion->afficherCatigore($Categorie);
             <!--== Start Product Category Area Wrapper ==-->
             <section class="section-space pb-0">
                 <div class="container">
-                    <div class="row g-3 g-sm-6">
+                     <div class="row g-3 g-sm-6 d-flex justify-content-center">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
                             <a href="hare-care.php" class="product-category-item">
@@ -235,14 +235,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             </a>
                             <!--== End Product Category Item ==-->
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="natural.php" class="product-category-item" data-bg-color="#FFF3DA">
-                                <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Natural</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
+                        
                     </div>
                 </div>
             </section>

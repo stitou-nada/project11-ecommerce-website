@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 09 avr. 2022 à 17:06
+-- Généré le : sam. 09 avr. 2022 à 18:45
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -139,7 +139,16 @@ INSERT INTO `produit` (`id_produit`, `nom_produit`, `prix`, `description`, `quan
 (33, 'Luxe Matte Lipstick in Nude Reality', '40', 'Colour Riche Lipcolor: Indulge in richness beyond compare with our most luxuriously rich color and hydration; Colour Riche Lipstick is enriched with nourishing ingredients like Omega 3, Vitamin E, and Argan Oil to soften lipsGorgeous Hydrating Lip Color', 0, '0000-00-00', 4, 'Luxe Matte Lipstick in Nude Reality.jpg'),
 (34, 'Moodstruck Epic 4D Mascara', '400', 'Go ahead and toss your falsies, because this one-step wonder just made an entrance. MOODSTRUCK EPIC 4D one‑step fiber mascara combines Y‑shaped fibers and a specially engineered two-sided brush to interlock fibers for lash volume, length, and lift like yo', 0, '0000-00-00', 4, 'Moodstruck Epic 4D Mascara.jpg'),
 (35, 'Nudiversal Lip Duo in Shade 11  Istanbul', '40', 'ALL-DAY WEAR: Natural-looking nude lip color that lasts for up to 24 hours\r\nEASY TWO-STEP PROCESS: For long-lasting coverage, apply color before locking it in with the shiny topcoat\r\nMOISTURIZING FORMULA: The nourishing formula contains sunflower seed oil', 0, '0000-00-00', 4, 'Nudiversal Lip Duo in Shade 11  Istanbul.jpg'),
-(36, 'MANYO FACTORY Galactomy Essence Cream, Niacinamide Korean Skin care 1.69fl oz (50ml)', '300', '🌸 made of 99.73% natural organic ingredients including the Galactomyces extract and Niacinamide\r\n🌸 Moisturizing, soothing, glowing, and firming\r\n🌸 Zero silicon oil & smooth cream formula tightly and smoothly absorbs into skin\r\n🌸 It effortlessly blends int', 10, '0000-00-00', 3, 'ezgif.com-gif-maker.png');
+(36, 'MANYO FACTORY Galactomy Essence Cream, Niacinamide Korean Skin care 1.69fl oz (50ml)', '300', '🌸 made of 99.73% natural organic ingredients including the Galactomyces extract and Niacinamide\r\n🌸 Moisturizing, soothing, glowing, and firming\r\n🌸 Zero silicon oil & smooth cream formula tightly and smoothly absorbs into skin\r\n🌸 It effortlessly blends int', 10, '0000-00-00', 3, 'ezgif.com-gif-maker.png'),
+(37, 'Acne Clearing Toner', '100', 'Contains 1 - 8 ounce botttle of wild crop, certified organic witch hazel toner, fragrance free\r\nOur first ingredient is Certified Organic Witch Hazel - wild harvested to capture the vital plant essence and distilled to preserve its natural potency – not d', 0, '0000-00-00', 5, 'Acne Clearing Toner.jpg'),
+(38, 'Blemish Balm Moisturizer', '120', 'Replenishing Post-pimple Cream – Rescue Balm is the post-blemish essential. As soon as you’ve popped a zit or removed your pimple patch, dab on Rescue Balm to instantly improve your skin’s texture and appearance\r\nThe Hero Difference – The brand that broug', 0, '0000-00-00', 5, 'Blemish Balm Moisturizer.jpg'),
+(39, 'C15 Super Booster', '500', 'DIMINISH LARGE PORES: Tighten & refine the look of stretched, sagging pores caused by age or sun damage.\r\nIMPROVE SKIN TONE: Vitamin C & licorice root visibly brighten skin and improve blotchy tone, discolorations and uneven skin tone\r\nMINIMIZE HARD, CLOG', 0, '0000-00-00', 5, 'C15 Super Booster.jpg'),
+(40, 'CeraVe Hydrating Facial Cleanser', '150', '[ DAILY FACE WASH ] Gentle cleansing lotion with hyaluronic acid, ceramides, and glycerin to help hydrate skin without stripping moisture. Removes face makeup, dirt, and excess oil, provides 24-hour hydration and leaves a moisturized, non-greasy feel.\r\n[ ', 0, '0000-00-00', 5, 'CeraVe Hydrating Facial Cleanser.jpg'),
+(41, 'Natural-Cosmetic-cream-product', '720', 'BRIGHTEN and CLARIFY SKIN - Our revival serum, a hydrating and lifting serum with aminos, contains anti-aging benefits to promote rejuvenation and help your skin feel lifted, firm, and younger.\r\nWITH VITAMINS AND MINERALS - Moisturizing and revitalizing, ', 0, '0000-00-00', 5, 'Natural-Cosmetic-cream-product-ad-Clipart-PNG.png'),
+(42, 'Phloretin CF', '180', 'The Ultimate Skin Revitalizing Set: Vitamin C brightens in the AM; Retinol renews while you sleep; Hyaluronic acid is the perfect day or night solution to lock in moisture to reduce appearance of fine lines\r\nVitamin C is your wake up cure with powerful an', 0, '0000-00-00', 5, 'Phloretin CF.jpg'),
+(43, 'Purifying Toner', '70', 'Gentle Face Toner: Alcohol-free and formulated to soothe, tone, hydrate, and balance the pH level of skin; This face toner helps reduce the look of pores, balance oily skin, and maintain the skin\'s moisture barrier\r\n98 Percent Natural Origin Ingredients: ', 0, '0000-00-00', 5, 'Purifying Toner.jpg'),
+(44, 'Rose & Hyaluronic Acid Deep Hydration Toner', '240', 'True Beauty Rest – Wake to the skin of your dreams with your Noacier Overnight Collagen Mask. Your innovative, potent formula helps firm, tone, and hydrate your complexion from the inside out as you sleep.\r\nTurn Back Time – Promote seamless skin with hydr', 0, '0000-00-00', 5, 'Rose & Hyaluronic Acid Deep Hydration Toner.jpg'),
+(45, 'Squalane + Phyto-Retinol Serum', '680', 'Biossance Squalane + Copper Peptide Rapid Plumping Serum. Get immediate and lasting hydration powered by our proprietary Rapid Plumping Complex that floods skin with 3 super-hydrators for supreme moisture.\r\nBounce in a Bottle. The non-sticky, silky blue e', 0, '0000-00-00', 5, 'Squalane + Phyto-Retinol Serum.jpg');
 
 -- --------------------------------------------------------
 
@@ -227,7 +236,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id_produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT pour la table `users`
