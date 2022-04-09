@@ -54,12 +54,22 @@ class Gestion{
        $Date_dexpiration = $produit->getDate_dexpiration();   
        $Categorie_produit = $produit->getCategorie_produit();   
        $Quantite_stock = $produit->getQuantite_stock();    
+       $photo = $produit->getPhoto();    
         // requête SQL
-        $insertRow="INSERT INTO produit(`id_produit`, `nom_produit`, `prix`, `description`, `quantite_stock`, `date_d'expiration`, `categorie_produit`) 
-                      VALUES('$idProduit', '$Nom_produit' ,'$Prix' , '$Description'  , '$Quantite_stock' ,'$Date_dexpiration' ,'$Categorie_produit')";
+        $insertRow="INSERT INTO produit(`id_produit`, `nom_produit`, `prix`, `description`, `quantite_stock`, `date_d'expiration`, `categorie_produit`,photo) 
+                      VALUES('$idProduit', '$Nom_produit' ,'$Prix' , '$Description'  , '$Quantite_stock' ,'$Date_dexpiration' ,'$Categorie_produit','$photo')";
 
         mysqli_query($this->getConnection(), $insertRow);
     }
+
+
+
+
+    public function upload_photo($fileName, $tempname){
+
+        $folder = '../img/'.$fileName;
+        move_uploaded_file($tempname, $folder);
+    } 
 
     //afficher categorie
     public function afficherCategorie(){
@@ -96,6 +106,7 @@ class Gestion{
                    $produit->setCategorie_produit($value_Data["categorie_produit"]);   
                    $produit->setQuantite_stock($value_Data["quantite_stock"]); 
                    $produit->setNom_Categorie($value_Data["nom_categorie"]);  
+                   $produit->setPhoto($value_Data["photo"]);  
                    array_push($TableData, $produit);
                    
                 }
@@ -104,10 +115,20 @@ class Gestion{
 
     // modifier
 
-    public function Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ){
+    public function Modifier($produit){
         // Requête SQL
+
+
+        $id = $produit->getId_Produit() ;   
+        $Prix = $produit->getPrix();   
+        $Nom_produit =  $produit->getNom_Produit();   
+        $Description = $produit->getDescription();   
+        $Date_dexpiration = $produit->getDate_dexpiration();   
+        $Quantite_stock = $produit->getQuantite_stock();    
+        $photo = $produit->getPhoto(); 
+
         $RowUpdate = "UPDATE produit SET 
-        nom_produit='$Nom_produit',prix = '$Prix', `description`= '$Description',quantite_stock = '$Quantite_stock', `date_d'expiration` = '$Date_dexpiration' WHERE  id_produit = $id" ;
+        nom_produit='$Nom_produit',prix = '$Prix', `description`= '$Description',quantite_stock = '$Quantite_stock', `date_d'expiration` = '$Date_dexpiration',photo='$photo' WHERE  id_produit = $id" ;
 
         mysqli_query($this->getConnection(),$RowUpdate);
     }

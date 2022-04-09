@@ -2,9 +2,9 @@
 session_start();
 
 
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
-$compteur = $gestionProduit->compteur();
+include 'cartManager.php';
+$cartManager = new CartManager();
+$compteur = $cartManager->compteur();
 
 ?>
 <!-- CSS only -->
@@ -36,7 +36,7 @@ $compteur = $gestionProduit->compteur();
                         <li class="nav-item"><a class="nav-link" href="#!">Magasin</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>  
                     </ul>
-                    <form action="ajouter.php"method="POST" class="d-flex">
+                    <form action="addTocart.php"method="POST" class="d-flex">
                         <button   class="btn btn-outline-dark" type="submit">
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
@@ -63,14 +63,15 @@ $compteur = $gestionProduit->compteur();
             <?php 
 
             
-              $listProduits = $gestionProduit->getPanier();
+              $listProduits = $cartManager->getPanier();
               foreach($listProduits as $value){
                 ?>
              <div class="row border-top border-bottom">
             
                 <div class="row main align-items-center">
-                    
-              
+                <?php var_dump($listProduits); ?>
+
+<!--               
                     <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
                         <div class="row text-muted"><?= $value["nom"] ?></div>
@@ -79,7 +80,7 @@ $compteur = $gestionProduit->compteur();
                     </div>
                     <div class="col"> <a href="modifier.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a> </div>
                     <div class="col"><?= $value["prix"] ?> DH  <a class="close" href="supprimer.php?id=<?= $value["id"] ?>"> &#10005;</a></div>
-                    
+                     -->
                 </div>
                   
             </div>
