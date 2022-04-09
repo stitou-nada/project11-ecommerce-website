@@ -4,7 +4,6 @@ include "cart.php";
 include "cartLine.php";
 
 
-
 class CartManager {
 
     public $name ;
@@ -22,7 +21,18 @@ class CartManager {
     }
 
 
-  
+  public function initCode() {
+    if(!isset($_COOKIE['cartCookie']))
+    {
+        $expire=time() + (86400 * 30);//however long you want
+        $cookieId = uniqid();
+        setcookie('cartCookie', $cookieId, $expire);
+        $_SESSION["product"] = array();
+        $_SESSION["quantity"] = 0;
+        $_SESSION["product"] = array();
+        $this->addCartCookie($cookieId);
+    }
+  }
     
     // Add product to cart
     public function addProduct($cart, $product, $quantity){
@@ -31,26 +41,81 @@ class CartManager {
         $sql = "INSERT INTO cart_line(idProduct,idCart, productCartQuantity) VALUES('$productId', '$cartId', '$quantity')";
         $result = mysqli_query($this->getConnection(), $sql);
         if($result){
-            $last_id = mysqli_insert_id($this->getConnection());
-            return $last_id;
+            $this->getConnection()->close();
         }
-        $this->getConnection()->close();
 
+    }
+
+    public function getCartLine($id){
+        $sql = "SELECT * FROM cart_line INNER JOIN produit on produit.id_produit=cart_line.idProduct WHERE idCart='$id'";
+        $query = mysqli_query($this->getConnection(), $sql);
+        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        
+       
+        $cartLineList = array();
+        foreach($result as $value){
+            $product = new Product();
+            $cartLine = new CartLine();
+            $cartLine->setIdCartLine($value['idCartLine']);
+            $cartLine->setIdCart($value['idCart']);
+            $cartLine->setIdProduct($value['idProduct']);
+            $cartLine->setProductCartQuantity($value['productCartQuantity']);
+            $product->setId($value['id_produit']);
+            $product->setName($value['nom_produit']);
+            $product->setPrice($value['prix']);
+            $product->setDescription($value['description']);
+            $product->setDateOfExpiration($value["date_d'expiration"]);
+            $product->setQuantity($value['quantite_stock']);
+            $product->setCategory($value['categorie_produit']);
+            $cartLine->setProduct($product);
+            array_push($cartLineList, $cartLine);
+        }
+        return $cartLineList;
     }
     
     // pour ajouter session
-    public function set($key,$value){
-        $_SESSION["paniers"]["products"][$key] = $value ;
+    public function set($cart, $product, $quantity){
+        session_start();
+        $_SESSION["cart"] = $cart;
+        array_push($_SESSION["product"], $product);
+        if(!isset($_SESSION["quantity"])){
+            $_SESSION["quantity"] = 0;
+        }
+        $_SESSION["quantity"] += $quantity; 
 
     }
 
       // afficher session
 
-      public function getPanier(){
-        if(isset($_SESSION["paniers"]["products"])){
-            return $_SESSION["paniers"]["products"];
-        }
+      public function getCartProducts($cartId){
 
+        $sql = "SELECT * FROM cart_line INNER JOIN produit on cart_line.idCartLine = produit.id_produit WHERE idCart = $cartId";
+        $query = mysqli_query($this->getConnection(), $sql);
+        $result =  mysqli_fetch_all($query, MYSQLI_ASSOC);
+        return $result;
+        $product = new Product();
+        $productsList = array();
+        foreach ($result as $value_Data) {
+            $product->setId($value_Data['id_produit']);
+            $product->setName($value_Data['nom_produit']);
+            $product->setPrice($value_Data['prix']);
+            $product->setDescription($value_Data['description']);
+            $product->setDateOfExpiration($value_Data["date_d'expiration"]);
+            $product->setQuantity($value_Data['quantite_stock']);
+            $product->setCategory($value_Data['categorie_produit']);
+            array_push($productsList, $product);
+        }
+          return $productsList;
+        // if(isset($_SESSION["product"])){
+        //     return $_SESSION["product"];
+        // }
+
+      }
+
+      public function getCartQuantity(){
+          if(isset($_SESSION["quantity"])){
+              return $_SESSION["quantity"];
+          }
       }
 
           //supprimer session
@@ -62,10 +127,9 @@ class CartManager {
 
     
     // pour afficher  session 
-    public function getProduit($id){
-        if(isset($_SESSION["paniers"]["products"][$id])){
-            return $_SESSION["paniers"]["products"][$id];
-            return null ; 
+    public function getProduct($id){
+        if(isset($_SESSION["product"])){
+            return $_SESSION["product"][$id];
         }
     }
 
@@ -119,7 +183,6 @@ class CartManager {
       
  
 
-
         function compteur(){ 
         if(isset($_SESSION["paniers"]) != null){
                 $compteur = count($_SESSION["paniers"]["products"]) ;
@@ -146,6 +209,8 @@ class CartManager {
             $cart->setId($result["id"]);
             $cart->setUserReference($result["userReference"]);
 
+            $cartLine = $this->getCartLine($cart->getId());
+            $cart->setCartLineList($cartLine);
             return $cart;
         }
     }

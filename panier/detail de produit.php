@@ -1,8 +1,12 @@
 <?php
-session_start();
 include 'cartManager.php';
+session_start();
+
 $cartManager = new CartManager();
-$compteur = $cartManager->compteur();
+
+$cartManager->initCode();
+
+$quantity = $cartManager->getCartQuantity();
 $cart = new Cart();
 $cart = $cartManager->getCart($_COOKIE['cartCookie']);
 // }?>
@@ -40,7 +44,7 @@ $cart = $cartManager->getCart($_COOKIE['cartCookie']);
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                            <?php echo $compteur ?></span>
+                            <?php echo $quantity ?></span>
                         </button>
                     </form>
                 </div>

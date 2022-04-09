@@ -1,18 +1,13 @@
 <?php
+
 include 'cartManager.php';
+session_start();
 
 $cartManager = new CartManager();
 
-if(!isset($_COOKIE['cartCookie']))
-{
-    $expire=time() + (86400 * 30);//however long you want
-    $cookieId = uniqid();
-    setcookie('cartCookie', $cookieId, $expire);
-    $cartManager->addCartCookie($cookieId);
-}
+$cartManager->initCode();
 
-session_start();
-$compteur = $cartManager->compteur();
+$quantity = $cartManager->getCartQuantity();
 
 
 
@@ -55,7 +50,7 @@ $compteur = $cartManager->compteur();
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
                         <?php 
                             
-                        echo $compteur
+                        echo $quantity
                         ?>
                         </span>
                         </button>

@@ -1,10 +1,13 @@
 <?php
+include 'cartManager.php';
 session_start();
 
-
-include 'cartManager.php';
 $cartManager = new CartManager();
-$compteur = $cartManager->compteur();
+
+$cartManager->initCode();
+$cart = $cartManager->getCart($_COOKIE['cartCookie']);
+
+$quantity = $cartManager->getCartQuantity();
 
 ?>
 <!-- CSS only -->
@@ -41,7 +44,7 @@ $compteur = $cartManager->compteur();
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                                 <?php echo $compteur ?>
+                                 <?php echo $quantity ?>
                         </span>
                         </button>
                     </form>
@@ -63,29 +66,32 @@ $compteur = $cartManager->compteur();
             <?php 
 
             
-              $listProduits = $cartManager->getPanier();
-              foreach($listProduits as $value){
+              $productsList = $cartManager->getCartProducts($cart->getId());
+              $cartQuantity = $cartManager->getCartQuantity();
+              foreach($productsList as $value){
                 ?>
-             <div class="row border-top border-bottom">
+                <p><?php print_r($cart)?></p>
+               
+             <!-- <div class="row border-top border-bottom">
             
                 <div class="row main align-items-center">
-                <?php var_dump($listProduits); ?>
 
-<!--               
+              
                     <div class="col-2"><img class="img-fluid" src="../img/gallery-image-4-270x195.jpg"></div>
                     <div class="col">
-                        <div class="row text-muted"><?= $value["nom"] ?></div>
+                        <div class="row text-muted"><?= $value->getName() ?></div>
                         
                         <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                     </div>
-                    <div class="col"> <a href="modifier.php?id=<?= $value["id"] ?>" class="border"><?= $value["quantite"] ?></a> </div>
-                    <div class="col"><?= $value["prix"] ?> DH  <a class="close" href="supprimer.php?id=<?= $value["id"] ?>"> &#10005;</a></div>
-                     -->
+                    <div class="col"> <a href="modifier.php?id=<?= $value->getId() ?>" class="border"><?=   $value->getQuantity()?></a> </div>
+                    <div class="col"><?= $value->getPrice() ?> DH  <a class="close" href="supprimer.php?id=<?= $value->getId()  ?>"> &#10005;</a></div>
+                    
                 </div>
                   
-            </div>
+            </div> -->
             
             <?php } ?>
+            <p><?php print_r($cart)?></p>
         </div>
         
      </div>
