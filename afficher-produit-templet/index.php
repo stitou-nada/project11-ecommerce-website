@@ -39,7 +39,7 @@
 
 <?php 
 
-include "gestion-affichage.php";
+include "gestion.php";
 
 
 $gestion = new Gestion();
