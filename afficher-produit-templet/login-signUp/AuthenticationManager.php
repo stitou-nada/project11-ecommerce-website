@@ -124,6 +124,40 @@ function Login( $password,$email){
     }
     
 }
+
+
+function MyAccount($email){
+
+    // Prepare an insert statement
+    $SelctRow = "SELECT * From users where email  = '$email'";
+    $query = mysqli_query($this->getConnection() ,$SelctRow);
+    $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $TableData = array();
+    foreach ( $produits_data as $value_Data) {
+                         
+        $user  = new User();
+         $user->setId($value_Data['id']);
+         $user->setFirstname($value_Data['firstName']);
+         $user->setLastname($value_Data['lastName']);
+        $user->setEmail($value_Data['email']);
+        $user->setRole($value_Data['role']);
+        $user->setPassword($value_Data['passWord']);
+        array_push($TableData, $user);
+    }
+    return $TableData;
+    }
+
+function EditMyAccount($firstName,$lastName,$id){
+
+    // Prepare an insert statement
+    $SelctRow = "UPDATE users SET  firstName ='$firstName',lastName ='$lastName' where id = '$id' ";
+   
+     mysqli_query($this->getConnection() ,$SelctRow);
+    }
+
+
+
+
 // function password( $email,$firstName){
 
 //     $rowLogin="SELECT * FROM `users` where firstName='$firstName'and `email`='$email' ";
