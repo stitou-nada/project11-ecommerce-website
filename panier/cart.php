@@ -26,7 +26,7 @@
         }
 
         function getCartLineList(){
-            $this->cartLineList;
+            return $this->cartLineList;
         }
     }
 ?>
