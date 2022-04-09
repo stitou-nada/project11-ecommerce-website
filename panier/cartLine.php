@@ -4,6 +4,7 @@
         private $idProduct;
         private $idCart;
         private $productCartQuantity;
+        private $product ;
 
         function setIdCartLine($idCartLine){
 
@@ -39,6 +40,14 @@
 
         function getProductCartQuantity(){
             return $this->productCartQuantity;
+        }
+
+        function setProduct($product){
+            $this->product= $product;
+        }
+
+        function getProduct(){
+            $this->product;
         }
     }
 ?> 

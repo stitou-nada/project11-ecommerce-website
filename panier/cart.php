@@ -2,6 +2,7 @@
     class Cart {
         private $id;
         private $userReference;
+        private $cartLineList = array();
 
 
         function setId($id){
@@ -18,6 +19,14 @@
 
         function getUserReference(){
             return $this->userReference;
+        }
+
+        function setCartLineList($cartLineList){
+            array_push($this->cartLineList, $cartLineList);
+        }
+
+        function getCartLineList(){
+            $this->cartLineList;
         }
     }
 ?>

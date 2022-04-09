@@ -1,32 +1,28 @@
 <?php
-session_start();
 include 'cartManager.php';
+session_start();
+
 $cartManager = new CartManager();
 
-
-
+$cartManager->initCode();
 
 if(isset($_POST['id'])){
 
     $id=$_POST['id'];
     $cartLine = new CartLine();
     $cart = new Cart();
-    $cartLineList = [];
+    $quantity =  $_POST["quantite"];
+
     $cart = $cartManager->getCart($_COOKIE['cartCookie']);
 
-    $data = $cartManager->afficherProduit($id);
+    $product = $cartManager->afficherProduit($id);
     
-    foreach($data as $value);
     $cartLine->setIdCart($cart->getId());
 
-    $valeurs = array(
-        "name" => $value->getName(),
-        'prix' => $value->getPrice(),
-        'quantite' => $_POST["quantite"] ,
-        'id' => $value->getId(),
-    );
-    $cartManager->set($_POST["id"], $valeurs);
+    $cartManager->addProduct($cart, $product, $quantity);
+    $product->setQuantity($quantity);
 
+    $cartManager->set($cart, $product, $quantity);
 
     header("location: panier.php");
 

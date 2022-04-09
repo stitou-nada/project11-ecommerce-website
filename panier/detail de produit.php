@@ -1,9 +1,14 @@
 <?php
-session_start();
 include 'cartManager.php';
-$cartManager = new CartManager();
-$compteur = $cartManager->compteur();
+session_start();
 
+$cartManager = new CartManager();
+
+$cartManager->initCode();
+
+$quantity = $cartManager->getCartQuantity();
+$cart = new Cart();
+$cart = $cartManager->getCart($_COOKIE['cartCookie']);
 // }?>
 <!-- CSS only -->
 <!DOCTYPE html>
@@ -39,7 +44,7 @@ $compteur = $cartManager->compteur();
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                            <?php echo $compteur ?></span>
+                            <?php echo $quantity ?></span>
                         </button>
                     </form>
                 </div>
@@ -56,7 +61,6 @@ $id=$_GET["id"];
 }
 
 $data = $cartManager->afficherProduit($id);
-foreach($data as $value){
 ?>
   
    
@@ -65,13 +69,10 @@ foreach($data as $value){
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div  class="col-md-6">
-                        <h1 class="display-5 fw-bolder"><?= $value->getName();?></h1>
+                        <h1 class="display-5 fw-bolder"><?= $data->getName();?></h1>
                         <div class="fs-5 mb-5">
                            
-                            <span><?= $value->getPrice();?> DH</span>
-                            <?php 
-                            }
-                         ?>
+                            <span><?= $data->getPrice();?> DH</span>
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
@@ -81,7 +82,7 @@ foreach($data as $value){
                           <input type="number" name="quantite" value="1" >
                            </p>
                         <p>
-                           <input type="hidden" name="id" value="<?=  $value->getId() ?>">
+                           <input type="hidden" name="id" value="<?=  $data->getId() ?>">
                             
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
                                 <i class="bi-cart-fill me-1"></i> ajouter au panier  </button>

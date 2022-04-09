@@ -4,11 +4,13 @@
 
 
 <?php
+include 'cartManager.php';
 session_start();
 
-include 'gestionProduit.php';
-$gestionProduit = new GestionProduit();
-$compteur = $gestionProduit->compteur();
+$cartManager = new CartManager();
+
+$cartManager->initCode();
+$quantity = $cartManager->getCartQuantity();
 
 ?>
 <!-- CSS only -->
@@ -45,7 +47,7 @@ $compteur = $gestionProduit->compteur();
                          <i class="bi-cart-fill me-1" ></i>
                            Panier
                             <span class="badge bg-dark text-white ms-1 rounded-pill">
-                            <?php echo $compteur ?></span>
+                            <?php echo $quantity ?></span>
                         </button>
                     </form>
                 </div>
@@ -57,7 +59,7 @@ $compteur = $gestionProduit->compteur();
 
 
 $id = $_GET["id"];
-$value = $gestionProduit->getProduit($_GET["id"]);
+$value = $cartManager->getProduct($_GET["id"]);
 
 ?>
 
@@ -67,10 +69,11 @@ $value = $gestionProduit->getProduit($_GET["id"]);
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div  class="col-md-6">
-                        <h1 class="display-5 fw-bolder"><?=$value['nom'];?></h1>
+                        <p><?php print_r($value)?></p>
+                        <h1 class="display-5 fw-bolder"><?=$value->getName();?></h1>
                         <div class="fs-5 mb-5">
                            
-                            <span><?=$value['prix'];?> DH</span>
+                            <span><?=$value->getPrice();?> DH</span>
                             <?php 
                             
                          ?>
@@ -80,7 +83,7 @@ $value = $gestionProduit->getProduit($_GET["id"]);
                         <form  class="" action="addTocart.php" method="POST">
                           <p>
                           <label for="btn btn-outline-dark flex-shrink-0"> Quantite</label>
-                          <input type="number" name="quantite" value="<?=$value['quantite'];?>" >
+                          <input type="number" name="quantite" value="<?=$value->getQuantity();?>" >
                            </p>
                         <p>
                            <input type="hidden" name="id" value="<?=$value['id'];?>">
