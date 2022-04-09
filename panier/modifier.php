@@ -12,6 +12,14 @@ $cartManager = new CartManager();
 $cartManager->initCode();
 $quantity = $cartManager->getCartQuantity();
 
+$id = $_GET["id"];
+$cartLine = $cartManager->getProductCart($_GET["id"]);
+if(isset($_POST["quantity"])){
+
+    $cartManager->editCartLine($_POST["id"], $_POST["quantity"]);
+    header("location: panier.php");
+}
+
 ?>
 <!-- CSS only -->
 <!DOCTYPE html>
@@ -54,44 +62,34 @@ $quantity = $cartManager->getCartQuantity();
             </div>
         </nav>
         <!-- Product section-->
-        <?php  
-
-
-
-$id = $_GET["id"];
-$value = $cartManager->getProduct($_GET["id"]);
-
-?>
-
    
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div  class="col-md-6">
-                        <p><?php print_r($value)?></p>
-                        <h1 class="display-5 fw-bolder"><?=$value->getName();?></h1>
+                        <h1 class="display-5 fw-bolder"><?=$cartLine->getProduct()->getName();?></h1>
                         <div class="fs-5 mb-5">
                            
-                            <span><?=$value->getPrice();?> DH</span>
+                            <span><?=$cartLine->getProduct()->getPrice();?> DH</span>
                             <?php 
                             
                          ?>
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
                         <div class="d-flex">
-                        <form  class="" action="addTocart.php" method="POST">
+                        <form  class="" method="POST">
                           <p>
                           <label for="btn btn-outline-dark flex-shrink-0"> Quantite</label>
-                          <input type="number" name="quantite" value="<?=$value->getQuantity();?>" >
+                          <input type="number" name="quantity" value="<?=$cartLine->getProductCartQuantity();?>" >
                            </p>
                         <p>
-                           <input type="hidden" name="id" value="<?=$value['id'];?>">
-                            
-                            <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
-                                <i class="bi-cart-fill me-1"></i> ajouter au panier  </button>
+                           <input type="hidden" name="id" value="<?=$cartLine->getIdCartLine();?>">
+                           <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
+                                <i class="bi-cart-fill me-1"></i> Edit  </button>
                            
                             </p>
+                        </form>                     
                         </div>
                     </div>
                 </div>
