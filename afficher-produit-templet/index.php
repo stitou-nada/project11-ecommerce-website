@@ -76,13 +76,10 @@ $data = $gestion->afficherProduits();
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.php">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                        
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
-                                <li class="has-submenu position-static"><a href="product.html">shop</a>
+                                <li class="has-submenu position-static"><a href="#">shop</a>
                                     <ul class="submenu-nav-mega">
                                         <li><a href="#/" class="mega-title">categories</a>
                                             <ul>
@@ -91,7 +88,7 @@ $data = $gestion->afficherProduits();
                                                 <li><a href="Face-care.php">Face care</a></li>
                                                 <li><a href="blusher.php">Blusher</a></li>
                                                 <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="Skin care">Skin care</a></li>
+                                                <li><a href="skin-care.php">Skin care</a></li>
                                             </ul>
                                         </li>
                                        
@@ -173,12 +170,12 @@ $data = $gestion->afficherProduits();
                                             <div class="hero-slide-text-img"><img src="assets/images/slider/text-theme.webp" width="427" height="232" alt="Image"></div>
                                             <h2 class="hero-slide-title">CLEAN FRESH</h2>
                                             <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis.</p>
-                                            <a class="btn btn-border-dark" href="product.html">BUY NOW</a>
+                                            <a class="btn btn-border-dark" href="index.php">BUY NOW</a>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="hero-slide-thumb">
-                                            <img src="assets/images/slider/slider1.webp" width="841" height="832" alt="Image">
+                                            <img src="./img/ezgif.com-gif-maker.png" width="841" height="832" alt="Image">
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +191,7 @@ $data = $gestion->afficherProduits();
                                             <div class="hero-slide-text-img"><img src="assets/images/slider/text-theme.webp" width="427" height="232" alt="Image"></div>
                                             <h2 class="hero-slide-title">Facial Cream</h2>
                                             <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis.</p>
-                                            <a class="btn btn-border-dark" href="product.html">BUY NOW</a>
+                                            <a class="btn btn-border-dark" href="index.php">BUY NOW</a>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -222,10 +219,10 @@ $data = $gestion->afficherProduits();
             <!--== Start Product Category Area Wrapper ==-->
             <section class="section-space pb-0">
                 <div class="container">
-                    <div class="row g-3 g-sm-6">
+                     <div class="row g-3 g-sm-6 d-flex justify-content-center">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item">
+                            <a href="hare-care.php" class="product-category-item">
                                 <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
                                 <h3 class="title">Hare care</h3>
                                 <span class="flag-new">new</span>
@@ -234,7 +231,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEDB4">
+                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
                                 <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Skin care</h3>
                             </a>
@@ -242,7 +239,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#DFE4FF">
+                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
                                 <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Lip stick</h3>
                             </a>
@@ -250,7 +247,7 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFEACC">
+                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
                                 <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Face skin</h3>
                                 <span data-bg-color="#835BF4" class="flag-new">sale</span>
@@ -259,20 +256,13 @@ $data = $gestion->afficherProduits();
                         </div>
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFDAE0">
+                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
                                 <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Blusher</h3>
                             </a>
                             <!--== End Product Category Item ==-->
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="product.html" class="product-category-item" data-bg-color="#FFF3DA">
-                                <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Natural</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -380,7 +370,7 @@ $data = $gestion->afficherProduits();
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
                                     <li><a href="account-login.html">Login</a></li>
-                                    <li><a href="product.html">Shop</a></li>
+                                    <li><a href="#">Shop</a></li>
                                     <li><a href="my-account.html">My Account</a></li>
                                     <li><a href="faq.html">FAQs</a></li>
                                 </ul>
@@ -590,17 +580,14 @@ $data = $gestion->afficherProduits();
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
-                            <ul>
-                                <li><a href="index.php">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
+                             
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
                             <ul>
                                 <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
                                     <ul>
-                                        <li><a href="product.html">Shop 3 Column</a></li>
+                                        <li><a href="#">Shop 3 Column</a></li>
                                         <li><a href="product-four-columns.html">Shop 4 Column</a></li>
                                         <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
                                         <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>

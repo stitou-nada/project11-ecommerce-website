@@ -77,13 +77,10 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.php">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                        
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
-                                <li class="has-submenu position-static"><a href="product.html">shop</a>
+                                <li class="has-submenu position-static"><a href="#">shop</a>
                                     <ul class="submenu-nav-mega">
                                         <li><a href="#/" class="mega-title">categories</a>
                                             <ul>
@@ -92,7 +89,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                                 <li><a href="Face-care.php">Face care</a></li>
                                                 <li><a href="blusher.php">Blusher</a></li>
                                                 <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="Skin care">Skin care</a></li>
+                                                <li><a href="skin-care.php">Skin care</a></li>
                                             </ul>
                                         </li>
                                        
@@ -192,7 +189,7 @@ $data = $gestion->afficherCatigore($Categorie);
             <!--== Start Product Category Area Wrapper ==-->
             <section class="section-space pb-0">
                 <div class="container">
-                    <div class="row g-3 g-sm-6">
+                     <div class="row g-3 g-sm-6 d-flex justify-content-center">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
                             <a href="hare-care.php" class="product-category-item">
@@ -235,14 +232,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             </a>
                             <!--== End Product Category Item ==-->
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="natural.php" class="product-category-item" data-bg-color="#FFF3DA">
-                                <img class="icon" src="assets/images/shop/category/6.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Natural</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -259,7 +249,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php">
+                                    <a class="d-block" href="product-details.php?id=<?= $value->getId_Produit() ?>">
                                         <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
@@ -340,7 +330,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="faq.html">Privacy</a></li>
                                     <li><a href="account-login.html">Login</a></li>
-                                    <li><a href="product.html">Shop</a></li>
+                                    <li><a href="#">Shop</a></li>
                                     <li><a href="my-account.html">My Account</a></li>
                                     <li><a href="faq.html">FAQs</a></li>
                                 </ul>
@@ -557,7 +547,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <ul>
                                 <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
                                     <ul>
-                                        <li><a href="product.html">Shop 3 Column</a></li>
+                                        <li><a href="#">Shop 3 Column</a></li>
                                         <li><a href="product-four-columns.html">Shop 4 Column</a></li>
                                         <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
                                         <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
