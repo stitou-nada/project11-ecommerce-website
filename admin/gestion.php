@@ -106,6 +106,7 @@ class Gestion{
                    $produit->setCategorie_produit($value_Data["categorie_produit"]);   
                    $produit->setQuantite_stock($value_Data["quantite_stock"]); 
                    $produit->setNom_Categorie($value_Data["nom_categorie"]);  
+                   $produit->setPhoto($value_Data["photo"]);  
                    array_push($TableData, $produit);
                    
                 }
@@ -114,10 +115,20 @@ class Gestion{
 
     // modifier
 
-    public function Modifier($id,$Nom_produit ,$Prix, $Description , $Quantite_stock ,$Date_dexpiration ){
+    public function Modifier($produit){
         // Requête SQL
+
+
+        $id = $produit->getId_Produit() ;   
+        $Prix = $produit->getPrix();   
+        $Nom_produit =  $produit->getNom_Produit();   
+        $Description = $produit->getDescription();   
+        $Date_dexpiration = $produit->getDate_dexpiration();   
+        $Quantite_stock = $produit->getQuantite_stock();    
+        $photo = $produit->getPhoto(); 
+
         $RowUpdate = "UPDATE produit SET 
-        nom_produit='$Nom_produit',prix = '$Prix', `description`= '$Description',quantite_stock = '$Quantite_stock', `date_d'expiration` = '$Date_dexpiration' WHERE  id_produit = $id" ;
+        nom_produit='$Nom_produit',prix = '$Prix', `description`= '$Description',quantite_stock = '$Quantite_stock', `date_d'expiration` = '$Date_dexpiration',photo='$photo' WHERE  id_produit = $id" ;
 
         mysqli_query($this->getConnection(),$RowUpdate);
     }
