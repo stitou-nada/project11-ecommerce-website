@@ -127,10 +127,29 @@ class CartManager {
 
     
     // pour afficher  session 
-    public function getProduct($id){
-        if(isset($_SESSION["product"])){
-            return $_SESSION["product"][$id];
-        }
+    public function getProductCart($idCartLine){
+        $sql = "SELECT * FROM cart_line INNER JOIN produit on cart_line.idProduct = produit.id_produit WHERE idCartLine = $idCartLine";
+        $query = mysqli_query($this->getConnection(),$sql);
+        $result = mysqli_fetch_assoc($query);
+
+        $cartLine = new CartLine();
+        $cartLine->setIdCartLine($result['idCartLine']);
+        $cartLine->setIdCart($result['idCart']);
+        $cartLine->setIdProduct($result['idProduct']);
+        $cartLine->setProductCartQuantity($result['productCartQuantity']);
+        
+        $product = new Product();
+        $product->setId($result['id_produit']);
+        $product->setName($result['nom_produit']);
+        $product->setPrice($result['prix']);
+        $product->setDescription($result['description']);
+        $product->setDateOfExpiration($result["date_d'expiration"]);
+        $product->setQuantity($result['quantite_stock']);
+        $product->setCategory($result['categorie_produit']);
+
+        $cartLine->setProduct($product);
+
+        return $cartLine;
     }
 
   

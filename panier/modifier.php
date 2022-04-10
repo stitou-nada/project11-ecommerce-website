@@ -59,7 +59,7 @@ $quantity = $cartManager->getCartQuantity();
 
 
 $id = $_GET["id"];
-$value = $cartManager->getProduct($_GET["id"]);
+$cartLine = $cartManager->getProductCart($_GET["id"]);
 
 ?>
 
@@ -69,11 +69,11 @@ $value = $cartManager->getProduct($_GET["id"]);
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div  class="col-md-6">
-                        <p><?php print_r($value)?></p>
-                        <h1 class="display-5 fw-bolder"><?=$value->getName();?></h1>
+                        <p><?php print_r($cartLine)?></p>
+                        <h1 class="display-5 fw-bolder"><?=$cartLine->getProduct()->getName();?></h1>
                         <div class="fs-5 mb-5">
                            
-                            <span><?=$value->getPrice();?> DH</span>
+                            <span><?=$cartLine->getProduct()->getPrice();?> DH</span>
                             <?php 
                             
                          ?>
@@ -83,10 +83,10 @@ $value = $cartManager->getProduct($_GET["id"]);
                         <form  class="" action="addTocart.php" method="POST">
                           <p>
                           <label for="btn btn-outline-dark flex-shrink-0"> Quantite</label>
-                          <input type="number" name="quantite" value="<?=$value->getQuantity();?>" >
+                          <input type="number" name="quantite" value="<?=$cartLine->getProductCartQuantity();?>" >
                            </p>
                         <p>
-                           <input type="hidden" name="id" value="<?=$value['id'];?>">
+                           <input type="hidden" name="id" value="<?=$cartLine['id'];?>">
                             
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
                                 <i class="bi-cart-fill me-1"></i> ajouter au panier  </button>
