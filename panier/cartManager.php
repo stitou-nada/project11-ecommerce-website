@@ -152,6 +152,13 @@ class CartManager {
         return $cartLine;
     }
 
+    // Edit  cart line
+    public function editCartLine($idCartLine, $quantity){
+        $sql = "UPDATE cart_line SET productCartQuantity = '$quantity' WHERE idCartLine=$idCartLine";
+        mysqli_query($this->getConnection(), $sql);
+        
+    }
+
   
 
 // afficher  les produits : page index

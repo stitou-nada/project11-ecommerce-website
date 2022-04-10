@@ -82,7 +82,7 @@ $data = $cartManager->afficherProduit($id);
                           <input type="number" name="quantite" value="1" >
                            </p>
                         <p>
-                           <input type="hidden" name="id" value="<?=  $data->getId() ?>">
+                           <input type="hidden" name="id" value="<?=  $data->getId(); ?>">
                             
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
                                 <i class="bi-cart-fill me-1"></i> ajouter au panier  </button>
