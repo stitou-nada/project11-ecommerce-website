@@ -44,7 +44,7 @@ include "gestion.php";
 
 $gestion = new Gestion();
 $Categorie = 'Face care';
-$data = $gestion->afficherProduits();
+$data = $gestion->getAllProducts();
 
 
 
@@ -286,15 +286,15 @@ $data = $gestion->afficherProduits();
                            <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php?id=<?php echo $value->getId_Produit() ?>">
-                                        <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
+                                    <a class="d-block" href="product-details.php?id=<?php echo $value->getId()?>">
+                                        <img src="./img/<?php echo $value->getImage()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
                                     <div class="product-action">
-                                        <button type="button" class="product-action-btn action-btn-quick-view" value="<?php echo $value->getId_Produit() ?>"  data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
+                                        <button type="button" class="product-action-btn action-btn-quick-view" value="<?php echo $value->getId() ?>"  data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
                                             <i class="fa fa-expand" ></i>
                                             
-                                        </button>
+                                        </button>   
                                         <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
                                             <span>Add to cart</span>
                                         </button>
@@ -312,11 +312,11 @@ $data = $gestion->afficherProduits();
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-half-o"></i>
                                         </div>
-                                        <div class="reviews"><?php echo $value->getCategorie_produit() ?> </div>
+                                        <div class="reviews"><?php echo $value->getCategory() ?> </div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.php?id=<?php echo $value->getId_Produit() ?>"><?php echo $value->getNom_Produit() ?></a></h4>
+                                    <h4 class="title"><a href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a></h4>
                                     <div class="prices">
-                                        <span class="price"><?php echo $value->getPrix() ?> DH</span>
+                                        <span class="price"><?php echo $value->getPrice() ?> DH</span>
                                       
                                     </div>
                                 </div>
@@ -496,7 +496,7 @@ $data = $gestion->afficherProduits();
                                     <div class="col-lg-6">
                                         <!--== Start Product Thumbnail Area ==-->
                                         <div class="product-single-thumb">
-                                            <img src="./img/<?php echo $value->getPhoto() ?>" width="544" height="560" alt="Image-HasTech">
+                                            <img src="./img/<?php echo $value->getImage() ?>" width="544" height="560" alt="Image-HasTech">
                                         </div>
                                         <!--== End Product Thumbnail Area ==-->
                                     </div>
@@ -505,7 +505,7 @@ $data = $gestion->afficherProduits();
                                         <div class="product-details-content">
                                         <?php foreach($data as $value)  ?> 
                                             
-                                            <h3 class="product-details-title"><?php echo $value->getNom_Produit() ?></h3>
+                                            <h3 class="product-details-title"><?php echo $value->getName() ?></h3>
                                             <div class="product-details-review mb-5">
                                                 <div class="product-review-icon">
                                                     <i class="fa fa-star-o"></i>
@@ -514,7 +514,7 @@ $data = $gestion->afficherProduits();
                                                     <i class="fa fa-star-o"></i>
                                                     <i class="fa fa-star-half-o"></i>
                                                 </div>
-                                                <button type="button" class="product-review-show"><?php echo $value->getCategorie_produit() ?></button>
+                                                <button type="button" class="product-review-show"><?php echo $value->getCategory() ?></button>
                                             </div>
                                             <p class="mb-6"><?php echo $value->getDescription() ?></p>
                                             <div class="product-details-pro-qty">
@@ -523,7 +523,7 @@ $data = $gestion->afficherProduits();
                                                 </div>
                                             </div>
                                             <div class="product-details-action">
-                                                <h4 class="price"><?php echo $value->getPrix() ?> DH</h4>
+                                                <h4 class="price"><?php echo $value->getPrice() ?> DH</h4>
                                                 <div class="product-details-cart-wishlist">
                                                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
                                                 </div>
