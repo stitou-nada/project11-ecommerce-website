@@ -1,4 +1,4 @@
-<?php  session_start(); ?>
+<?php session_start() ?>
 
 <!DOCTYPE php>
 <php class="no-js" lang="zxx">
@@ -43,45 +43,78 @@
     <div class="wrapper">
 
         <!--== Start Header Wrapper ==-->
-        <header class="header-area sticky-header header-transparent" data-bg-color="#FFF3DA">
+        <header class="header-area">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-5 col-lg-2 col-xl-1">
+                    <div class="col-5 col-sm-6 col-lg-3">
                         <div class="header-logo">
                             <a href="index.php">
                                 <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
-                        <div class="header-navigation ps-7">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="header-navigation">
                             <ul class="main-nav justify-content-start">
                                 <li class="has-submenu"><a href="index.php">home</a>
-                                        
-                                </li>
-                                <li><a href="about-us.php">about</a></li>
-                                <li class="has-submenu position-static"><a href="#">shop</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">categories</a>
-                                            <ul>
-                                                
-                                                <li><a href="hare-care.php">Hare care</a></li>
-                                                <li><a href="Face-care.php">Face care</a></li>
-                                                <li><a href="blusher.php">Blusher</a></li>
-                                                <li><a href="lip-stick.php">Lip stick</a></li>
-                                                <li><a href="skin-care.php">Skin care</a></li>
-                                            </ul>
-                                        </li>
-                                       
-                                      
+                                    <ul class="submenu-nav">
+                                        <li><a href="index.php">Home One</a></li>
+                                        <li><a href="index-two.php">Home Two</a></li>
                                     </ul>
                                 </li>
-                                
+                                <li><a href="about-us.php">about</a></li>
+                                <li class="has-submenu position-static"><a href="product.php">shop</a>
+                                    <ul class="submenu-nav-mega">
+                                        <li><a href="#/" class="mega-title">Shop Layout</a>
+                                            <ul>
+                                                <li><a href="product.php">Shop 3 Column</a></li>
+                                                <li><a href="product-four-columns.php">Shop 4 Column</a></li>
+                                                <li><a href="product-left-sidebar.php">Shop Left Sidebar</a></li>
+                                                <li><a href="product-right-sidebar.php">Shop Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#/" class="mega-title">Single Product</a>
+                                            <ul>
+                                                <li><a href="product-details-normal.php">Single Product Normal</a></li>
+                                                <li><a href="product-details.php">Single Product Variable</a></li>
+                                                <li><a href="product-details-group.php">Single Product Group</a></li>
+                                                <li><a href="product-details-affiliate.php">Single Product Affiliate</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#/" class="mega-title">Others Pages</a>
+                                            <ul>
+                                                <li><a href="product-cart.php">Shopping Cart</a></li>
+                                                <li><a href="product-checkout.php">Checkout</a></li>
+                                                <li><a href="product-wishlist.php">Wishlist</a></li>
+                                                <li><a href="product-compare.php">Compare</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu"><a href="blog.php">Blog</a>
+                                    <ul class="submenu-nav">
+                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
+                                            <ul class="submenu-nav">
+                                                <li><a href="blog.php">Blog Grid</a></li>
+                                                <li><a href="blog-left-sidebar.php">Blog Left Sidebar</a></li>
+                                                <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="blog-details.php">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu"><a href="my-account.php">Pages</a>
+                                    <ul class="submenu-nav">
+                                        <li><a href="my-account.php">My Account</a></li>
+                                        <li><a href="faq.php">Frequently Questions</a></li>
+                                        <li><a href="page-not-found.php">Page Not Found</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-7 col-lg-3 col-xl-4">
+                    <div class="col-7 col-sm-6 col-lg-3">
                         <div class="header-action justify-content-end">
                             <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
                                 <span class="icon">
@@ -111,7 +144,7 @@
                 </span>
                             </button>
 
-                            <a class="header-action-btn" href="account-login.php">
+                            <a class="header-action-btn" href="my-account.php">
                                 <span class="icon">
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
@@ -140,141 +173,134 @@
         <main class="main-content">
 
             <!--== Start Page Header Area Wrapper ==-->
-            <section class="page-header-area pt-10 pb-9" >
+            <section class="page-header-area pt-10 pb-9" data-bg-color="#FFF3DA">
                 <div class="container">
                     <div class="row">
-                       
+                        <div class="col-md-5">
+                            <div class="page-header-st3-content text-center text-md-start">
+                                <ol class="breadcrumb justify-content-center justify-content-md-start">
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">My Account</li>
+                                </ol>
+                                <h2 class="page-header-title">My Account</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             <!--== End Page Header Area Wrapper ==-->
+<?php 
 
-            <!--== Start Account Area Wrapper ==-->
-            <section class="section-space">
-                <div class="container">
-                    <div class="row mb-n8">
-                        <div class="col-lg-6 mb-8">
-                            <!--== Start Login Area Wrapper ==-->
-                            <?php
+include 'login-signUp/AuthenticationManager.php';
 
 
-// Initialize the session
+            if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                
+            //    echo print_r($_SESSION["email"]) ;
 
+             $email =   $_SESSION["email"]; 
+             $account = new AuthenticationManager();
+            }
 
-include "AuthenticationManager.php";
+          
+            //afficher les informations
+            
+            $data = $account->MyAccount($email);
+            foreach ($data as $value ) 
+           
+           
+            
+                
+              //modifier les informations
 
-$authManager = new AuthenticationManager();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: page.php");
-    exit;
-}
- 
-// Include config file
-require_once "AuthenticationManager.php";
- 
-// Define variables and initialize with empty values
-$email = $password = "";
-$email_err = $password_err = $login_err = "";
+              if(isset($_POST['Save'])){
 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if email is empty
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter email.";
-    } else{
-        $email = trim($_POST["email"]);
-    }
-    
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate credentials
-    if(empty($email_err) && empty($password_err)){
-        $hasLoging = $authManager->login($password, $email);
-        if($hasLoging == true){
-            // Redirect user to welcome page
-              header("location: index.php");
-        } else{
-          // Password is not valid, display a generic error message
-            $login_err = "Invalid email or password.";
-          } 
-    } else{
-                echo "Oops! Something went wrong. Please try again later.";
-    }     
-}
+                
+                $firstName = $_POST['first-name'];
+                $lastName = $_POST['last-name'];
+                $id = $value->getId();
+                $account->EditMyAccount($firstName,$lastName,$id);
+            }
+
+            
+
 ?>
 
-                            <div class="my-account-item-wrap">
-                                <h3 class="title">Login</h3>
-                                <?php 
-                                if(!empty($login_err)){
-                                  echo '<div class="alert alert-danger">' . $login_err . '</div>';
-                                }        
-        ?>
-                                <div class="my-account-form">
-                                    <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                        <div class="form-group mb-6">
-                                            <label for="login_username">Username or Email Address <sup>*</sup></label>
-                                            <input type="email" name="email" id="login_username " class=" <?php echo (!empty($email_err)) ? 'is-invalid': ''; ?>" value="<?php echo $email; ?>">
-                                            <span class="invalid-feedback"><?php echo $email_err; ?></span>
-                                        </div>
-
-                                        <div class="form-group mb-6">
-                                            <label for="login_pwsd">Password <sup>*</sup></label>
-                                            <input type="password" name="password" id="login_pwsd" class="<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                                        </div>
-
-                                        <div class="form-group d-flex align-items-center mb-14">
-                                            <input class="btn" type="submit" value="Login"> </input>
-
-                                            <div class="form-check ms-3">
-                                                <input type="checkbox" class="form-check-input" id="remember_pwsd">
-                                                <label class="form-check-label" for="remember_pwsd">Remember Me</label>
-                                            </div>
-                                        </div>
-                                        <a class="lost-password" href="my-account.php">Lost your Password?</a>
-                                    </form>
-                                </div>
+            <!--== Start My Account Area Wrapper ==-->
+            <section class="my-account-area section-space">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="my-account-tab-menu nav nav-tabs" id="nav-tab" role="tablist">
+                              
+                                <button class="nav-link" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info" type="button" role="tab" aria-controls="account-info" aria-selected="false">Account Details</button>
+                                <button class="nav-link" onclick="window.location.href='my-account.php'" type="button">Logout</button>
                             </div>
-                            <!--== End Login Area Wrapper ==-->
                         </div>
-                        <div class="col-lg-6 mb-8">
-                            <!--== Start Register Area Wrapper ==-->
-                            <div class="my-account-item-wrap">
-                                <h3 class="title">Register</h3>
-                                <div class="my-account-form">
-                                    <form action="#" method="post">
-                                        <div class="form-group mb-6">
-                                            <label for="register_username">Username or Email Address <sup>*</sup></label>
-                                            <input type="email" id="register_username">
-                                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                
+                                
+                                <div class="" id="account-info" role="tabpanel" aria-labelledby="account-info-tab">
+                                    <div class="myaccount-content">
+                                        <h3>Account Details</h3>
+                                        <div class="account-details-form">
+                                            <form action="#" method="POST">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="single-input-item">
+                                                       
 
-                                        <div class="form-group mb-6">
-                                            <label for="register_pwsd">Password <sup>*</sup></label>
-                                            <input type="password" id="register_pwsd">
+                                                            <label for="first-name" class="required" >First Name</label>
+                                                            <input type="text" name="first-name" id="first-name" value="<?= $value->getfirstName() ?>" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="single-input-item">
+                                                            <label for="last-name" class="required">Last Name</label>
+                                                            <input type="text"  name="last-name" id="last-name" value="<?= $value->getlastName() ?>" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="single-input-item">
+                                                    <label for="email" class="required" >Email Addres</label>
+                                                    <input type="email" id="email"  value="<?= $value->getEmail() ?>" readonly />
+                                                </div>
+                                                <fieldset>
+                                                    <legend>Password change</legend>
+                                                    <div class="single-input-item">
+                                                        <label for="current-pwd" class="required">Current Password</label>
+                                                        <input type="password" id="current-pwd" />
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="single-input-item">
+                                                                <label for="new-pwd" class="required">New Password</label>
+                                                                <input type="password" id="new-pwd" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="single-input-item">
+                                                                <label for="confirm-pwd" class="required">Confirm Password</label>
+                                                                <input type="password" id="confirm-pwd" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <div class="single-input-item">
+                                                    <button class="check-btn sqr-btn" type="submit" name="Save">Save Changes</button>
+                                                </div>
+                                            </form>
                                         </div>
-
-                                        <div class="form-group">
-                                            <p class="desc mb-4">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
-                                            <a class="btn" href="my-account.php">Register</a>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <!--== End Register Area Wrapper ==-->
                         </div>
                     </div>
                 </div>
             </section>
-            <!--== End Account Area Wrapper ==-->
+            <!--== End My Account Area Wrapper ==-->
 
         </main>
 
@@ -302,7 +328,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     <li><a href="about-us.php">About us</a></li>
                                     <li><a href="contact.php">Contact</a></li>
                                     <li><a href="faq.php">Privacy</a></li>
-                                    <li><a href="account-login.php">Login</a></li>
+                                    <li><a href="my-account.php">Login</a></li>
                                     <li><a href="product.php">Shop</a></li>
                                     <li><a href="my-account.php">My Account</a></li>
                                     <li><a href="faq.php">FAQs</a></li>
@@ -561,7 +587,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Pages</a>
                             <ul>
-                                <li><a href="account-login.php">My Account</a></li>
+                                <li><a href="my-account.php">My Account</a></li>
                                 <li><a href="faq.php">Frequently Questions</a></li>
                                 <li><a href="page-not-found.php">Page Not Found</a></li>
                             </ul>
