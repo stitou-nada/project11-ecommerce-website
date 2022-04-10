@@ -1,3 +1,28 @@
+<?php
+
+include 'gestion.php';
+include 'cartManager.php';
+
+session_start();
+
+$cartManager = new CartManager();
+
+$cartManager->initCode();
+
+$quantity = $cartManager->getCartQuantity();
+$cart = new Cart();
+$cart = $cartManager->getCart($_COOKIE['cartCookie']);
+
+
+if(isset($_GET["id"])){
+    $id=$_GET["id"];
+    $data = $cartManager->afficherProduit($id);
+    
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -34,27 +59,6 @@
     <link rel="stylesheet" href="./assets/css/style.min.css">
 
 </head>
-
-
-
-<?php
-
-include 'gestion.php';
-
-$gestion = new Gestion();
-
-if(isset($_GET)){
-
-$id = $_GET["id"];
-}
-$data = $gestion->afficherProduit($id);
-
-
-?>
-
-
-
-
 
 
 
@@ -188,18 +192,17 @@ $data = $gestion->afficherProduit($id);
             <!--== Start Product Details Area Wrapper ==-->
             <section class="section-space">
                 <div class="container">
-                    <?php foreach($data as $value)  ?> -->
                     <div class="row product-details">
                         <div class="col-lg-6">
                             <div class="product-details-thumb">
-                                <img src="./img/<?php echo $value->getPhoto() ?>" width="570" height="693" alt="Image">
+                                <img src="./img/<?php echo $data->getImage() ?>" width="570" height="693" alt="Image">
                                 <span class="flag-new">new</span>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details-content">
                                 <h5 class="product-details-collection">Premioum collection</h5>
-                                <h3 class="product-details-title"><?php echo $value->getNom_Produit() ?></h3>
+                                <h3 class="product-details-title"><?php echo $data->getName() ?></h3>
                                 <div class="product-details-review">
                                     <div class="product-review-icon">
                                         <i class="fa fa-star-o"></i>
@@ -208,7 +211,7 @@ $data = $gestion->afficherProduit($id);
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-half-o"></i>
                                     </div>
-                                    <button type="button" class="product-review-show"><?php echo $value->getCategorie_produit() ?></button>
+                                    <button type="button" class="product-review-show"><?php echo $data->getCategory() ?></button>
                                 </div>
                                 <div class="product-details-qty-list">
                                     
@@ -216,7 +219,7 @@ $data = $gestion->afficherProduit($id);
                                     <div class="qty-list-check">
                                         
                                         <label class="form-check-label" for="qtyList2"> <b>Description :<br></b> <span class="extra-offer"></label>
-                                        <label class="form-check-label" for="qtyList1"><?php echo $value->getDescription() ?></label>
+                                        <label class="form-check-label" for="qtyList1"><?php echo $data->getDescription() ?></label>
 
                                     
                                     </div>
@@ -229,7 +232,7 @@ $data = $gestion->afficherProduit($id);
                                 </div>
                                
                                 <div class="product-details-action">
-                                    <h4 class="price"><?php echo $value->getPrix() ?> DH</h4>
+                                    <h4 class="price"><?php echo $data->getPrice() ?> DH</h4>
                                     <div class="product-details-cart-wishlist">
                                         <button type="button" class="btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal"><i class="fa fa-heart-o"></i></button>
                                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
