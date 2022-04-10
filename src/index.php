@@ -39,12 +39,12 @@
 
 <?php 
 
-include "gestion.php";
+include "cartManager.php";
 
 
-$gestion = new Gestion();
+$cartManager = new CartManager();
 $Categorie = 'Face care';
-$data = $gestion->getAllProducts();
+$data = $cartManager->getAllProducts();
 
 
 
@@ -295,7 +295,15 @@ $data = $gestion->getAllProducts();
                                             <i class="fa fa-expand" ></i>
                                             
                                         </button>   
-                                        <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
+                                        <button type="button" 
+                                                class="product-action-btn action-btn-cart" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#action-CartAddModal"
+                                                data-id= <?php echo $value->getId()?>
+                                                data-product-image = <?php echo urlencode($value->getImage())?>
+                                                data-product-name = <?php echo $value->getName()?>
+                                               
+                                                >
                                             <span>Add to cart</span>
                                         </button>
                                         <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
@@ -314,7 +322,7 @@ $data = $gestion->getAllProducts();
                                         </div>
                                         <div class="reviews"><?php echo $value->getCategory() ?> </div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a></h4>
+                                    <h4 id="test" class="title"><a href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a></h4>
                                     <div class="prices">
                                         <span class="price"><?php echo $value->getPrice() ?> DH</span>
                                       
@@ -433,6 +441,9 @@ $data = $gestion->getAllProducts();
         <!--== End Product Quick Wishlist Modal ==-->
 
         <!--== Start Product Quick Add Cart Modal ==-->
+               
+             
+
         <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -446,15 +457,38 @@ $data = $gestion->getAllProducts();
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img id="modal-image" src="" alt="Organic Food Juice" width="466" height="320">
                                 </div>
-                                <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
+                                <h4  class="product-name"><a id="modal-name" href="product-details.php">Readable content DX22</a></h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </aside>
+        <!--== SCRIPTS Product Quick Add Cart Modal ==-->
+        <script>
+                var cartModal = document.getElementById('action-CartAddModal');
+                cartModal.addEventListener('show.bs.modal', function (event) {
+                // Button that triggered the modal
+                var button = event.relatedTarget
+                // Extract info from data-bs-* attributes
+                var productName = button.getAttribute('data-product-name')
+                var productImage = button.getAttribute('data-product-image')
+                // If necessary, you could initiate an AJAX request here
+                // and then do the updating in a callback.
+                //
+                // Update the modal's content.
+                var modalTitle = document.getElementById('modal-name')
+                var modalImage = document.getElementById('modal-image')
+              
+
+                modalTitle.textContent =  productName
+                console.log(productImage.replace(/\+/g, ' '))
+                modalImage.src = "./img/" + productImage.replace(/\+/g, ' ')
+                })
+
+                </script>
         <!--== End Product Quick Add Cart Modal ==-->
 
         <!--== Start Aside Search Form ==-->
