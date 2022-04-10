@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Account settings - Account | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -52,8 +52,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
@@ -140,44 +138,28 @@
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
-            </li>
-
-
+          
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Pages</span>
+              <span class="menu-header-text">Détaile</span>
             </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item active">
+              <a href="pages-account-settings-account.html" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Account Settings</div>
+                <div data-i18n="Account Settings">Insere</div>
               </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
-                    <div data-i18n="Account">Account</div>
-                  </a>
-                </li>
-                
-              </ul>
+              
             </li>
             
-            </li>
-           
+            <!-- Forms & Tables -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">produit &amp;Categorie</span></li>
             
             <!-- Tables -->
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="tables-basic.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Tables">Tables</div>
+                <div data-i18n="Tables">Table</div>
               </a>
             </li>
-            
           </ul>
         </aside>
         <!-- / Menu -->
@@ -212,18 +194,7 @@
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
-                <li class="nav-item lh-1 me-3">
-                  <a
-                    class="github-button"
-                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >Star</a
-                  >
-                </li>
+                
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -251,30 +222,7 @@
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
+                    
                     <li>
                       <a class="dropdown-item" href="auth-login-basic.html">
                         <i class="bx bx-power-off me-2"></i>
@@ -288,7 +236,177 @@
             </div>
           </nav>
 
-         
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <?php 
+
+
+
+
+            include "gestion.php";
+            // Trouver tous les employés depuis la base de données 
+            $gestion= new Gestion();
+            $data= $gestion->afficherCategorie();
+            
+            
+            
+            if(!empty($_POST)){
+              $filename = $_FILES["image"]["name"];
+              $produit = new produit_categorie();
+              $produit->setNom_Produit($_POST['nom_produit']);
+              $produit->setPrix($_POST['prix']);
+              $produit->setDescription($_POST['description']);
+              $produit->setCategorie_produit($_POST['categorie_produit']);
+              $produit->setQuantite_stock($_POST['quantite_stock']);
+              $produit->setDate_dexpiration($_POST["date_d'expiration"]);
+              $produit->setPhoto($filename);
+            
+              $tempname = $_FILES["image"]["tmp_name"];
+            
+            
+            
+              $gestion->AjouterProduit($produit);  
+              $gestion->upload_photo($filename, $tempname);
+              // Redirection vers la page index.php
+              header("Location: index.php");
+            }
+            ?>
+            
+            
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Détaile /</span>Insere</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+                  
+                  <div class="card mb-4">
+                    <h5 class="card-header">Insere le produit</h5>
+                    <!-- Account -->
+                    <div class="card-body">
+                      <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <img
+                          src="../assets/img/avatars/1.png"
+                          alt="user-avatar"
+                          class="d-block rounded"
+                          height="100"
+                          width="100"
+                          id="uploadedAvatar"
+                        />
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">telecharge photo</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input
+                              type="file"
+                              id="upload"
+                              class="account-file-input"
+                              hidden
+                              accept="image/png, image/jpeg"
+                              name="image"
+                            />
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">suprimer</span>
+                          </button>
+
+                          <p class="text-muted mb-0">Permettre JPG ou PNG</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" >
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">Nom produit</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="firstName"
+                              name="nom_produit"
+                              value="John"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Prix</label>
+                            <input class="form-control" type="text" name="prix" id="lastName" value="Doe" />
+                          </div>
+                          
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">Description</label>
+                            
+                            <textarea
+                            class="form-control "
+                            rows="3"
+                            required
+                             name="description"
+                          ></textarea>
+                             
+                              
+                            
+                          </div>
+                          
+                         
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="country">Categorie</label>
+                            <select id="country" class="select2 form-select"   name="categorie_produit">
+                            <option selected>Select category</option>
+                             <?php  foreach($data as $value){ ?>
+                              <option value="<?= $value->getId_Categorie()?>"><?= $value->getNom_Categorie();} ?> </option>
+                            </select>
+                          </div>
+                          
+                          
+                          <div class="mb-3 col-md-6">
+                            <label for="currency" class="form-label">Expire Date</label>
+                            <inpute id="currency"  
+                            type="date"
+                            class="select2 form-select" 
+                             name="date_d'expiration"
+                             >
+                              
+                           
+                          </div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                          <label for="lastName" class="form-label">Quantite de stock</label>
+                          <input class="form-control" type="text"  name="quantite_stock"id="lastName" value="Doe" />
+                        </div>
+                        <div class="mt-2">
+                          <a href="index.php" type="submit" class="btn btn-primary me-2">Save changes</a>
+                          <!-- <button  type="submit" class="btn btn-primary me-2">Save changes</button> -->
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
@@ -301,13 +419,12 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../assets/js/dashboards-analytics.js"></script>
+    <script src="../assets/js/pages-account-settings-account.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
