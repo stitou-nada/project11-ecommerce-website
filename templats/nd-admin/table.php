@@ -153,7 +153,7 @@
                             </div>
                             <a
               href="ajoute.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
                                                         
                         </div>
                         <div class="row">
@@ -220,7 +220,7 @@
                             </div>
                             <a
               href="ajouter-categorie.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle categorie</a>
                                                         
                         </div>
                         <div class="row">
