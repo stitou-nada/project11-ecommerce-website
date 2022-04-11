@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 09 avr. 2022 à 18:45
+-- Généré le : lun. 11 avr. 2022 à 11:27
 -- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.1.2
+-- Version de PHP : 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,17 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
-  `userReference` varchar(255) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `userReference` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `carts`
 --
 
-INSERT INTO `carts` (`id`, `userReference`, `user_id`) VALUES
-(3, NULL, 1),
-(4, NULL, 1);
+INSERT INTO `carts` (`id`, `userReference`) VALUES
+(3, NULL),
+(4, NULL),
+(5, '6253f3fa8ac42'),
+(6, '6253f41996834'),
+(7, '6253f457deed4'),
+(8, '6253f46052a14');
 
 -- --------------------------------------------------------
 
@@ -181,8 +184,7 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `passWord`, `email`, `role`)
 -- Index pour la table `carts`
 --
 ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `cart_line`
@@ -218,7 +220,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `cart_line`
@@ -247,12 +249,6 @@ ALTER TABLE `users`
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `carts`
---
-ALTER TABLE `carts`
-  ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `cart_line`
