@@ -1,6 +1,5 @@
 <?php
 
-include 'gestion.php';
 include 'cartManager.php';
 
 session_start();
@@ -225,19 +224,21 @@ if(isset($_GET["id"])){
                                     </div>
 
                                 </div>
+                                <form action="addToCart.php" method="POST">
+                                <input type="hidden" name="id" value="<?=  $data->getId(); ?>">
                                 <div class="product-details-pro-qty">
                                     <div class="pro-qty">
-                                        <input type="text" title="Quantity" value="01">
+                                        <input type="text" title="Quantity" name="quantite"  value="01">
                                     </div>
                                 </div>
                                
                                 <div class="product-details-action">
                                     <h4 class="price"><?php echo $data->getPrice() ?> DH</h4>
                                     <div class="product-details-cart-wishlist">
-                                        <button type="button" class="btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal"><i class="fa fa-heart-o"></i></button>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
+                                        <button type="submit" class="btn">Add to cart</button>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

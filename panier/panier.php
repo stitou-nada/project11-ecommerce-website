@@ -6,7 +6,6 @@ $cartManager = new CartManager();
 
 $cartManager->initCode();
 $cart = $cartManager->getCart($_COOKIE['cartCookie']);
-
 $quantity = $cartManager->getCartQuantity();
 
 ?>

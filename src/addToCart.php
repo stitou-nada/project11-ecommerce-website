@@ -24,6 +24,6 @@ if(isset($_POST['id'])){
 
     $cartManager->set($cart, $product, $quantity);
 
-    header("location: panier.php");
+    header("location: index.php");
 
 }

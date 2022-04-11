@@ -1,6 +1,7 @@
 <?php
 include "cart.php";
 include "cartLine.php";
+include "productClass.php";
 
 
 class CartManager {
@@ -163,27 +164,32 @@ class CartManager {
   
 
 // afficher  les produits : page index
-    public function afficher(){
-        $SelctRow = 'SELECT *  FROM produit';
-        $query = mysqli_query($this->getConnection() ,$SelctRow);
-        $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-        $TableData = array();
-        foreach ($produits_data as $value_Data) {
-            $product = new Product();
-            $product->setId($value_Data['id_produit']);
-            $product->setName($value_Data['nom_produit']);
-            $product->setPrice($value_Data['prix']);
-            $product->setDescription($value_Data['description']);
-            $product->setDateOfExpiration($value_Data["date_d'expiration"]);
-            $product->setQuantity($value_Data['quantite_stock']);
-            $product->setCategory($value_Data['categorie_produit']);
-            array_push($TableData, $product);
-        }
-          return $TableData;
- 
-        }
-  
+    
+public function getAllProducts(){
+    $SelctRow = "SELECT * FROM produit
+     INNER JOIN categorie ON produit.categorie_produit = categorie.id_categorie ";
+    $query = mysqli_query($this->getConnection() ,$SelctRow);
+    $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $TableData = array();
+    foreach ( $produits_data as $value_Data) {
+              
+                
+                $product = new Product();
+                $product->setId($value_Data['id_produit']);
+                $product->setName($value_Data['nom_produit']);
+                $product->setPrice($value_Data['prix']);
+                $product->setDescription($value_Data['description']);
+                $product->setDateOfExpiration($value_Data["date_d'expiration"]);
+                $product->setQuantity($value_Data['quantite_stock']);
+                $product->setCategory($value_Data['categorie_produit']); 
+                $product->setImage($value_Data["photo"]);   
+                array_push($TableData, $product);
+               
+            }
+         
+         
+               return $TableData;
+}
  
         
 // afficher  les produits : page panier
