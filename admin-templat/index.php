@@ -1,11 +1,11 @@
-  <head>
-    <meta charset="utf-8" />
+<head>
+<meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Account settings - Account | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
-    
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
@@ -41,6 +42,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
   </head>
+
 
  
     <!-- Layout wrapper -->
@@ -273,7 +275,7 @@
                       </tbody>
                   </table>
                   <a
-              href="pages-account-settings-account.php"
+              href="ajouter-produit.php"
               class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit</a>
             
                 </div>
@@ -296,26 +298,43 @@
     </div>
     <!-- / Layout wrapper -->
 
-    
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  
+     <!-- liste categorie -->
+     <?php $categorieData = $gestion->afficherCategorie() 
+       
+       ?>
+    <div class="card">
+                <h5 class="card-header">produits Categories</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>NOM CATEGORIE</th>
+                        <th>ACTIONS</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    <?php 
+                foreach ($categorieData as $value){
+                  ?>
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value-> getNom_Categorie() ?></strong></td>
+                      
+                            <div class="dropdown-menu">
+                              
+                              <a class="dropdown-item" href="suprimerCategorie.php?id=<?php echo $value-> getId_Categorie() ?>"
+                                ><i class="bx bx-trash me-1"></i> suprimer</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <?php    }  ?>   
+                      </tbody>
+                  </table>
+                  <a
+              href="ajouter-categorie.php"
+              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle categorie</a>
+            
+                </div>
+              </div>
 
