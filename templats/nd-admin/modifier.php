@@ -58,6 +58,8 @@ if(!empty($_POST)){
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
@@ -144,7 +146,7 @@ if(!empty($_POST)){
             <!-- MAIN CONTENT-->
             <div class="main-content">
             <h1 class="titre text-center ">
-           <strong>TABLEAU DES PRODUITS</strong>
+           <strong>MODIFIER LE PRODUIT</strong>
            </h1>
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -153,107 +155,136 @@ if(!empty($_POST)){
                                 <div class="card">
 
                                     <!-- form -->
-                                    <div class="card-header">Ajouter le produit</div>
-                                    <div class="card-body">
-                                        
-                                       <form action="" method="POST">
-                                        <form action="" method="POST" novalidate="novalidate">
-                                        <div class="row">
-                        
-                                             </div>
-                                             <div class="row">
-                                                <div class="col-6">
-                                                <input type="hidden" name="id" value="<?php echo $value->getId_Produit() ?>">
-                                                    <div class="form-group ">
-                                                        <label for="cc-exp" class="control-label mb-1">Produit</label>
-                                                        <input id="cc-exp" name="nom_produit" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year"
-                                                            autocomplete="cc-exp"
-                                                            value="<?php echo $value->getNom_Produit() ?>">
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-exp" class="control-label mb-1">Prix</label>
-                                                        <input id="cc-exp" name="prix" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" 
-                                                            autocomplete="cc-exp"
-                                                            value="<?php echo $value->getPrix() ?>">
-                                                       
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row form-group">
-                                                   
-                                                </div>
-                                                <label for="cc-payment" class="control-label mb-1">Description</label>
-                                                <input id="cc-pament" name="descriptiont" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00"
-                                                value="<?php echo $value->getDescription() ?>"> 
-                                            </div>
-                                            <div class="form-group">
-                                                        <label for="cc-exp" class="control-label mb-1">Categorie</label>
-                                                        <select name="categorie_produit" id="select" class="form-control">
-                                                         
-                                                        <option selected><?php echo $value->getNom_Categorie() ?></option>
-                                                        <?php $afficherdata = $gestion -> afficherCategorie() ?>
-                                                     <?php  foreach($afficherdata as $affichervalue){ ?>
-                                                            <option value="<?= $affichervalue->getId_Categorie()?>"><?= $affichervalue->getNom_Categorie();} ?> </option>
+                                    <div class="card-header">Modifier</div>
+                                    <div class="card-body ">
+                                    <div class="row tm-edit-product-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12">
+                                       
+                                        <!-- start modifier -->
+                                           
+                                        <form method="POST" enctype='multipart/form-data' class="tm-edit-product-form">
+                  <div class="form-group mb-3">
+                    <input type="hidden" name="id" value="<?php echo $value->getId_Produit() ?>">
+                    <label
+                      for="name"
+                      >Produit
+                    </label>
+                    <input
+                      id="name"
+                      name="nom_produit"
+                      type="text"
+                      class="form-control validate"
+                      required
+                      value="<?php echo $value->getNom_Produit() ?>"
+                    >
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Prix
+                    </label>
+                    <input
+                      id="name"
+                      name="prix"
+                      type="text"
+                      class="form-control validate"
+                      required
+                      value="<?php echo $value->getPrix() ?>"
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="description"
+                      >Description</label
+                    >
+                    <input
+                      class="form-control validate"
+                      rows="3"
+                      required
+					            name="description"
+                      value="<?php echo $value->getDescription() ?>"
+                    >
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="category"
+                      >Categorie</label
+                    >
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="category"
+					            name="categorie_produit"
+
+                    >
+                   
+                    <option selected><?php echo $value->getNom_Categorie() ?></option>
+                   <?php $afficherdata = $gestion -> afficherCategorie() ?>
+                    <?php  foreach($afficherdata as $affichervalue){ ?>
+                      <option value="<?= $affichervalue->getId_Categorie()?>"><?= $affichervalue->getNom_Categorie();} ?> </option>
                       
                       
-                                                           
-                                                        </select>
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
+                    </select>
+                  </div>
+                  <div class="row">
+                      <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="expire_date"
+                            >Expiration Date
+                          </label>
+                          <input
+                            id="expire_date"
+                            name="date_d'expiration"
+                            type="date"
+                            class="form-control validate"
+                            data-large-mode="true"
+                            value="<?php echo $value->getDate_dexpiration() ?>"
+                          />
+                        </div>
+                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="stock"
+                            >Quantite de stock
+                          </label>
+                          <input
+                            id="stock"
+                            name="quantite_stock"
+                            type="text"
+                            class="form-control validate"
+                            required
+                            value="<?php echo $value->getQuantite_stock() ?>"
+                          />
+                        </div>
+                  </div>
+                  
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 ">
+                <div class=" mx-auto">
+                <img src="./img/<?php echo $value->getPhoto()?>" class="tm-product-img-dummy mx-auto" alt="">
+                </div>
+                <div class="custom-file mt-3 mb-3">
+                  
+                <input
+                    
+                    class="btn btn-primary btn-block mx-auto col-lg-6"
+                    value="UPLOAD PRODUCT IMAGE"
+                   
+                   type="file" name="image"
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Ajouter</button>
+              </div>
+            </form>
+                                    </div>
+                                    </div>
                                            
                                            
-                                            <div class="row">
-                                            <div class="col-6">
-                                                    <div class="form-group ">
-                                                        <label for="cc-exp" class="control-label mb-1">Expire Date</label>
-                                                        <input id="cc-exp" name="date_d'expiration" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" 
-                                                            autocomplete="cc-exp"
-                                                            value="<?php echo $value->getDate_dexpiration() ?>">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            <div class="col-6">
-                                                    <div class="form-group ">
-                                                        <label for="cc-exp" class="control-label mb-1">Quantite de stock</label>
-                                                        <input id="cc-exp" name="quantite_stock" type="number" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" 
-                                                            autocomplete="cc-exp"
-                                                            value="<?php echo $value->getQuantite_stock() ?>">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                <div class=" mx-auto">
-                                                 <img src="../admin/img/<?php echo $value->getPhoto()?>" class="tm-product-img-dummy mx-auto" alt="">
-                                                     </div>
-                                                    <label for="x_card_code" class="control-label mb-1">Photo</label>
-                                                    <i
-                                                        class="fas fa-cloud-upload-alt tm-upload-icon"                    
-                  >                                         </i>
-                                                    <div class="input-group">
-                                    
-                                                        <input id="x_card_code"  value="UPLOAD PRODUCT IMAGE"
-                                                         type="file" name="image">
-
-                                                    </div>
-                                                </div>   
-                                            </div>
-                                            <div class="">
-                                                <button class="btn btn-info au-btn--block " type="submit"> Ajouter </button>
-
-                                              
-                                            </div>
+                                           
+                                            
+                                           
                                          </div>
-                                        </form>
-                                        </form>
+                                        
                                     </div>
                                 </div>
                                 <!-- fin -->                        
