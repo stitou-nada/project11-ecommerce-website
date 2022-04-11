@@ -1,3 +1,14 @@
+<?php
+include 'cartManager.php';
+session_start();
+
+$cartManager = new CartManager();
+
+$cartManager->initCode();
+$cart = $cartManager->getCart($_COOKIE['cartCookie']);
+$quantity = $cartManager->getCartQuantity();
+
+?>
 <!DOCTYPE php>
 <php class="no-js" lang="zxx">
 
@@ -164,7 +175,21 @@
                                         <th class="product-subtotal">Total</th>
                                     </tr>
                                 </thead>
+                
                                 <tbody>
+                                <?php 
+
+            
+                                    $cartLineList = $cart->getCartLineList()[0];
+
+                                    $cartQuantity = $cartManager->getCartQuantity();
+                                    $totalPrice = 0;
+                                    if($cartLineList != null){
+                                    foreach($cartLineList as $value){
+                                        
+                                ?>
+                                <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
+
                                     <tr class="tbody-item">
                                         <td class="product-remove">
                                             <a class="remove" href="javascript:void(0)">×</a>
@@ -172,77 +197,27 @@
                                         <td class="product-thumbnail">
                                             <div class="thumb">
                                                 <a href="single-product.php">
-                                                    <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image-HasTech">
+                                                    <img src="./img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84" alt="Image-HasTech">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-name">
-                                            <a class="title" href="single-product.php">Condimentum posuere consectetur urna</a>
+                                            <a class="title" href="single-product.php"><?= $value->getProduct()->getName() ?></a>
                                         </td>
                                         <td class="product-price">
-                                            <span class="price">$115.00</span>
+                                            <span class="price"><?= $value->getProduct()->getPrice() ?> DH</span>
                                         </td>
                                         <td class="product-quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" class="quantity" title="Quantity" value="1">
-                                            </div>
+                                                <div class="pro-qty">
+                                                    <input type="hidden" name="id" value="<?=$value->getIdCartLine();?>">
+                                                    <input  type="text" name="quantity" class="quantity" title="Quantity" value="<?=$value->getProductCartQuantity()?>">
+                                                </div>
                                         </td>
                                         <td class="product-subtotal">
-                                            <span class="price">$115.00</span>
+                                            <span class="price"><?= $value->getProduct()->getPrice() * $value->getProductCartQuantity()?> DH</span>
                                         </td>
                                     </tr>
-                                    <tr class="tbody-item">
-                                        <td class="product-remove">
-                                            <a class="remove" href="javascript:void(0)">×</a>
-                                        </td>
-                                        <td class="product-thumbnail">
-                                            <div class="thumb">
-                                                <a href="single-product.php">
-                                                    <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image-HasTech">
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td class="product-name">
-                                            <a class="title" href="single-product.php">Kaoreet lobortis sagittis laoreet</a>
-                                        </td>
-                                        <td class="product-price">
-                                            <span class="price">$95.00</span>
-                                        </td>
-                                        <td class="product-quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" class="quantity" title="Quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal">
-                                            <span class="price">$95.00</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="tbody-item">
-                                        <td class="product-remove">
-                                            <a class="remove" href="javascript:void(0)">×</a>
-                                        </td>
-                                        <td class="product-thumbnail">
-                                            <div class="thumb">
-                                                <a href="single-product.php">
-                                                    <img src="assets/images/shop/cart3.webp" width="68" height="84" alt="Image-HasTech">
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td class="product-name">
-                                            <a class="title" href="single-product.php">Nostrum exercitationem itae ipsum</a>
-                                        </td>
-                                        <td class="product-price">
-                                            <span class="price">$79.00</span>
-                                        </td>
-                                        <td class="product-quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" class="quantity" title="Quantity" value="1">
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal">
-                                            <span class="price">$79.00</span>
-                                        </td>
-                                    </tr>
+                                  <?php } }?>
                                     
                                 </tbody>
                             </table>
@@ -265,7 +240,7 @@
                                         <tr class="cart-subtotal">
                                             <th>Subtotal</th>
                                             <td>
-                                                <span class="amount">$499.00</span>
+                                                <span class="amount"><?=  $totalPrice?> DH</span>
                                             </td>
                                         </tr>
                                         <tr class="shipping-totals">
@@ -273,16 +248,8 @@
                                             <td>
                                                 <ul class="shipping-list">
                                                     <li class="radio">
-                                                        <input type="radio" name="shipping" id="radio1" checked>
-                                                        <label for="radio1">Flat rate: <span>$3.00</span></label>
-                                                    </li>
-                                                    <li class="radio">
-                                                        <input type="radio" name="shipping" id="radio2">
-                                                        <label for="radio2">Free shipping</label>
-                                                    </li>
-                                                    <li class="radio">
-                                                        <input type="radio" name="shipping" id="radio3">
-                                                        <label for="radio3">Local pickup</label>
+                                                        <input type="radio" checked name="shipping" id="radio1" checked>
+                                                        <label for="radio1">Flat rate: <span>3.00 DH</span></label>
                                                     </li>
                                                 </ul>
                                                 <p class="destination">Shipping to <strong>USA</strong>.</p>
@@ -292,7 +259,7 @@
                                         <tr class="order-total">
                                             <th>Total</th>
                                             <td>
-                                                <span class="amount">$504.00</span>
+                                                <span class="amount"><?=  $totalPrice + 3?> DH</span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -502,32 +469,36 @@
         </aside>
         <!--== End Product Quick View Modal ==-->
 
-        <!--== Start Aside Cart ==-->
-        <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
+       <!--== Start Aside Cart ==-->
+       <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h1 class="d-none" id="offcanvasRightLabel">Shopping Cart</h1>
                 <button class="btn-aside-cart-close" data-bs-dismiss="offcanvas" aria-label="Close">Shopping Cart <i class="fa fa-chevron-right"></i></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="aside-cart-product-list">
+                <?php 
+
+            
+                    $cartLineList = $cart->getCartLineList()[0];
+
+                    $cartQuantity = $cartManager->getCartQuantity();
+                    $totalPrice = 0;
+                    if($cartLineList != null){
+                    foreach($cartLineList as $value){
+                ?>
+                    <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Leather Mens Slipper</span>
+                            <img src="./img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
+                            <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                         </a>
-                        <span class="product-price">1 × £69.99</span>
+                        <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
                     </li>
-                    <li class="aside-product-list-item">
-                        <a href="#/" class="remove">×</a>
-                        <a href="product-details.php">
-                            <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Quickiin Mens shoes</span>
-                        </a>
-                        <span class="product-price">1 × £20.00</span>
-                    </li>
+                    <?php } }?>
                 </ul>
-                <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
+                <p class="cart-total"><span>Subtotal:</span><span class="amount"><?= $totalPrice?> DH</span></p>
                 <a class="btn-total" href="product-cart.php">View cart</a>
                 <a class="btn-total" href="product-checkout.php">Checkout</a>
             </div>
