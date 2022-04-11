@@ -1,6 +1,21 @@
-<!DOCTYPE php>
-<php class="no-js" lang="zxx">
 
+
+<!DOCTYPE php>
+<php class="no-js" lang="fr">
+<?php 
+
+include "cartManager.php";
+session_start();
+
+
+$cartManager = new CartManager();
+$cartManager->initCode();
+
+$Categorie = 'Face care';
+$data = $cartManager->getAllProducts();
+$cart = $cartManager->getCart($_COOKIE['cartCookie']);
+
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -34,25 +49,6 @@
     <link rel="stylesheet" href="./assets/css/style.min.css">
 
 </head>
-
-
-
-<?php 
-
-include "cartManager.php";
-
-
-$cartManager = new CartManager();
-$Categorie = 'Face care';
-$data = $cartManager->getAllProducts();
-
-
-
-
-
-
-?>
-
 
 
 
@@ -132,8 +128,8 @@ $data = $cartManager->getAllProducts();
 
                             <a class="header-action-btn" href="my-account.php">
                                 <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
+                  <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
                     <defs>
                       <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
                         <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
@@ -301,7 +297,7 @@ $data = $cartManager->getAllProducts();
                                                 data-bs-target="#action-CartAddModal"
                                                 data-id= <?php echo $value->getId()?>
                                                 data-product-image = <?php echo urlencode($value->getImage())?>
-                                                data-product-name = <?php echo $value->getName()?>
+                                                data-product-name = <?php echo urlencode($value->getName())?>
                                                
                                                 >
                                             <span>Add to cart</span>
@@ -483,8 +479,7 @@ $data = $cartManager->getAllProducts();
                 var modalImage = document.getElementById('modal-image')
               
 
-                modalTitle.textContent =  productName
-                console.log(productImage.replace(/\+/g, ' '))
+                modalTitle.textContent =  productName.replace(/\+/g, ' ')
                 modalImage.src = "./img/" + productImage.replace(/\+/g, ' ')
                 })
 
@@ -582,24 +577,27 @@ $data = $cartManager->getAllProducts();
             </div>
             <div class="offcanvas-body">
                 <ul class="aside-cart-product-list">
+                <?php 
+
+            
+                    $cartLineList = $cart->getCartLineList()[0];
+
+                    $cartQuantity = $cartManager->getCartQuantity();
+                    $totalPrice = 0;
+                    foreach($cartLineList as $value){
+                ?>
+                    <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Leather Mens Slipper</span>
+                            <img src="./img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
+                            <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                         </a>
-                        <span class="product-price">1 × £69.99</span>
+                        <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
                     </li>
-                    <li class="aside-product-list-item">
-                        <a href="#/" class="remove">×</a>
-                        <a href="product-details.php">
-                            <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Quickiin Mens shoes</span>
-                        </a>
-                        <span class="product-price">1 × £20.00</span>
-                    </li>
+                    <?php }?>
                 </ul>
-                <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
+                <p class="cart-total"><span>Subtotal:</span><span class="amount"><?= $totalPrice?> DH</span></p>
                 <a class="btn-total" href="product-cart.php">View cart</a>
                 <a class="btn-total" href="product-checkout.php">Checkout</a>
             </div>
