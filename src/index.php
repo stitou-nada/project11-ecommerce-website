@@ -309,16 +309,6 @@ $cart = $cartManager->getCart($_COOKIE['cartCookie']);
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <div class="product-rating">
-                                        <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                        <div class="reviews"><?php echo $value->getCategory() ?> </div>
-                                    </div>
                                     <h4 id="test" class="title"><a href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a></h4>
                                     <div class="prices">
                                         <span class="price"><?php echo $value->getPrice() ?> DH</span>
