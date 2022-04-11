@@ -156,7 +156,7 @@ if(!empty($_POST)){
                                                     <div class="form-group ">
                                                         <label for="cc-exp" class="control-label mb-1">Produit</label>
                                                         <input id="cc-exp" name="nom_produit" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="prenom"
+                                                            data-val-cc-exp="Please enter a valid month and year"
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
@@ -165,7 +165,7 @@ if(!empty($_POST)){
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Prix</label>
                                                         <input id="cc-exp" name="prix" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="Nom"
+                                                            data-val-cc-exp="Please enter a valid month and year" 
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
@@ -192,20 +192,14 @@ if(!empty($_POST)){
                                                         </select>
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
-                                            <div class="form-group">
-                                                <label for="cc-number" class="control-label mb-1">Salaire</label>
-                                                <input id="cc-number" name="Salaire" type="numbre" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"placeholder="salaire"
-                                                    autocomplete="cc-number">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                            </div>
+                                           
                                            
                                             <div class="row">
                                             <div class="col-6">
                                                     <div class="form-group ">
                                                         <label for="cc-exp" class="control-label mb-1">Expire Date</label>
                                                         <input id="cc-exp" name="date_d'expiration" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="prenom"
+                                                            data-val-cc-exp="Please enter a valid month and year" 
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
@@ -213,18 +207,21 @@ if(!empty($_POST)){
                                             <div class="col-6">
                                                     <div class="form-group ">
                                                         <label for="cc-exp" class="control-label mb-1">Quantite de stock</label>
-                                                        <input id="cc-exp" name="quantite_stock" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="prenom"
+                                                        <input id="cc-exp" name="quantite_stock" type="number" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
+                                                            data-val-cc-exp="Please enter a valid month and year" 
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1">Photo</label>
+                                                    <i
+                                                        class="fas fa-cloud-upload-alt tm-upload-icon"                    
+                  >                                         </i>
                                                     <div class="input-group">
-                                                        <input id="x_card_code" name="image" type="file" class="form-control cc-cvc"  value="UPLOAD PRODUCT IMAGE"
-                                                         data-val="true" data-val-required="Please enter the security code"
-                                                            data-val-cc-cvc="Please enter a valid security code" autocomplete="off"placeholder="chemin">
+                                    
+                                                        <input id="x_card_code"  value="UPLOAD PRODUCT IMAGE"
+                                                                     type="file" name="image">
 
                                                     </div>
                                                 </div>   
