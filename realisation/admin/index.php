@@ -6,8 +6,7 @@
     <title>Product Admin - Dashboard HTML Template</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />     <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
@@ -37,7 +36,7 @@
               <table class="table table-hover tm-table-small tm-product-table">
                 <thead>
                   <tr>
-                    <th scope="col">&nbsp; x</th>
+                    <th scope="col">&nbsp;</th>
                     <th scope="col">NOM PRODUIT</th>
                     <th scope="col">CATEGORIE</th>
                     <th scope="col">UNIT SOLD</th>
@@ -54,19 +53,24 @@
                     
                 ?>
                 <tr>
-                    <th scope="row">x
-                          <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a></th>
+                    <th scope="row">
+              
+                          </th>
                     <td class="tm-product-name"><?php echo $value->getNom_Produit() ?></td>
                     <td ><?php echo $value->getNom_Categorie() ?></td>
                     <td><?php echo $value->getPrix() ?></td>
                     <td><?php echo $value->getQuantite_stock() ?></td>
                    
                     <td>
-                   
-                      <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+
+                      <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
+                          <i class="far fa-trash-alt tm-product-delete-icon"></i>
+
+                      </a>
+                    </td>
+                    <td>
+                    <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>" class="tm-product-delete-link">
+                    <i class="fa-solid fa-pen-to-square tm-product-delete-icon"></i>
                       </a>
                     </td>
                   </tr>
