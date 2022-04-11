@@ -585,6 +585,7 @@ $cart = $cartManager->getCart($_COOKIE['cartCookie']);
 
                     $cartQuantity = $cartManager->getCartQuantity();
                     $totalPrice = 0;
+                    if($cartLineList != null){
                     foreach($cartLineList as $value){
                 ?>
                     <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
@@ -596,7 +597,7 @@ $cart = $cartManager->getCart($_COOKIE['cartCookie']);
                         </a>
                         <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
                     </li>
-                    <?php }?>
+                    <?php } }?>
                 </ul>
                 <p class="cart-total"><span>Subtotal:</span><span class="amount"><?= $totalPrice?> DH</span></p>
                 <a class="btn-total" href="product-cart.php">View cart</a>
