@@ -13,8 +13,9 @@ $cartManager->initCode();
 
 $Categorie = 'Face care';
 $data = $cartManager->getAllProducts();
+if(isset($_COOKIE['cartCookie'])){
 $cart = $cartManager->getCart($_COOKIE['cartCookie']);
-
+}
 ?>
 <head>
     <meta charset="utf-8">
