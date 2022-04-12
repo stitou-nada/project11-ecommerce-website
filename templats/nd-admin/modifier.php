@@ -39,7 +39,7 @@ if(!empty($_POST)){
   
     $gestion->Modifier($produit);
     header('Location: table.php');
-}
+} 
 ?>
 
 <head>
