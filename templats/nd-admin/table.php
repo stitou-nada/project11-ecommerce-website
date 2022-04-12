@@ -83,16 +83,21 @@
                             <a class="aIN" href="Ajoute.php">
                                 <i class="far fa-check-square"></i>Insérer</a>
                         </li>
-                        <li>
-                            <a href="Recherche.php">
-                                <i class="fas fa-search"></i>Recherche</a>
-                                
-                        </li>
+                        
                         </li>
                      
-                    </ul>     
+                    </ul> 
                 </nav>
             </div>
+            <nav  class="navbar-sidebar">
+              <ul  class="list-unstyled navbar__list">
+                     
+                    <a href="../nd-admin/login-signUp/login.php">
+                    <i class="far fa-arrow-right-from-bracket"></i>Logout</a>
+                        
+                    
+             </ul>
+            </nav>    
         </aside>
         <!-- END MENU SIDEBAR-->
 
