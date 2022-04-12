@@ -43,6 +43,7 @@ $quantity = $cartManager->getCartQuantity();
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
 
 </head>
 
@@ -163,7 +164,7 @@ $quantity = $cartManager->getCartQuantity();
             <section class="section-space">
                 <div class="container">
                     <div class="shopping-cart-form table-responsive">
-                        <form action="#" method="post">
+                        <form action="editCart.php" method="post">
                             <table class="table text-center">
                                 <thead>
                                     <tr>
@@ -196,21 +197,21 @@ $quantity = $cartManager->getCartQuantity();
                                         </td>
                                         <td class="product-thumbnail">
                                             <div class="thumb">
-                                                <a href="single-product.php">
+                                                <a href="single-product.php?id=<?php echo $value->getIdCartLine()?>">
                                                     <img src="./img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84" alt="Image-HasTech">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-name">
-                                            <a class="title" href="single-product.php"><?= $value->getProduct()->getName() ?></a>
+                                            <a class="title" href="single-product.php?id=<?php echo $value->getIdCartLine()?>"><?= $value->getProduct()->getName() ?></a>
                                         </td>
                                         <td class="product-price">
                                             <span class="price"><?= $value->getProduct()->getPrice() ?> DH</span>
                                         </td>
                                         <td class="product-quantity">
-                                                <div class="pro-qty">
+                                                <div class="pro-qty-detail">
                                                     <input type="hidden" name="id" value="<?=$value->getIdCartLine();?>">
-                                                    <input  type="text" name="quantity" class="quantity" title="Quantity" value="<?=$value->getProductCartQuantity()?>">
+                                                    <input disabled type="text" name="quantity" class="quantity" title="Quantity" value="<?=$value->getProductCartQuantity()?>">
                                                 </div>
                                         </td>
                                         <td class="product-subtotal">
@@ -218,7 +219,6 @@ $quantity = $cartManager->getCartQuantity();
                                         </td>
                                     </tr>
                                   <?php } }?>
-                                    
                                 </tbody>
                             </table>
                         </form>
@@ -448,7 +448,7 @@ $quantity = $cartManager->getCartQuantity();
                                             <p class="mb-6">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, repellendus. Nam voluptate illo ut quia non sapiente provident alias quos laborum incidunt, earum accusamus, natus. Vero pariatur ut veniam sequi amet consectetur.</p>
                                             <div class="product-details-pro-qty">
                                                 <div class="pro-qty">
-                                                    <input type="text" title="Quantity" value="01">
+                                                    <input  type="text" title="Quantity" value="01">
                                                 </div>
                                             </div>
                                             <div class="product-details-action">
