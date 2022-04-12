@@ -32,7 +32,8 @@ class CartManager {
         $_SESSION["product"] = array();
         $this->addCartCookie($cookieId);
     }
-  }
+
+ }
     
     // Add product to cart
     public function addProduct($cart, $product, $quantity){
