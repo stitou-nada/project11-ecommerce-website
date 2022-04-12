@@ -141,8 +141,8 @@
                                                 
                                                 
                                                 <td> 
-                                                    <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>">Éditer</a>
-                                                    <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a>
+                                                    <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>">Editer</a>
+                                                    <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" ><i class="far fa-trash-alt fa-pen-to-square tm-product-delete-icon"></i></a>
                                                 </td>
                                             </tr>
                                            
@@ -206,7 +206,7 @@
                                             <tr>
                                                 
                                                       <td><?php echo $value-> getNom_Categorie() ?></td>
-                                                      <td> <a href="suprimerCategorie.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a></td>
+                                                      <td> <a href="suprimerCategorie.php?id=<?php echo $value -> getId_Produit() ?>" ><i class="far fa-trash-alt fa-pen-to-square tm-product-delete-icon"></i></a></td>
                                                       
                                                 
                                                 
