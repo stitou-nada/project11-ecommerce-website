@@ -197,13 +197,13 @@ $quantity = $cartManager->getCartQuantity();
                                         </td>
                                         <td class="product-thumbnail">
                                             <div class="thumb">
-                                                <a href="single-product.php">
+                                                <a href="single-product.php?id=<?php echo $value->getIdCartLine()?>">
                                                     <img src="./img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84" alt="Image-HasTech">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-name">
-                                            <a class="title" href="single-product.php"><?= $value->getProduct()->getName() ?></a>
+                                            <a class="title" href="single-product.php?id=<?php echo $value->getIdCartLine()?>"><?= $value->getProduct()->getName() ?></a>
                                         </td>
                                         <td class="product-price">
                                             <span class="price"><?= $value->getProduct()->getPrice() ?> DH</span>

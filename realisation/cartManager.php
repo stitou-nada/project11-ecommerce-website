@@ -148,6 +148,7 @@ class CartManager {
         $product->setDateOfExpiration($result["date_d'expiration"]);
         $product->setQuantity($result['quantite_stock']);
         $product->setCategory($result['categorie_produit']);
+        $product->setImage($result['photo']);
 
         $cartLine->setProduct($product);
 
@@ -161,6 +162,7 @@ class CartManager {
         
     }
 
+  
   
 
 // afficher  les produits : page index
