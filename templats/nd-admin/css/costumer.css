@@ -1,6 +1,11 @@
 .card{
     margin-right: 12px !important;
 }
+
+.btn-primary{
+
+    background-color: #1f698c !important;
+}
 .btn{
     
     margin-top: 12px;
