@@ -83,16 +83,21 @@
                             <a class="aIN" href="Ajoute.php">
                                 <i class="far fa-check-square"></i>Insérer</a>
                         </li>
-                        <li>
-                            <a href="Recherche.php">
-                                <i class="fas fa-search"></i>Recherche</a>
-                                
-                        </li>
+                        
                         </li>
                      
-                    </ul>     
+                    </ul> 
                 </nav>
             </div>
+            <nav  class="navbar-sidebar">
+              <ul  class="list-unstyled navbar__list">
+                     
+                    <a href="../nd-admin/login-signUp/login.php">
+                    <i class="far fa-arrow-right-from-bracket"></i>Logout</a>
+                        
+                    
+             </ul>
+            </nav>    
         </aside>
         <!-- END MENU SIDEBAR-->
 
@@ -141,8 +146,8 @@
                                                 
                                                 
                                                 <td> 
-                                                    <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>">Éditer</a>
-                                                    <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a>
+                                                    <a href="modifier.php?id=<?php echo $value -> getId_Produit() ?>">Editer</a>
+                                                    <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" ><i class="far fa-trash-alt fa-pen-to-square tm-product-delete-icon"></i></a>
                                                 </td>
                                             </tr>
                                            
@@ -150,11 +155,11 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <a
+                  href="ajoute.php"
+                  class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
+                                                            
                             </div>
-                            <a
-              href="ajoute.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
-                                                        
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -206,7 +211,7 @@
                                             <tr>
                                                 
                                                       <td><?php echo $value-> getNom_Categorie() ?></td>
-                                                      <td> <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a></td>
+                                                      <td> <a href="suprimerCategorie.php?id=<?php echo $value -> getId_Produit() ?>" ><i class="far fa-trash-alt fa-pen-to-square tm-product-delete-icon"></i></a></td>
                                                       
                                                 
                                                 
@@ -217,11 +222,11 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <a
+                                href="ajouter-categorie.php"
+                                class="btn btn-primary btn-block text-uppercase  col-lg-12 ">Ajouter nouvelle categorie</a>
+                                
                             </div>
-                            <a
-              href="ajouter-categorie.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle categorie</a>
-                                                        
                         </div>
                         <div class="row">
                             <div class="col-md-12">
