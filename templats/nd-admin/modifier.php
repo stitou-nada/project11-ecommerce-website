@@ -38,7 +38,7 @@ if(!empty($_POST)){
   }
   
     $gestion->Modifier($produit);
-    header('Location: index.php');
+    header('Location: table.php');
 }
 ?>
 
@@ -157,7 +157,7 @@ if(!empty($_POST)){
                                     <!-- form -->
                                     <div class="card-header">Modifier</div>
                                     <div class="card-body ">
-                                    <div class="row tm-edit-product-row">
+                                    <div class="row tm-edit-product-row  ">
                                     <div class="col-xl-6 col-lg-6 col-md-12">
                                        
                                         <!-- start modifier -->

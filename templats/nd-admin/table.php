@@ -150,11 +150,11 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <a
+                  href="ajoute.php"
+                  class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
+                                                            
                             </div>
-                            <a
-              href="ajoute.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
-                                                        
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -206,7 +206,7 @@
                                             <tr>
                                                 
                                                       <td><?php echo $value-> getNom_Categorie() ?></td>
-                                                      <td> <a href="suprimer.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a></td>
+                                                      <td> <a href="suprimerCategorie.php?id=<?php echo $value -> getId_Produit() ?>" >suprimer</a></td>
                                                       
                                                 
                                                 
@@ -217,11 +217,11 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <a
+                                href="ajouter-categorie.php"
+                                class="btn btn-primary btn-block text-uppercase  col-lg-12 ">Ajouter nouvelle categorie</a>
+                                
                             </div>
-                            <a
-              href="ajouter-categorie.php"
-              class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle categorie</a>
-                                                        
                         </div>
                         <div class="row">
                             <div class="col-md-12">
