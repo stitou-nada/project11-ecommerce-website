@@ -1,19 +1,30 @@
-<?
+<?php
 
-class gestion{
+
+
+include "cartLine.php";
+include "product.php";
+
+
+class Gestion {
+
+    public $name ;
 
     private $Connection = Null;
 
     private function getConnection(){
       
-        // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
-        $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
-        return $this->Connection;
+            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
+            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
+           
+         
+       
         
+        return $this->Connection;
     }
 
 
-public function getCartLine(){
+    public function getCartLine(){
         $sql = "SELECT * FROM cart_line INNER JOIN produit on produit.id_produit=cart_line.idProduct ";
         $query = mysqli_query($this->getConnection(), $sql);
         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -34,8 +45,10 @@ public function getCartLine(){
             $product->setDateOfExpiration($value["date_d'expiration"]);
             $product->setQuantity($value['quantite_stock']);
             $product->setCategory($value['categorie_produit']);
-            $cartLine->setProduct($product);
-            array_push($cartLineList, $cartLine);
+            
+
+            
+            array_push($cartLineList, $product);
         }
         return $cartLineList;
     }
