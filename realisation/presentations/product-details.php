@@ -1,6 +1,6 @@
 <?php
 
-include 'cartManager.php';
+include '../manager/cartManager.php';
 
 session_start();
 
@@ -17,6 +17,13 @@ if(isset($_GET["id"])){
     $id=$_GET["id"];
     $data = $cartManager->afficherProduit($id);
     
+    }
+
+$quantityTotal = 0;
+$cartLineList = $cart->getCartLineList()[0];
+
+    foreach($cartLineList as $cartLine){
+        $quantityTotal += $cartLine->getProductCartQuantity();
     }
 
 ?>
@@ -36,7 +43,7 @@ if(isset($_GET["id"])){
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.webp">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -46,16 +53,16 @@ if(isset($_GET["id"])){
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
 
     <!-- Plugins CSS (All Plugins Files) -->
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/nice-select.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="../assets/css/style.min.css">
 
 </head>
 
@@ -65,103 +72,99 @@ if(isset($_GET["id"])){
 <body>
 
 <div class="wrapper">
-
-<!--== Start Header Wrapper ==-->
-<header class="header-area sticky-header header-transparent">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-5 col-lg-2 col-xl-1">
-                <div class="header-logo">
-                    <a href="index.php">
-                        <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-7 col-xl-7 d-none d-lg-block">
-                <div class="header-navigation ps-7">
-                    <ul class="main-nav justify-content-start">
-                        <li class="has-submenu"><a href="index.php">home</a>
-                            <ul class="submenu-nav">
-                                <li><a href="index.php">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about-us.html">about</a></li>
-                        <li class="has-submenu position-static"><a href="product.html">shop</a>
-                            <ul class="submenu-nav-mega">
-                                <li><a href="#/" class="mega-title">categories</a>
-                                    <ul>
+   <!--== Start Header Wrapper ==-->
+   <header class="header-area sticky-header">
+            <div class="container">
+            <div class="row align-items-center">
+                    <div class="col-5 col-lg-2 col-xl-1">
+                        <div class="header-logo">
+                            <a href="index.php">
+                                <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68" alt="Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
+                        <div class="header-navigation ps-7">
+                            <ul class="main-nav justify-content-start">
+                                <li class="has-submenu"><a href="index.php">home</a>
                                         
-                                        <li><a href="hare-care.php">Hare care</a></li>
-                                        <li><a href="Face-care.php">Face care</a></li>
-                                        <li><a href="blusher.php">Blusher</a></li>
-                                        <li><a href="lip-stick.php">Lip stick</a></li>
-                                        <li><a href="Skin care">Skin care</a></li>
+                                </li>
+                                <li><a href="about-us.php">about</a></li>
+                                <li class="has-submenu position-static"><a href="#">shop</a>
+                                    <ul class="submenu-nav-mega">
+                                        <li><a href="#/" class="mega-title">categories</a>
+                                            <ul>
+                                                
+                                                <li><a href="hare-care.php">Hare care</a></li>
+                                                <li><a href="Face-care.php">Face care</a></li>
+                                                <li><a href="blusher.php">Blusher</a></li>
+                                                <li><a href="lip-stick.php">Lip stick</a></li>
+                                                <li><a href="skin-care.php">Skin care</a></li>
+                                            </ul>
+                                        </li>
+                                       
+                                      
                                     </ul>
                                 </li>
-                               
-                              
+                                
+                                <li><a href="contact.php">Contact</a></li>
                             </ul>
-                        </li>
-                        
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                        </div>
+                    </div>
+                    <div class="col-7 col-lg-3 col-xl-4">
+                        <div class="header-action justify-content-end">
+                            <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
+                                <span class="icon">
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)"/>
+                    <defs>
+                      <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_504:11" transform="scale(0.0333333)"/>
+                      </pattern>
+                      <image id="image0_504:11" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABiUlEQVRIie2Wu04CQRSGP0G2EUtIbHwA8B3EQisLIcorEInx8hbEZ9DKy6toDI1oAgalNFpDoYWuxZzJjoTbmSXERP7kZDbZ859vdmb27MJcf0gBUAaugRbQk2gBV3IvmDa0BLwA4Zh4BorTACaAU6fwPXAI5IAliTxwBDScvJp4vWWhH0BlTLEEsC+5Fu6lkgNdV/gKDnxHCw2I9rSiNQNV8baBlMZYJtpTn71KAg9SY3dUYn9xezLPgG8P8BdwLteq5X7CzDbnAbXKS42WxtQVUzoGeFlqdEclxXrnhmhhkqR+8KuMqzHA1vumAddl3IwB3pLxVmOyr1NjwKQmURJ4lBp7GmOAafghpg1qdSDeDrCoNReJWmZB4dsAPsW7rYVa1Rx4FbOEw5TEPKmFvgMZX3DCgYeYNniMaQ5piTXghGhPLdTmZ33hYNpem98f/UHRwSxvhqhXx4anMA3/EmhiOlJPJnSBOb3uQcpOE65VhujPpAms/Bu4u+x3swRbeB24mTV4LgB+AFuLedkPkcmmAAAAAElFTkSuQmCC"/>
+                    </defs>
+                  </svg>
+                </span>
+                            </button>
+
+                            <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
+                                <span class="icon">
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
+                    <defs>
+                      <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_504:9" transform="scale(0.0333333)"/>
+                      </pattern>
+                      <image id="image0_504:9" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRIie2VMU7DMBSGvwAqawaYuAmKxCW4A1I5Qg4AA93KBbp1ZUVUlQJSVVbCDVhgzcTQdLEVx7WDQ2xLRfzSvzzb+d6zn2MYrkugBBYevuWsHKiFn2JBMwH8Bq6Aw1jgBwHOYwGlPgT4LDZ4I8BJDNiEppl034UEJ8DMAJ0DByHBACPgUYEugePQUKkUWAmnsaB/Ry/YO9aXCwlT72AdrqaWEohwBWxSwc8ReIVtYIr5bM5pXqO+Men7rozGlkVSv4lJj1WQfsbvXVkNVNk1eEK4ik9/yuwzAPhLh5iuU4jtftMDR4ZJJXChxTJ2H3zXGDgWc43/X2Wro8G81a8u2fXU2nXiLVAxvNIKuPGW/r/2SltF+a3Rkw4pmwAAAABJRU5ErkJggg=="/>
+                    </defs>
+                  </svg>
+                </span>
+                            </button>
+
+                            <a class="header-action-btn" href="my-account.php">
+                                <span class="icon">
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
+                    <defs>
+                      <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
+                      </pattern>
+                      <image id="image0_504:10" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIie3UMUoDYRDF8Z8psqUpLBRrBS+gx7ATD6E5iSjeQQ/gJUzEwmChnZZaKZiQ0ljsLkhQM5/5Agr74DX7DfOfgZ1Hoz+qAl30Marcx2H1thCtY4DJN76parKqmAH9DM+6eTcArX2QE3yVAO7lBA8TwMNIw6UgeJI46My+rWCjUQL0LVIUBd8lgEO1UfBZAvg8oXamCuWNRu64nRNMmUo/wReSXLXayoDoKc9miMvqW/ZNG2VRNLla2MYudrCFTvX2intlnl/gGu/zDraGYzyLZ/UTjrD6G2AHpxgnAKc9xgmWo9BNPM4BnPYDNiLg24zQ2oNpyFdZvRKZLlGhnvvKPzXXti/Yy7hEo3+iD9EHtgdqxQnwAAAAAElFTkSuQmCC"/>
+                    </defs>
+                  </svg>
+                </span>
+                            </a>
+
+                            <button class="header-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-7 col-lg-3 col-xl-4">
-                <div class="header-action justify-content-end">
-                    <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
-                        <span class="icon">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)"/>
-            <defs>
-              <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-                <use xlink:href="#image0_504:11" transform="scale(0.0333333)"/>
-              </pattern>
-              <image id="image0_504:11" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABiUlEQVRIie2Wu04CQRSGP0G2EUtIbHwA8B3EQisLIcorEInx8hbEZ9DKy6toDI1oAgalNFpDoYWuxZzJjoTbmSXERP7kZDbZ859vdmb27MJcf0gBUAaugRbQk2gBV3IvmDa0BLwA4Zh4BorTACaAU6fwPXAI5IAliTxwBDScvJp4vWWhH0BlTLEEsC+5Fu6lkgNdV/gKDnxHCw2I9rSiNQNV8baBlMZYJtpTn71KAg9SY3dUYn9xezLPgG8P8BdwLteq5X7CzDbnAbXKS42WxtQVUzoGeFlqdEclxXrnhmhhkqR+8KuMqzHA1vumAddl3IwB3pLxVmOyr1NjwKQmURJ4lBp7GmOAafghpg1qdSDeDrCoNReJWmZB4dsAPsW7rYVa1Rx4FbOEw5TEPKmFvgMZX3DCgYeYNniMaQ5piTXghGhPLdTmZ33hYNpem98f/UHRwSxvhqhXx4anMA3/EmhiOlJPJnSBOb3uQcpOE65VhujPpAms/Bu4u+x3swRbeB24mTV4LgB+AFuLedkPkcmmAAAAAElFTkSuQmCC"/>
-            </defs>
-          </svg>
-        </span>
-                    </button>
-
-                    <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
-                        <span class="icon">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
-            <defs>
-              <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-                <use xlink:href="#image0_504:9" transform="scale(0.0333333)"/>
-              </pattern>
-              <image id="image0_504:9" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRIie2VMU7DMBSGvwAqawaYuAmKxCW4A1I5Qg4AA93KBbp1ZUVUlQJSVVbCDVhgzcTQdLEVx7WDQ2xLRfzSvzzb+d6zn2MYrkugBBYevuWsHKiFn2JBMwH8Bq6Aw1jgBwHOYwGlPgT4LDZ4I8BJDNiEppl034UEJ8DMAJ0DByHBACPgUYEugePQUKkUWAmnsaB/Ry/YO9aXCwlT72AdrqaWEohwBWxSwc8ReIVtYIr5bM5pXqO+Men7rozGlkVSv4lJj1WQfsbvXVkNVNk1eEK4ik9/yuwzAPhLh5iuU4jtftMDR4ZJJXChxTJ2H3zXGDgWc43/X2Wro8G81a8u2fXU2nXiLVAxvNIKuPGW/r/2SltF+a3Rkw4pmwAAAABJRU5ErkJggg=="/>
-            </defs>
-          </svg>
-        </span>
-                    </button>
-
-                    <a class="header-action-btn" href="account-login.html">
-                        <span class="icon">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
-            <defs>
-              <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-                <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
-              </pattern>
-              <image id="image0_504:10" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIie3UMUoDYRDF8Z8psqUpLBRrBS+gx7ATD6E5iSjeQQ/gJUzEwmChnZZaKZiQ0ljsLkhQM5/5Agr74DX7DfOfgZ1Hoz+qAl30Marcx2H1thCtY4DJN76parKqmAH9DM+6eTcArX2QE3yVAO7lBA8TwMNIw6UgeJI46My+rWCjUQL0LVIUBd8lgEO1UfBZAvg8oXamCuWNRu64nRNMmUo/wReSXLXayoDoKc9miMvqW/ZNG2VRNLla2MYudrCFTvX2intlnl/gGu/zDraGYzyLZ/UTjrD6G2AHpxgnAKc9xgmWo9BNPM4BnPYDNiLg24zQ2oNpyFdZvRKZLlGhnvvKPzXXti/Yy7hEo3+iD9EHtgdqxQnwAAAAAElFTkSuQmCC"/>
-            </defs>
-          </svg>
-        </span>
-                    </a>
-
-                    <button class="header-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+        </header>
 <!--== End Header Wrapper ==-->
 
 
@@ -194,24 +197,14 @@ if(isset($_GET["id"])){
                     <div class="row product-details">
                         <div class="col-lg-6">
                             <div class="product-details-thumb">
-                                <img src="./img/<?php echo $data->getImage() ?>" width="570" height="693" alt="Image">
+                                <img src="../img/<?php echo $data->getImage() ?>" width="570" height="693" alt="Image">
                                 <span class="flag-new">new</span>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details-content">
-                                <h5 class="product-details-collection">Premioum collection</h5>
+                                <!-- <h5 class="product-details-collection">Premioum collection</h5> -->
                                 <h3 class="product-details-title"><?php echo $data->getName() ?></h3>
-                                <div class="product-details-review">
-                                    <div class="product-review-icon">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                    <button type="button" class="product-review-show"><?php echo $data->getCategory() ?></button>
-                                </div>
                                 <div class="product-details-qty-list">
                                     
 
@@ -253,7 +246,7 @@ if(isset($_GET["id"])){
                             <div class="widget-item">
                                 <div class="widget-about">
                                     <a class="widget-logo" href="index.php">
-                                        <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
+                                        <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
                                 </div>
@@ -318,7 +311,7 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -343,7 +336,7 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -393,7 +386,7 @@ if(isset($_GET["id"])){
                                     <div class="col-lg-6">
                                         <!--== Start Product Thumbnail Area ==-->
                                         <div class="product-single-thumb">
-                                            <img src="assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
+                                            <img src="../assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
                                         </div>
                                         <!--== End Product Thumbnail Area ==-->
                                     </div>
@@ -444,26 +437,30 @@ if(isset($_GET["id"])){
             </div>
             <div class="offcanvas-body">
                 <ul class="aside-cart-product-list">
+                <?php 
+
+            
+                    $cartLineList = $cart->getCartLineList()[0];
+
+                    $cartQuantity = $cartManager->getCartQuantity();
+                    $totalPrice = 0;
+                    if($cartLineList != null){
+                    foreach($cartLineList as $value){
+                ?>
+                    <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Leather Mens Slipper</span>
+                            <img src="../img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
+                            <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                         </a>
-                        <span class="product-price">1 × £69.99</span>
+                        <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
                     </li>
-                    <li class="aside-product-list-item">
-                        <a href="#/" class="remove">×</a>
-                        <a href="product-details.php">
-                            <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Quickiin Mens shoes</span>
-                        </a>
-                        <span class="product-price">1 × £20.00</span>
-                    </li>
+                    <?php } }?>
                 </ul>
-                <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
-                <a class="btn-total" href="product-cart.html">View cart</a>
-                <a class="btn-total" href="product-checkout.html">Checkout</a>
+                <p class="cart-total"><span>Subtotal:</span><span class="amount"><?= $totalPrice?> DH</span></p>
+                <a class="btn-total" href="product-cart.php">View cart</a>
+                <a class="btn-total" href="product-checkout.php">Checkout</a>
             </div>
         </aside>
         <!--== End Aside Cart ==-->
@@ -480,7 +477,6 @@ if(isset($_GET["id"])){
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
                             <ul>
                                 <li><a href="index.php">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
                             </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
@@ -544,18 +540,18 @@ if(isset($_GET["id"])){
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- Vendors JS -->
-    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
-    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="../assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- Plugins JS -->
-    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="./assets/js/plugins/fancybox.min.js"></script>
-    <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="../assets/js/plugins/fancybox.min.js"></script>
+    <script src="../assets/js/plugins/jquery.nice-select.min.js"></script>
 
     <!-- Custom Main JS -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

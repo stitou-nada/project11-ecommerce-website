@@ -1,5 +1,5 @@
 <?php
-    class Cart {
+    class Cart{
         private $id;
         private $userReference;
         private $cartLineList = array();
