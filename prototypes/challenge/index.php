@@ -66,8 +66,8 @@ $chart_data = substr($chart_data, 0, -2);
  <body>
   <br /><br />
   <div class="container" style="width:900px;">
-   <h2 align="center">Morris.js chart with PHP & Mysql</h2>
-   <h3 align="center">Last 10 Years Profit, Purchase and Sale Data</h3>   
+
+   <h3 align="center">Total d'ajouter un produit au  panier</h3>   
    <br /><br />
    <div id="chart"></div>
   </div>
@@ -79,7 +79,7 @@ Morris.Bar({
  element : 'chart',
  data:[<?php echo $chart_data; ?>],
  xkey:'Produit',
- ykeys:['numbre' ],
+ ykeys:['numbre', ],
  labels:['numbre'],
  hideHover:'auto',
  stacked:true
