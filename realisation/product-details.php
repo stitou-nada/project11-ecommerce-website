@@ -81,10 +81,6 @@ if(isset($_GET["id"])){
                 <div class="header-navigation ps-7">
                     <ul class="main-nav justify-content-start">
                         <li class="has-submenu"><a href="index.php">home</a>
-                            <ul class="submenu-nav">
-                                <li><a href="index.php">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
                         </li>
                         <li><a href="about-us.html">about</a></li>
                         <li class="has-submenu position-static"><a href="product.html">shop</a>
@@ -444,26 +440,30 @@ if(isset($_GET["id"])){
             </div>
             <div class="offcanvas-body">
                 <ul class="aside-cart-product-list">
+                <?php 
+
+            
+                    $cartLineList = $cart->getCartLineList()[0];
+
+                    $cartQuantity = $cartManager->getCartQuantity();
+                    $totalPrice = 0;
+                    if($cartLineList != null){
+                    foreach($cartLineList as $value){
+                ?>
+                    <?php $totalPrice = ($totalPrice + $value->getProduct()->getPrice()) * $value->getProductCartQuantity()?>
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Leather Mens Slipper</span>
+                            <img src="./img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
+                            <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                         </a>
-                        <span class="product-price">1 × £69.99</span>
+                        <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
                     </li>
-                    <li class="aside-product-list-item">
-                        <a href="#/" class="remove">×</a>
-                        <a href="product-details.php">
-                            <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
-                            <span class="product-title">Quickiin Mens shoes</span>
-                        </a>
-                        <span class="product-price">1 × £20.00</span>
-                    </li>
+                    <?php } }?>
                 </ul>
-                <p class="cart-total"><span>Subtotal:</span><span class="amount">£89.99</span></p>
-                <a class="btn-total" href="product-cart.html">View cart</a>
-                <a class="btn-total" href="product-checkout.html">Checkout</a>
+                <p class="cart-total"><span>Subtotal:</span><span class="amount"><?= $totalPrice?> DH</span></p>
+                <a class="btn-total" href="product-cart.php">View cart</a>
+                <a class="btn-total" href="product-checkout.php">Checkout</a>
             </div>
         </aside>
         <!--== End Aside Cart ==-->
@@ -480,7 +480,6 @@ if(isset($_GET["id"])){
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
                             <ul>
                                 <li><a href="index.php">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
                             </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
