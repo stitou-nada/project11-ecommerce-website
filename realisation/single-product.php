@@ -203,18 +203,8 @@ if(isset($_POST["quantity"])){
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details-content">
-                                <h5 class="product-details-collection">Premioum collection</h5>
+                                <!-- <h5 class="product-details-collection"><?php echo $cartLine->getProduct()->getCategory()?></h5> -->
                                 <h3 class="product-details-title"><?php echo $cartLine->getProduct()->getName() ?></h3>
-                                <div class="product-details-review">
-                                    <div class="product-review-icon">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                    <button type="button" class="product-review-show"><?php echo $cartLine->getProduct()->getCategory() ?></button>
-                                </div>
                                 <div class="product-details-qty-list">
                                     
 
