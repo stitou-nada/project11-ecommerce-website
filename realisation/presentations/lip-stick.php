@@ -12,7 +12,7 @@
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.webp">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
 
     <!-- Plugins CSS (All Plugins Files) -->
     <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
@@ -32,17 +32,17 @@
     <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="../assets/css/style.min.css">
 
 </head>
 
 <?php 
 
-include "gestion.php";
+include "../manager/productManager.php";
 
 
-$gestion = new Gestion();
-$Categorie = 'Face care';
+$gestion = new ProductManager();
+$Categorie = 'Lip stick';
 $data = $gestion->afficherCatigore($Categorie);
 
 
@@ -59,25 +59,26 @@ $data = $gestion->afficherCatigore($Categorie);
 
 <body>
 
-        <!--== Wrapper Start ==-->
-        <div class="wrapper">
+    <!--== Wrapper Start ==-->
+    <div class="wrapper">
 
-            <!--== Start Header Wrapper ==-->
-            <header class="header-area sticky-header">
-                <div class="container">
-                <div class="row align-items-center">
+        <!--== Start Header Wrapper ==-->
+        <header class="header-area sticky-header">
+            <div class="container">
+            <div class="row align-items-center">
                     <div class="col-5 col-lg-2 col-xl-1">
                         <div class="header-logo">
-                            <a href="index.php">
-                                <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
+                            <a href="../index.php">
+                                <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-xl-7 d-none d-lg-block">
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.php">home</a>
+                                <li class="has-submenu"><a href="../index.php">home</a>
                                         
+                                
                                 </li>
                                 <li><a href="about-us.php">about</a></li>
                                 <li class="has-submenu position-static"><a href="#">shop</a>
@@ -166,10 +167,10 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="../index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
-                                <h2 class="page-header-title">Face care</h2>
+                                <h2 class="page-header-title">Lip stick</h2>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -193,7 +194,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
                             <a href="hare-care.php" class="product-category-item">
-                                <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
+                                <img class="icon" src="../assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
                                 <h3 class="title">Hare care</h3>
                                 <span class="flag-new">new</span>
                             </a>
@@ -202,7 +203,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
                             <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
+                                <img class="icon" src="../assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Skin care</h3>
                             </a>
                             <!--== End Product Category Item ==-->
@@ -210,7 +211,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
                             <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
+                                <img class="icon" src="../assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Lip stick</h3>
                             </a>
                             <!--== End Product Category Item ==-->
@@ -218,7 +219,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
                             <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
+                                <img class="icon" src="../assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Face skin</h3>
                                 <span data-bg-color="#835BF4" class="flag-new">sale</span>
                             </a>
@@ -227,7 +228,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                             <!--== Start Product Category Item ==-->
                             <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
+                                <img class="icon" src="../assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
                                 <h3 class="title">Blusher</h3>
                             </a>
                             <!--== End Product Category Item ==-->
@@ -250,7 +251,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             <div class="product-item">
                                 <div class="product-thumb">
                                     <a class="d-block" href="product-details.php?id=<?= $value->getId_Produit() ?>">
-                                        <img src="./img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
+                                        <img src="../img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
                                     <div class="product-action">
@@ -301,7 +302,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 mb-4 mb-sm-8">
                           <?php }?>
                         </div>
-          
+                     
 
         </main>
 
@@ -314,8 +315,8 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="index.php">
-                                        <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
+                                    <a class="widget-logo" href="../../index.php">
+                                        <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
                                 </div>
@@ -380,7 +381,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -405,7 +406,7 @@ $data = $gestion->afficherCatigore($Categorie);
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -455,7 +456,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <div class="col-lg-6">
                                         <!--== Start Product Thumbnail Area ==-->
                                         <div class="product-single-thumb">
-                                            <img src="assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
+                                            <img src="../assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
                                         </div>
                                         <!--== End Product Thumbnail Area ==-->
                                     </div>
@@ -509,7 +510,7 @@ $data = $gestion->afficherCatigore($Categorie);
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
+                            <img src="../assets/images/shop/cart1.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Leather Mens Slipper</span>
                         </a>
                         <span class="product-price">1 × £69.99</span>
@@ -517,7 +518,7 @@ $data = $gestion->afficherCatigore($Categorie);
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
+                            <img src="../assets/images/shop/cart2.webp" width="68" height="84" alt="Image">
                             <span class="product-title">Quickiin Mens shoes</span>
                         </a>
                         <span class="product-price">1 × £20.00</span>
@@ -539,8 +540,8 @@ $data = $gestion->afficherCatigore($Categorie);
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
-                         
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="../index.php">home</a>
+                          
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.php">about</a></li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
@@ -603,19 +604,19 @@ $data = $gestion->afficherCatigore($Categorie);
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- Vendors JS -->
-    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
-    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="../assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- Plugins JS -->
-    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="./assets/js/plugins/fancybox.min.js"></script>
-    <script src="./assets/js/plugins/range-slider.js"></script>
-    <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="../assets/js/plugins/fancybox.min.js"></script>
+    <script src="../assets/js/plugins/range-slider.js"></script>
+    <script src="../assets/js/plugins/jquery.nice-select.min.js"></script>
 
     <!-- Custom Main JS -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

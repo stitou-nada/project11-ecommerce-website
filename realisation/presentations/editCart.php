@@ -1,5 +1,5 @@
 <?php
-include 'cartManager.php';
+include '../Managers/cartManager.php';
 session_start();
 
 $cartManager = new CartManager();
@@ -10,7 +10,7 @@ $quantity = $cartManager->getCartQuantity();
 if(isset($_POST["quantity"]) and isset($_POST["id"])){
 
     $cartManager->editCartLine($_POST["id"], $_POST["quantity"]);
-    header("location: index.php");
+    header("location: ../index.php");
 }
 
 ?>

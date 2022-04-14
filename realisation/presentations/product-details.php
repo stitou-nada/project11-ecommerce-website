@@ -1,6 +1,6 @@
 <?php
 
-include 'cartManager.php';
+include '../Managers/cartManager.php';
 
 session_start();
 
@@ -36,7 +36,7 @@ if(isset($_GET["id"])){
     <meta name="author" content="codecarnival" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.webp">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -46,16 +46,16 @@ if(isset($_GET["id"])){
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
 
     <!-- Plugins CSS (All Plugins Files) -->
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/nice-select.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="../assets/css/style.min.css">
 
 </head>
 
@@ -72,18 +72,18 @@ if(isset($_GET["id"])){
         <div class="row align-items-center">
             <div class="col-5 col-lg-2 col-xl-1">
                 <div class="header-logo">
-                    <a href="index.php">
-                        <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
+                    <a href="../index.php">
+                        <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68" alt="Logo" />
                     </a>
                 </div>
             </div>
             <div class="col-lg-7 col-xl-7 d-none d-lg-block">
                 <div class="header-navigation ps-7">
                     <ul class="main-nav justify-content-start">
-                        <li class="has-submenu"><a href="index.php">home</a>
+                        <li class="has-submenu"><a href="../index.php">home</a>
                         </li>
                         <li><a href="about-us.html">about</a></li>
-                        <li class="has-submenu position-static"><a href="product.html">shop</a>
+                        <li class="has-submenu position-static"><a href="../product.html">shop</a>
                             <ul class="submenu-nav-mega">
                                 <li><a href="#/" class="mega-title">categories</a>
                                     <ul>
@@ -190,7 +190,7 @@ if(isset($_GET["id"])){
                     <div class="row product-details">
                         <div class="col-lg-6">
                             <div class="product-details-thumb">
-                                <img src="./img/<?php echo $data->getImage() ?>" width="570" height="693" alt="Image">
+                                <img src="../img/<?php echo $data->getImage() ?>" width="570" height="693" alt="Image">
                                 <span class="flag-new">new</span>
                             </div>
                         </div>
@@ -238,8 +238,8 @@ if(isset($_GET["id"])){
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="index.php">
-                                        <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
+                                    <a class="widget-logo" href="../index.php">
+                                        <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
                                 </div>
@@ -304,7 +304,7 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -329,7 +329,7 @@ if(isset($_GET["id"])){
                             </div>
                             <div class="modal-action-product">
                                 <div class="thumb">
-                                    <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
+                                    <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466" height="320">
                                 </div>
                                 <h4 class="product-name"><a href="product-details.php">Readable content DX22</a></h4>
                             </div>
@@ -379,7 +379,7 @@ if(isset($_GET["id"])){
                                     <div class="col-lg-6">
                                         <!--== Start Product Thumbnail Area ==-->
                                         <div class="product-single-thumb">
-                                            <img src="assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
+                                            <img src="../assets/images/shop/quick-view1.webp" width="544" height="560" alt="Image-HasTech">
                                         </div>
                                         <!--== End Product Thumbnail Area ==-->
                                     </div>
@@ -444,7 +444,7 @@ if(isset($_GET["id"])){
                     <li class="aside-product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="product-details.php">
-                            <img src="./img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
+                            <img src="../img/<?php echo $value->getProduct()->getImage()?>"  width="68" height="84" alt="Image">
                             <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                         </a>
                         <span class="product-price"><?=$value->getProductCartQuantity()?> × <?= $value->getProduct()->getPrice() ?> DH</span>
@@ -469,7 +469,7 @@ if(isset($_GET["id"])){
                     <ul>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
                             <ul>
-                                <li><a href="index.php">Home One</a></li>
+                                <li><a href="../index.php">Home One</a></li>
                             </ul>
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
@@ -533,18 +533,18 @@ if(isset($_GET["id"])){
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
     <!-- Vendors JS -->
-    <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
-    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="../assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- Plugins JS -->
-    <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="./assets/js/plugins/fancybox.min.js"></script>
-    <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="../assets/js/plugins/fancybox.min.js"></script>
+    <script src="../assets/js/plugins/jquery.nice-select.min.js"></script>
 
     <!-- Custom Main JS -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

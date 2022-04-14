@@ -4,7 +4,8 @@
 <php class="no-js" lang="fr">
 <?php 
 
-include "cartManager.php";
+require "./manager/cartManager.php";
+
 session_start();
 
 
@@ -283,7 +284,7 @@ $cart = $cartManager->getCart($_COOKIE['cartCookie']);
                            <?php  foreach($data as $value){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php?id=<?php echo $value->getId()?>">
+                                    <a class="d-block" href="presentations/product-details.php?id=<?php echo $value->getId()?>">
                                         <img src="./img/<?php echo $value->getImage()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>

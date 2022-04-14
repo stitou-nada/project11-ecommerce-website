@@ -1,7 +1,7 @@
 <?php
-include "cart.php";
-include "cartLine.php";
-include "productClass.php";
+include "../entites/cart.php";
+include "../entites/cartLine.php";
+include "../entites/productClass.php";
 
 
 class CartManager {
@@ -12,7 +12,8 @@ class CartManager {
 
     private function getConnection(){
       
-            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
+            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
+            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
            
          
        

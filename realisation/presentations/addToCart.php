@@ -1,5 +1,5 @@
 <?php
-include 'cartManager.php';
+include '../Managers/cartManager.php';
 session_start();
 
 $cartManager = new CartManager();
@@ -24,6 +24,6 @@ if(isset($_POST['id'])){
 
     $cartManager->set($cart, $product, $quantity);
 
-    header("location: index.php");
+    header("location: ../index.php");
 
 }
