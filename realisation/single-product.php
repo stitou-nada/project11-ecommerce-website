@@ -227,11 +227,11 @@ if(isset($_POST["quantity"])){
                                     </div>
 
                                 </div>
-                                <form action="addToCart.php" method="POST">
+                                <form action="editCart.php" method="POST">
                                 <input type="hidden" name="id" value="<?=$cartLine->getIdCartLine();?>">
                                 <div class="product-details-pro-qty">
                                     <div class="pro-qty">
-                                        <input type="text" title="Quantity" name="quantite"  value="<?=$cartLine->getProductCartQuantity();?>">
+                                        <input type="text" title="Quantity" name="quantity"  value="<?=$cartLine->getProductCartQuantity();?>">
                                     </div>
                                 </div>
                                
