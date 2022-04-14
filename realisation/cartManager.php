@@ -269,4 +269,11 @@ public function getAllProducts(){
             
             return $product;
         }
+
+
+        function deleteCartLine($id){
+            $sql = "DELETE FROM cart_line WHERE idCartLine = '$id'";
+            mysqli_query($this->getConnection(), $sql);
+
+        }
     }

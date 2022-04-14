@@ -221,7 +221,7 @@ $cartLineList = $cart->getCartLineList()[0];
 
                                     <tr class="tbody-item">
                                         <td class="product-remove">
-                                            <a class="remove" href="javascript:void(0)">×</a>
+                                            <a class="remove" href="deleteCartLine.php?id=<?php echo $value->getIdCartLine()?>">×</a>
                                         </td>
                                         <td class="product-thumbnail">
                                             <div class="thumb">
