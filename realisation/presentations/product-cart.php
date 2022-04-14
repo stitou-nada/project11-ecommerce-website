@@ -1,5 +1,5 @@
 <?php
-include '../Managers/cartManager.php';
+include '../manager/cartManager.php';
 session_start();
 
 $cartManager = new CartManager();

@@ -68,7 +68,7 @@ $data = $gestion->afficherCatigore($Categorie);
             <div class="row align-items-center">
                     <div class="col-5 col-lg-2 col-xl-1">
                         <div class="header-logo">
-                            <a href="../index.php">
+                            <a href="index.php">
                                 <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
@@ -76,7 +76,7 @@ $data = $gestion->afficherCatigore($Categorie);
                     <div class="col-lg-7 col-xl-7 d-none d-lg-block">
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="../index.php">home</a>
+                                <li class="has-submenu"><a href="index.php">home</a>
                                         
                                 
                                 </li>
@@ -167,7 +167,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="../index.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
                                 <h2 class="page-header-title">Lip stick</h2>
@@ -315,7 +315,7 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="../../index.php">
+                                    <a class="widget-logo" href="../index.php">
                                         <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
@@ -540,7 +540,7 @@ $data = $gestion->afficherCatigore($Categorie);
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="../index.php">home</a>
+                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="index.php">home</a>
                           
                         </li>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.php">about</a></li>

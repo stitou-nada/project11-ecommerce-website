@@ -2,7 +2,7 @@
 <php class="no-js" lang="fr">
     <?php 
 
-require "./manager/cartManager.php";
+require "../manager/cartManager.php";
 
 session_start();
 
@@ -38,7 +38,7 @@ $cartLineList = $cart->getCartLineList()[0];
         <meta name="author" content="codecarnival" />
 
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.webp">
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.webp">
 
         <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -49,17 +49,17 @@ $cartLineList = $cart->getCartLineList()[0];
             rel="stylesheet">
 
         <!-- Vendor CSS (Bootstrap & Icon Font) -->
-        <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
 
         <!-- Plugins CSS (All Plugins Files) -->
-        <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-        <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+        <link rel="stylesheet" href="../assets/css/plugins/swiper-bundle.min.css">
+        <link rel="stylesheet" href="../assets/css/plugins/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/plugins/fancybox.min.css">
+        <link rel="stylesheet" href="../assets/css/plugins/nice-select.css">
 
         <!-- Style CSS -->
-        <link rel="stylesheet" href="./assets/css/style.min.css">
-        <link rel="stylesheet" href="./assets/css/custom.css">
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="../assets/css/custom.css">
 
     </head>
 
@@ -77,7 +77,7 @@ $cartLineList = $cart->getCartLineList()[0];
                         <div class="col-5 col-lg-2 col-xl-1">
                             <div class="header-logo">
                                 <a href="index.php">
-                                    <img class="logo-main" src="assets/images/logo.webp" width="95" height="68"
+                                    <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68"
                                         alt="Logo" />
                                 </a>
                             </div>
@@ -199,7 +199,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <div class="col-12 col-md-6">
                                             <div class="hero-slide-content">
                                                 <div class="hero-slide-text-img"><img
-                                                        src="assets/images/slider/text-theme.webp" width="427"
+                                                        src="../assets/images/slider/text-theme.webp" width="427"
                                                         height="232" alt="Image"></div>
                                                 <h2 class="hero-slide-title">CLEAN FRESH</h2>
                                                 <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur
@@ -209,13 +209,13 @@ $cartLineList = $cart->getCartLineList()[0];
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="hero-slide-thumb">
-                                                <img src="./img/ezgif.com-gif-maker.png" width="841" height="832"
+                                                <img src="../img/ezgif.com-gif-maker.png" width="841" height="832"
                                                     alt="Image">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="hero-slide-text-shape"><img src="assets/images/slider/text1.webp" width="70"
+                                <div class="hero-slide-text-shape"><img src="../assets/images/slider/text1.webp" width="70"
                                         height="955" alt="Image"></div>
                                 <div class="hero-slide-social-shape"></div>
                             </div>
@@ -225,7 +225,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <div class="col-12 col-md-6">
                                             <div class="hero-slide-content">
                                                 <div class="hero-slide-text-img"><img
-                                                        src="assets/images/slider/text-theme.webp" width="427"
+                                                        src="../assets/images/slider/text-theme.webp" width="427"
                                                         height="232" alt="Image"></div>
                                                 <h2 class="hero-slide-title">Facial Cream</h2>
                                                 <p class="hero-slide-desc">Lorem ipsum dolor sit amet, consectetur
@@ -235,13 +235,13 @@ $cartLineList = $cart->getCartLineList()[0];
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="hero-slide-thumb">
-                                                <img src="assets/images/slider/slider2.webp" width="841" height="832"
+                                                <img src="../assets/images/slider/slider2.webp" width="841" height="832"
                                                     alt="Image">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="hero-slide-text-shape"><img src="assets/images/slider/text1.webp" width="70"
+                                <div class="hero-slide-text-shape"><img src="../assets/images/slider/text1.webp" width="70"
                                         height="955" alt="Image"></div>
                                 <div class="hero-slide-social-shape"></div>
                             </div>
@@ -266,7 +266,7 @@ $cartLineList = $cart->getCartLineList()[0];
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                                 <!--== Start Product Category Item ==-->
                                 <a href="hare-care.php" class="product-category-item">
-                                    <img class="icon" src="assets/images/shop/category/1.webp" width="70" height="80"
+                                    <img class="icon" src="../assets/images/shop/category/1.webp" width="70" height="80"
                                         alt="Image-HasTech">
                                     <h3 class="title">Hare care</h3>
                                     <span class="flag-new">new</span>
@@ -276,7 +276,7 @@ $cartLineList = $cart->getCartLineList()[0];
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                                 <!--== Start Product Category Item ==-->
                                 <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                    <img class="icon" src="assets/images/shop/category/2.webp" width="80" height="80"
+                                    <img class="icon" src="../assets/images/shop/category/2.webp" width="80" height="80"
                                         alt="Image-HasTech">
                                     <h3 class="title">Skin care</h3>
                                 </a>
@@ -285,7 +285,7 @@ $cartLineList = $cart->getCartLineList()[0];
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
                                 <!--== Start Product Category Item ==-->
                                 <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                    <img class="icon" src="assets/images/shop/category/3.webp" width="80" height="80"
+                                    <img class="icon" src="../assets/images/shop/category/3.webp" width="80" height="80"
                                         alt="Image-HasTech">
                                     <h3 class="title">Lip stick</h3>
                                 </a>
@@ -294,7 +294,7 @@ $cartLineList = $cart->getCartLineList()[0];
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                                 <!--== Start Product Category Item ==-->
                                 <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                    <img class="icon" src="assets/images/shop/category/4.webp" width="80" height="80"
+                                    <img class="icon" src="../assets/images/shop/category/4.webp" width="80" height="80"
                                         alt="Image-HasTech">
                                     <h3 class="title">Face skin</h3>
                                     <span data-bg-color="#835BF4" class="flag-new">sale</span>
@@ -304,7 +304,7 @@ $cartLineList = $cart->getCartLineList()[0];
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
                                 <!--== Start Product Category Item ==-->
                                 <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                    <img class="icon" src="assets/images/shop/category/5.webp" width="80" height="80"
+                                    <img class="icon" src="../assets/images/shop/category/5.webp" width="80" height="80"
                                         alt="Image-HasTech">
                                     <h3 class="title">Blusher</h3>
                                 </a>
@@ -336,9 +336,9 @@ $cartLineList = $cart->getCartLineList()[0];
                                 <div class="product-item">
                                     <div class="product-thumb">
                                         <a class="d-block" href="product-details.php?id=<?php echo $value->getId()?>">
-                                            <img src="./img/<?php echo $value->getImage()?>" width="370" height="450"
+                                            <img src="../img/<?php echo $value->getImage()?>" width="370" height="450"
                                                 alt="Image-HasTech">
-                                        </a>
+            xx                            </a>
                                         <span class="flag-new">new</span>
                                         <div class="product-action">
                                             <button type="button" class="product-action-btn action-btn-quick-view"
@@ -408,7 +408,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                 <div class="widget-item">
                                     <div class="widget-about">
                                         <a class="widget-logo" href="index.php">
-                                            <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
+                                            <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                         </a>
                                         <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting
                                             industry. Lorem Ipsum has been.</p>
@@ -479,7 +479,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                 </div>
                                 <div class="modal-action-product">
                                     <div class="thumb">
-                                        <img src="assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466"
+                                        <img src="../assets/images/shop/modal1.webp" alt="Organic Food Juice" width="466"
                                             height="320">
                                     </div>
                                     <h4 class="product-name"><a href="product-details.php">Readable content DX22</a>
@@ -537,7 +537,7 @@ $cartLineList = $cart->getCartLineList()[0];
 
 
                     modalTitle.textContent = productName.replace(/\+/g, ' ')
-                    modalImage.src = "./img/" + productImage.replace(/\+/g, ' ')
+                    modalImage.src = "../img/" + productImage.replace(/\+/g, ' ')
                 })
             </script>
             <!--== End Product Quick Add Cart Modal ==-->
@@ -585,7 +585,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <div class="col-lg-6">
                                             <!--== Start Product Thumbnail Area ==-->
                                             <div class="product-single-thumb">
-                                                <img src="./img/<?php echo $value->getImage() ?>" width="544"
+                                                <img src="../img/<?php echo $value->getImage() ?>" width="544"
                                                     height="560" alt="Image-HasTech">
                                             </div>
                                             <!--== End Product Thumbnail Area ==-->
@@ -656,7 +656,7 @@ $cartLineList = $cart->getCartLineList()[0];
                         <li class="aside-product-list-item">
                             <a href="#/" class="remove">×</a>
                             <a href="product-details.php">
-                                <img src="./img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84"
+                                <img src="../img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84"
                                     alt="Image">
                                 <span class="product-title"><?= $value->getProduct()->getName() ?></span>
                             </a>
@@ -733,18 +733,18 @@ $cartLineList = $cart->getCartLineList()[0];
         <!-- JS Vendor, Plugins & Activation Script Files -->
 
         <!-- Vendors JS -->
-        <script src="./assets/js/vendor/modernizr-3.11.7.min.js"></script>
-        <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="./assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/vendor/modernizr-3.11.7.min.js"></script>
+        <script src="../assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
 
         <!-- Plugins JS -->
-        <script src="./assets/js/plugins/swiper-bundle.min.js"></script>
-        <script src="./assets/js/plugins/fancybox.min.js"></script>
-        <script src="./assets/js/plugins/jquery.nice-select.min.js"></script>
+        <script src="../assets/js/plugins/swiper-bundle.min.js"></script>
+        <script src="../assets/js/plugins/fancybox.min.js"></script>
+        <script src="../assets/js/plugins/jquery.nice-select.min.js"></script>
 
         <!-- Custom Main JS -->
-        <script src="./assets/js/main.js"></script>
+        <script src="../assets/js/main.js"></script>
 
     </body>
 

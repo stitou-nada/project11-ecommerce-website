@@ -48,7 +48,7 @@
                 <div class="row align-items-center">
                     <div class="col-5 col-sm-6 col-lg-3">
                         <div class="header-logo">
-                            <a href="../index.php">
+                            <a href="index.php">
                                 <img class="logo-main" src="../assets/images/logo.webp" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
@@ -56,9 +56,9 @@
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-navigation">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="../index.php">home</a>
+                                <li class="has-submenu"><a href="index.php">home</a>
                                     <ul class="submenu-nav">
-                                        <li><a href="../index.php">Home One</a></li>
+                                        <li><a href="index.php">Home One</a></li>
                                         <li><a href="index-two.php">Home Two</a></li>
                                     </ul>
                                 </li>
@@ -179,7 +179,7 @@
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="../index.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">My Account</li>
                                 </ol>
                                 <h2 class="page-header-title">My Account</h2>
@@ -327,7 +327,7 @@ include '../login-signUp/AuthenticationManager.php';
                         <div class="col-md-6 col-lg-4">
                             <div class="widget-item">
                                 <div class="widget-about">
-                                    <a class="widget-logo" href="../index.php">
+                                    <a class="widget-logo" href="index.php">
                                         <img src="../assets/images/logo.webp" width="95" height="68" alt="Logo">
                                     </a>
                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
@@ -554,7 +554,7 @@ include '../login-signUp/AuthenticationManager.php';
                     <ul>
                         <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
                             <ul>
-                                <li><a href="../index.php">Home One</a></li>
+                                <li><a href="index.php">Home One</a></li>
                                 <li><a href="index-two.php">Home Two</a></li>
                             </ul>
                         </li>

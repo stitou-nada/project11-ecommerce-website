@@ -17,7 +17,7 @@ if(isset($_POST["quantity"]) and isset($_POST["id"])){
     $product->setQuantity($quantity);
     $cartManager->set($cart, $product, $quantity);
 
-    header("location: ../index.php");
+    header("location: index.php");
 }
 
 ?>
