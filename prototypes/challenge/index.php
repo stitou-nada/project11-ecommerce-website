@@ -47,7 +47,7 @@ $data = $gestion->getCartLine();
  
 
 
- $chart_data .= "{ year:'". $value->getProduct()."', profit:".$value->getProductCartQuantity()."}, ";
+ $chart_data .= "{ Produit:'". $value->getProduct()."',numbre:".$value->getProductCartQuantity()."}, ";
 }
 $chart_data = substr($chart_data, 0, -2);
 ?>
@@ -78,9 +78,9 @@ $chart_data = substr($chart_data, 0, -2);
 Morris.Bar({
  element : 'chart',
  data:[<?php echo $chart_data; ?>],
- xkey:'year',
- ykeys:['profit', 'purchase', 'sale'],
- labels:['Profit', 'Purchase', 'Sale'],
+ xkey:'Produit',
+ ykeys:['numbre' ],
+ labels:['numbre'],
  hideHover:'auto',
  stacked:true
 });
