@@ -14,7 +14,7 @@ $cartManager->initCode();
 
 $quantity = $cartManager->getCartQuantity();
 
-$Categorie = 'Face care';
+
 $data = $cartManager->getAllProducts();
 if(isset($_COOKIE['cartCookie'])){
 $cart = $cartManager->getCart($_COOKIE['cartCookie']);
@@ -265,9 +265,9 @@ $cartLineList = $cart->getCartLineList()[0];
                 <section class="section-space pb-0">
                     <div class="container">
                         <div class="row g-3 g-sm-6 d-flex justify-content-center">
-                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <?php 
                             foreach($dataa as $valuee){ ?>
+                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                                 <!--== Start Product Category Item ==-->
                                 <a href="categorie.php?name=<?php echo $valuee->getNom_Categorie() ?>" class="product-category-item">
                                 <img class="icon" src="../assets/images/shop/category/<?php echo $valuee->getphoto_Categorie() ?>" width="70" height="80" alt="Image-HasTech">
@@ -276,8 +276,8 @@ $cartLineList = $cart->getCartLineList()[0];
                             </a>
                                 <!--== End Product Category Item ==-->
                             </div>
-                            <?php   } ?>
                             
+                            <?php   } ?>
                         </div>
                     </div>
                 </section>
@@ -305,7 +305,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <a class="d-block" href="product-details.php?id=<?php echo $value->getId()?>">
                                             <img src="../img/<?php echo $value->getImage()?>" width="370" height="450"
                                                 alt="Image-HasTech">
-                                                <?php echo $value->getNom_Categorie() ?>   </a>
+                                                   </a>
                                         <span class="flag-new">new</span>
                                         <div class="product-action">
                                             <button type="button" class="product-action-btn action-btn-quick-view"
@@ -326,10 +326,22 @@ $cartLineList = $cart->getCartLineList()[0];
                                                 <i class="fa fa-heart-o"></i>
                                             </button>
                                         </div>
+                                           
                                     </div>
                                     <div class="product-info">
-                                        <h4 id="test" class="title"><a
-                                                href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a>
+                                    <div class="product-rating">
+                                        <div class="rating">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                        <div class="reviews"><?php  echo $valuee->getCategorie_produit() ?></div>
+                                    </div>
+                                   
+                                                                           <h4 id="test" class="title">
+                                            <a    href="product-details.php?id=<?php echo $value->getId() ?>"><?php echo $value->getName() ?></a>
                                         </h4>
                                         <div class="prices">
                                             <span class="price"><?php echo $value->getPrice() ?> DH</span>

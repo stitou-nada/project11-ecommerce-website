@@ -188,10 +188,12 @@ $data = $gestion->afficherCatigories();
             <section class="section-space pb-0">
                 <div class="container">
                      <div class="row g-3 g-sm-6 d-flex justify-content-center">
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                         <?php 
+
+                        
                             foreach($data as $value){
                             ?>
+                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
                             <!--== Start Product Category Item ==-->
                             <a href="categorie.php?name=<?php echo $value->getNom_Categorie() ?>" class="product-category-item">
                                 <img class="icon" src="../assets/images/shop/category/<?php echo $value->getphoto_Categorie() ?>" width="70" height="80" alt="Image-HasTech">
@@ -201,7 +203,7 @@ $data = $gestion->afficherCatigories();
                             <!--== End Product Category Item ==-->
                         </div>
                         <?php   } ?> 
-                        </div>
+                    </div>
                      </div>
                 
             

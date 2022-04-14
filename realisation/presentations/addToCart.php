@@ -1,6 +1,8 @@
 <?php
 include '../manager/cartManager.php';
-session_start();
+// include '../entites/cart.php';
+// include '../entites/cartLine.php';
+
 
 $cartManager = new CartManager();
 
