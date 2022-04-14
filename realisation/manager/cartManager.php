@@ -84,7 +84,7 @@ class CartManager {
         if(!isset($_SESSION["quantity"])){
             $_SESSION["quantity"] = 0;
         }
-        $_SESSION["quantity"] += $quantity; 
+        $_SESSION["quantity"] = $quantity; 
 
     }
 
@@ -251,5 +251,30 @@ public function getAllProducts(){
             $cartLine = $this->getCartLine($cart->getId());
             $cart->setCartLineList($cartLine);
             return $cart;
+        }
+
+        function getProductCartLine($id){
+            $sql =  "SELECT * FROM produit
+            INNER JOIN cart_line ON cart_line.idCartLine = produit.id_produit WHERE idCartLine = '$id' ";
+            $query = mysqli_query($this->getConnection(), $sql);
+            $result = mysqli_fetch_assoc($query);
+            $product = new Product();
+            $product->setId($result['id_produit']);
+            $product->setName($result['nom_produit']);
+            $product->setPrice($result['prix']);
+            $product->setDescription($result['description']);
+            $product->setDateOfExpiration($result["date_d'expiration"]);
+            $product->setQuantity($result['quantite_stock']);
+            $product->setCategory($result['categorie_produit']);
+            $product->setImage($result['photo']);
+            
+            return $product;
+        }
+
+
+        function deleteCartLine($id){
+            $sql = "DELETE FROM cart_line WHERE idCartLine = '$id'";
+            mysqli_query($this->getConnection(), $sql);
+
         }
     }

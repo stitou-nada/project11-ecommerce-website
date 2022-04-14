@@ -274,12 +274,11 @@ $data = $gestion->afficherCatigore($Categorie);
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-half-o"></i>
                                         </div>
-                                        <div class="reviews">150 reviews</div>
+                                        <div class="reviews"><?php echo $value->getCategorie_produit() ?></div>
                                     </div>
                                     <h4 class="title"><a href="product-details.php"><?php echo $value->getNom_Produit() ?></a></h4>
                                     <div class="prices">
                                         <span class="price"><?php echo $value->getPrix() ?>DH</span>
-                                        <span class="price-old"><?php echo $value->getCategorie_produit() ?></span>
                                     </div>
                                 </div>
                                 <div class="product-action-bottom">
