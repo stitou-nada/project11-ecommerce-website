@@ -8,8 +8,8 @@ class ProductManager{
 
     private function getConnection(){
       
-            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
+            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
+            // $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
            
          
        
