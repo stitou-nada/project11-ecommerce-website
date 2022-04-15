@@ -224,7 +224,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <td class="product-thumbnail">
                                             <div class="thumb">
                                                 <a href="single-product.php?id=<?php echo $value->getIdCartLine()?>">
-                                                    <img src="./img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84" alt="Image-HasTech">
+                                                    <img src="../img/<?php echo $value->getProduct()->getImage()?>" width="68" height="84" alt="Image-HasTech">
                                                 </a>
                                             </div>
                                         </td>
