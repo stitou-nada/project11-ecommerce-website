@@ -44,6 +44,6 @@ Morris.Bar({
  ykeys:['numbre', ],
  labels:['numbre'],
  hideHover:'auto',
- stacked:true
+
 });
 </script>
