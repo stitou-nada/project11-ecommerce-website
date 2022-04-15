@@ -78,6 +78,12 @@ class Produit_Categorie{
     public function setNom_Categorie($Categorie) {
         $this->Categorie = $Categorie;
     }
+    public function getphoto_Categorie() {
+        return $this->photo_categorie;
+    }
+    public function setphoto_Categorie($photo_categorie) {
+        $this->photo_categorie = $photo_categorie;
+    }
 
 
 }

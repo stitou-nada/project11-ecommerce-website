@@ -8,8 +8,8 @@ class ProductManager{
 
     private function getConnection(){
       
-            // $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
-            $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
+            $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'e-commerce');
+            // $this->Connection = mysqli_connect('localhost', 'hicham', 'mlikihii', 'e-commerce');
            
          
        
@@ -40,6 +40,26 @@ class ProductManager{
                    $produit->setQuantite_stock($value_Data["quantite_stock"]);   
                    $produit->setNom_Categorie($value_Data["nom_categorie"]);   
                    $produit->setPhoto($value_Data["photo"]);   
+                   array_push($TableData, $produit);
+                   
+                }
+             
+             
+                   return $TableData;
+    }
+    public function afficherCatigories(){
+        $SelctRow = "SELECT * FROM categorie ";
+        $query = mysqli_query($this->getConnection() ,$SelctRow);
+        $produits_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        $TableData = array();
+        foreach ( $produits_data as $value_Data) {
+                  
+                   
+                   $produit = new Produit_Categorie();
+                  
+                   $produit->setNom_Categorie($value_Data["nom_categorie"]);   
+                   $produit->setphoto_Categorie($value_Data["photo_categorie"]);   
+                   
                    array_push($TableData, $produit);
                    
                 }

@@ -42,9 +42,7 @@ include "../manager/productManager.php";
 
 
 $gestion = new ProductManager();
-$Categorie = 'Face care';
-$data = $gestion->afficherCatigore($Categorie);
-
+$data = $gestion->afficherCatigories();
 
 
 
@@ -169,7 +167,7 @@ $data = $gestion->afficherCatigore($Categorie);
                                     <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Products</li>
                                 </ol>
-                                <h2 class="page-header-title">Face care</h2>
+                                <h2 class="page-header-title"><?php echo $_GET['name'] ?> </h2>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -191,51 +189,25 @@ $data = $gestion->afficherCatigore($Categorie);
                 <div class="container">
                      <div class="row g-3 g-sm-6 d-flex justify-content-center">
                         <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
+                        <?php 
+                            foreach($data as $value){
+                            ?>
                             <!--== Start Product Category Item ==-->
-                            <a href="hare-care.php" class="product-category-item">
-                                <img class="icon" src="../assets/images/shop/category/1.webp" width="70" height="80" alt="Image-HasTech">
-                                <h3 class="title">Hare care</h3>
+                            <a href="categorie.php?name=<?php echo $value->getNom_Categorie() ?>" class="product-category-item">
+                                <img class="icon" src="../assets/images/shop/category/<?php echo $value->getphoto_Categorie() ?>" width="70" height="80" alt="Image-HasTech">
+                                <h3 class="title"><?php echo $value->getNom_Categorie() ?> </h3>
                                 <span class="flag-new">new</span>
                             </a>
                             <!--== End Product Category Item ==-->
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                            <!--== Start Product Category Item ==-->
-                            <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                <img class="icon" src="../assets/images/shop/category/2.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Skin care</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
+                        <?php   } ?> 
                         </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                <img class="icon" src="../assets/images/shop/category/3.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Lip stick</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                <img class="icon" src="../assets/images/shop/category/4.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Face skin</h3>
-                                <span data-bg-color="#835BF4" class="flag-new">sale</span>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                            <!--== Start Product Category Item ==-->
-                            <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                <img class="icon" src="../assets/images/shop/category/5.webp" width="80" height="80" alt="Image-HasTech">
-                                <h3 class="title">Blusher</h3>
-                            </a>
-                            <!--== End Product Category Item ==-->
-                        </div>
-                        
-                    </div>
-                </div>
+                     </div>
+                
+            
             </section>
+               
+           
             <!--== End Product Category Area Wrapper ==-->
 
             <!--== Start Product Area Wrapper ==-->
@@ -246,11 +218,21 @@ $data = $gestion->afficherCatigore($Categorie);
                             <!--== Start Product Item ==-->
 
                             <!-- produit -->
-                            <?php  foreach($data as $value){ ?>
+                            <?php
+                            
+                             if(!empty($_GET)){
+                                
+                                 $Categorie = $_GET['name'];
+                                 $cate = $gestion-> afficherCatigore($Categorie);
+ 
+                 
+                             }
+                        
+                            foreach($cate as $valuee){ ?>
                             <div class="product-item">
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.php?id=<?= $value->getId_Produit() ?>">
-                                        <img src="../img/<?php echo $value->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
+                                    <a class="d-block" href="product-details.php?id=<?= $valuee->getId_Produit() ?>">
+                                        <img src="../img/<?php echo $valuee->getPhoto()?>" width="370" height="450" alt="Image-HasTech">
                                     </a>
                                     <span class="flag-new">new</span>
                                     <div class="product-action">
@@ -274,11 +256,11 @@ $data = $gestion->afficherCatigore($Categorie);
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-half-o"></i>
                                         </div>
-                                        <div class="reviews"><?php  echo $value->getCategorie_produit() ?></div>
+                                        <div class="reviews"><?php  echo $valuee->getCategorie_produit() ?></div>
                                     </div>
-                                    <h4 class="title"><a href="product-details.php"><?php echo $value->getNom_Produit() ?></a></h4>
+                                    <h4 class="title"><a href="product-details.php"><?php echo $valuee->getNom_Produit() ?></a></h4>
                                     <div class="prices">
-                                        <span class="price"><?php echo $value->getPrix() ?>DH</span>
+                                        <span class="price"><?php echo $valuee->getPrix() ?>DH</span>
                                     </div>
                                 </div>
                                 <div class="product-action-bottom">
@@ -300,8 +282,9 @@ $data = $gestion->afficherCatigore($Categorie);
                         <div class="col-6 col-lg-4 mb-4 mb-sm-8">
                           <?php }?>
                         </div>
-          
-
+                    </div>
+                 </div>
+                </section>
         </main>
 
         <!--== Start Footer Area Wrapper ==-->

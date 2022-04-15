@@ -3,9 +3,11 @@
     <?php 
 
 require "../manager/cartManager.php";
-
+require "../manager/productManager.php";
 session_start();
 
+$gestion = new ProductManager();
+$dataa = $gestion->afficherCatigories();
 
 $cartManager = new CartManager();
 $cartManager->initCode();
@@ -264,53 +266,18 @@ $cartLineList = $cart->getCartLineList()[0];
                     <div class="container">
                         <div class="row g-3 g-sm-6 d-flex justify-content-center">
                             <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
+                            <?php 
+                            foreach($dataa as $valuee){ ?>
                                 <!--== Start Product Category Item ==-->
-                                <a href="hare-care.php" class="product-category-item">
-                                    <img class="icon" src="../assets/images/shop/category/1.webp" width="70" height="80"
-                                        alt="Image-HasTech">
-                                    <h3 class="title">Hare care</h3>
-                                    <span class="flag-new">new</span>
-                                </a>
+                                <a href="categorie.php?name=<?php echo $valuee->getNom_Categorie() ?>" class="product-category-item">
+                                <img class="icon" src="../assets/images/shop/category/<?php echo $valuee->getphoto_Categorie() ?>" width="70" height="80" alt="Image-HasTech">
+                                <h3 class="title"><?php echo $valuee->getNom_Categorie() ?> </h3>
+                                <span class="flag-new">new</span>
+                            </a>
                                 <!--== End Product Category Item ==-->
                             </div>
-                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2">
-                                <!--== Start Product Category Item ==-->
-                                <a href="skin-care.php" class="product-category-item" data-bg-color="#FFEDB4">
-                                    <img class="icon" src="../assets/images/shop/category/2.webp" width="80" height="80"
-                                        alt="Image-HasTech">
-                                    <h3 class="title">Skin care</h3>
-                                </a>
-                                <!--== End Product Category Item ==-->
-                            </div>
-                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-lg-0 mt-sm-6 mt-4">
-                                <!--== Start Product Category Item ==-->
-                                <a href="lip-stick.php" class="product-category-item" data-bg-color="#DFE4FF">
-                                    <img class="icon" src="../assets/images/shop/category/3.webp" width="80" height="80"
-                                        alt="Image-HasTech">
-                                    <h3 class="title">Lip stick</h3>
-                                </a>
-                                <!--== End Product Category Item ==-->
-                            </div>
-                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                                <!--== Start Product Category Item ==-->
-                                <a href="face-care.PHP" class="product-category-item" data-bg-color="#FFEACC">
-                                    <img class="icon" src="../assets/images/shop/category/4.webp" width="80" height="80"
-                                        alt="Image-HasTech">
-                                    <h3 class="title">Face skin</h3>
-                                    <span data-bg-color="#835BF4" class="flag-new">sale</span>
-                                </a>
-                                <!--== End Product Category Item ==-->
-                            </div>
-                            <div class="col-6 col-lg-4 col-lg-2 col-xl-2 mt-xl-0 mt-sm-6 mt-4">
-                                <!--== Start Product Category Item ==-->
-                                <a href="blusher.php" class="product-category-item" data-bg-color="#FFDAE0">
-                                    <img class="icon" src="../assets/images/shop/category/5.webp" width="80" height="80"
-                                        alt="Image-HasTech">
-                                    <h3 class="title">Blusher</h3>
-                                </a>
-                                <!--== End Product Category Item ==-->
-                            </div>
-
+                            <?php   } ?>
+                            
                         </div>
                     </div>
                 </section>
@@ -338,7 +305,7 @@ $cartLineList = $cart->getCartLineList()[0];
                                         <a class="d-block" href="product-details.php?id=<?php echo $value->getId()?>">
                                             <img src="../img/<?php echo $value->getImage()?>" width="370" height="450"
                                                 alt="Image-HasTech">
-            xx                            </a>
+                                                <?php echo $value->getNom_Categorie() ?>   </a>
                                         <span class="flag-new">new</span>
                                         <div class="product-action">
                                             <button type="button" class="product-action-btn action-btn-quick-view"
