@@ -1,5 +1,5 @@
 <?php
-include 'cartManager.php';
+include '../manager/cartManager.php';
 
 $cartManager = new CartManager();
 

@@ -24,33 +24,29 @@ class Gestion {
     }
 
 
-    public function getCartLine(){
-        $sql = "SELECT * ,SUM(productCartQuantity) FROM cart_line INNER JOIN produit on produit.id_produit=cart_line.idProduct GROUP BY  idProduct  ";
+    public function getTotalAjoutProduitAuPanier(){
+        $sql = "SELECT nom_produit ,SUM(productCartQuantity) AS total FROM cart_line INNER JOIN produit on produit.id_produit=cart_line.idProduct GROUP BY  idProduct  ";
         // $sql = "SELECT * ,SUM(productCartQuantity) FROM cart_line  GROUP BY  idProduct ";
         $query = mysqli_query($this->getConnection(), $sql);
         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
         
        
-        $cartLineList = array();
+        $TotalAjoutProduitAuPanier = array();
         foreach($result as $value){
-            $product = new Product();
-            $cartLine = new CartLine();
-            $cartLine->setIdCartLine($value['idCartLine']);
-            $cartLine->setIdCart($value['idCart']);
-            $cartLine->setIdProduct($value['idProduct']);
-            $cartLine->setProductCartQuantity($value['SUM(productCartQuantity)']);
-            // $product->setId($value['id_produit']);
-            $cartLine->setProduct($value['nom_produit']);
-            // $product->setPrice($value['prix']);
-            // $product->setDescription($value['description']);
-            // $product->setDateOfExpiration($value["date_d'expiration"]);
-            // $product->setQuantity($value['quantite_stock']);
-            // $product->setCategory($value['categorie_produit']);
-            
+
+
+            $value['total'];
+            $value['nom_produit'];
+
+           
+            // $cartLine = new CartLine();
+            // $cartLine->setProductCartQuantity($value['total']);
+            // $cartLine->setProduct($value['nom_produit']);
+           
 
             
-            array_push($cartLineList, $cartLine);
+            array_push($TotalAjoutProduitAuPanier, $value);
         }
-        return $cartLineList;
+        return $TotalAjoutProduitAuPanier;
     }
 }
