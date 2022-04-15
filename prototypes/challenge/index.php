@@ -5,9 +5,10 @@ $gestion = new Gestion();
 
 
 $data = $gestion->getTotalAjoutProduitAuPanier();
+$chart_data= '';
 
  foreach($data as $value){ 
-  
+
  $chart_data .= "{ Produit:'". $value['nom_produit']."',numbre:".$value['total']."}, ";
 }
 
